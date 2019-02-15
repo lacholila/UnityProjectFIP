@@ -18,6 +18,7 @@ public class Character : MonoBehaviour {
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
 
     protected float acceleration = 50f;
+    protected int jumps;
 
     [SerializeField] protected float playerSpeed, playerJump, playerPush;
     [SerializeField] protected int jumpNum;
@@ -28,6 +29,8 @@ public class Character : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        jumps = jumpNum;
     }
 
     private void Update()
@@ -38,28 +41,23 @@ public class Character : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (grounded) jump = true;
+            if ((grounded) || (jumps > 0))
+                jump = true;
         }
     }
 
     private void FixedUpdate()
     {
-        /*int nResultsD = rb2d.Cast(Vector2.down, resultsD, 0.01f);
+        int nResultsD = rb2d.Cast(Vector2.down, resultsD, 0.01f);
         grounded = (nResultsD > 0);
-
-        for (int i = 0; i < nResultsD; i++)
-        {
-            if (resultsD[i].transform.gameObject.tag == "MovingPlatform")
-            {
-                transform.parent = resultsD[i].transform;
-            }
-        }
-
-        if (!grounded) transform.parent = null;
 
         Vector3 fixedVelocity = rb2d.velocity;
         fixedVelocity.x *= 0.75f;
-        if (grounded) rb2d.velocity = fixedVelocity;*/
+        if (grounded)
+        {
+            rb2d.velocity = fixedVelocity;
+            jumps = jumpNum;
+        }
 
         float h = Input.GetAxis("Horizontal");
         rb2d.AddForce(Vector2.right * acceleration * h);
@@ -74,6 +72,7 @@ public class Character : MonoBehaviour {
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.AddForce(Vector2.up * playerJump, ForceMode2D.Impulse);
             jump = false;
+            jumps--;
         }
     }
 }
