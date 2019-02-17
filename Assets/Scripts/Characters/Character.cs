@@ -13,9 +13,12 @@ public class Character : MonoBehaviour {
     protected Animator characterAnimator;
 
     protected bool grounded;
+	protected bool walltouch;
     protected bool jump;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
+	private RaycastHit2D[] resultsL = new RaycastHit2D[10];
+	private RaycastHit2D[] resultsR = new RaycastHit2D[10];
 
     protected float acceleration = 50f;
     protected int jumps;
@@ -35,21 +38,31 @@ public class Character : MonoBehaviour {
 
     private void Update()
     {
-        //animator.SetBool("Grounded", grounded);
-        //animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
-        //animator.SetFloat("Air", Mathf.Sign(rb2d.velocity.y));
+        animator.SetBool("Grounded", grounded);
+        animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+        animator.SetFloat("Air", Mathf.Sign(rb2d.velocity.y));
+		animator.SetBool("WallTouch", walltouch);
 
         if (Input.GetButtonDown("Jump"))
         {
-            if ((grounded) || (jumps > 0))
+			if ((grounded) || (walltouch) || (jumps > 0))
                 jump = true;
         }
+
+
+
     }
 
     private void FixedUpdate()
     {
         int nResultsD = rb2d.Cast(Vector2.down, resultsD, 0.01f);
         grounded = (nResultsD > 0);
+
+		int nResultsL = rb2d.Cast(Vector2.left, resultsL, 0.01f);
+		walltouch = (nResultsL > 0);
+
+		int nResultsR = rb2d.Cast(Vector2.right, resultsR, 0.01f);
+		walltouch = (nResultsR > 0);
 
         Vector3 fixedVelocity = rb2d.velocity;
         fixedVelocity.x *= 0.75f;
