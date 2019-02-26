@@ -14,6 +14,8 @@ public class Character : MonoBehaviour {
 
     protected bool grounded;
 	protected bool walltouch;
+    protected bool walltouchL;
+
     protected bool jump;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
@@ -42,6 +44,7 @@ public class Character : MonoBehaviour {
         animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
         animator.SetFloat("Air", Mathf.Sign(rb2d.velocity.y));
 		animator.SetBool("WallTouch", walltouch);
+        animator.SetBool("WallTouchL", walltouchL);
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -59,10 +62,26 @@ public class Character : MonoBehaviour {
         grounded = (nResultsD > 0);
 
 		int nResultsL = rb2d.Cast(Vector2.left, resultsL, 0.01f);
-		walltouch = (nResultsL > 0);
+		walltouchL = (nResultsL > 0);
+
+		if (nResultsL > 0)
+		print ("izquierda");
 
 		int nResultsR = rb2d.Cast(Vector2.right, resultsR, 0.01f);
 		walltouch = (nResultsR > 0);
+
+
+
+		if (nResultsR > 0) {
+			spriteRenderer.flipX = true;
+		} else {
+			spriteRenderer.flipX = false;
+		}
+
+		if (nResultsL > 0) {
+			spriteRenderer.flipX = true;
+		}
+
 
         Vector3 fixedVelocity = rb2d.velocity;
         fixedVelocity.x *= 0.75f;
