@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SergioCharacter : Character {
+[CreateAssetMenu(fileName = "Sergio", menuName = "Models/Characters/Sergio")]
+public class SergioCharacter : CharacterModel {
 
-    public void Start()
-    {
-        playerSpeed = 10f;
-        playerJump = 20f;
-        playerPush = 10f;
-    }
 }

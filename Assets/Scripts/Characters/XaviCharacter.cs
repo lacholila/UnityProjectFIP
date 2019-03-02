@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XaviCharacter : Character {
+[CreateAssetMenu(fileName = "Xavi", menuName = "Models/Characters/Xavi")]
+public class XaviCharacter : CharacterModel {
 
-    public void Start()
-    {
-        playerSpeed = 10f;
-        playerJump = 10f;
-        playerPush = 20f;
-    }
 }

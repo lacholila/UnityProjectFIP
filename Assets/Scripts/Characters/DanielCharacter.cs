@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DanielCharacter : Character {
+[CreateAssetMenu(fileName = "Daniel", menuName = "Models/Characters/Daniel")]
+public class DanielCharacter : CharacterModel {
 
-    public void Start()
-    {
-        playerSpeed = 20f;
-        playerJump = 10f;
-        playerPush = 10f;
-    }
 }
