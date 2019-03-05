@@ -105,37 +105,29 @@ public class CharacterController : MonoBehaviour {
 
         if (inputHorizontalMovement != 0)
         {
-            hspd += characterAcceleration * Mathf.Sign(inputHorizontalMovement);
-
-            if (hspd >= characterSpeed)
+            if (Mathf.Abs(rb2d.velocity.x) < characterSpeed)
             {
-                hspd = characterSpeed;
+                hspd += characterAcceleration * inputHorizontalMovement;
             }
-            else if (hspd <= -characterSpeed)
+            else
             {
-                hspd = -characterSpeed;
+                hspd = characterSpeed * inputHorizontalMovement;
             }
         }
         else
         {
-            if (hspd >= characterGroundFriction)
+            if (Mathf.Abs(rb2d.velocity.x) > 0)
             {
-                hspd -= characterGroundFriction;
-            }
-            else if (hspd <= -characterGroundFriction)
-            {
-                hspd += characterGroundFriction;
-            }
-            else
-            {
-                hspd = 0;
+                rb2d.velocity = new Vector2(-rb2d.velocity.x * 0.5f, 0);
             }
         }
 
+        rb2d.AddForce(Vector2.right * hspd);
         
+               
 
 
-
+        /*
 
 
 
@@ -197,17 +189,6 @@ public class CharacterController : MonoBehaviour {
 
     #endregion
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 public class Character : MonoBehaviour {

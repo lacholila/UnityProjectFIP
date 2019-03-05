@@ -14,7 +14,7 @@ MonoBehaviour:
   characterName: Default
   characterAnimator: {fileID: 0}
   characterSpeed: 3
-  charcterAcceleration: 0.2
+  charcterAcceleration: 100
   characterJumpSpeed: 7
   characterTotalJumps: 2
   characterFallSpeed: 10

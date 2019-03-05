@@ -9,7 +9,7 @@ public class CharacterModel : ScriptableObject {
     public Animator characterAnimator;
 
     public float characterSpeed = 3f;
-    [HideInInspector] public float charcterAcceleration = 0.2f;
+    [HideInInspector] public float charcterAcceleration = 100f;
 
     public float characterJumpSpeed = 7f;
     public int characterTotalJumps = 2;
