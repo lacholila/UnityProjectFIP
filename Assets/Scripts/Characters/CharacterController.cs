@@ -105,26 +105,18 @@ public class CharacterController : MonoBehaviour {
 
         if (inputHorizontalMovement != 0)
         {
-            hspd += characterAcceleration * Mathf.Sign(inputHorizontalMovement);
+            hspd += characterAcceleration * inputHorizontalMovement;
 
-            if (hspd >= characterSpeed)
+            if (Mathf.Abs(hspd) >= characterSpeed)
             {
-                hspd = characterSpeed;
-            }
-            else if (hspd <= -characterSpeed)
-            {
-                hspd = -characterSpeed;
+                hspd = characterSpeed * inputHorizontalMovement;
             }
         }
         else
         {
-            if (hspd >= characterGroundFriction)
+            if (Mathf.Abs(hspd) >= characterGroundFriction)
             {
-                hspd -= characterGroundFriction;
-            }
-            else if (hspd <= -characterGroundFriction)
-            {
-                hspd += characterGroundFriction;
+                hspd -= Mathf.Sign(rb2d.velocity.x) * characterGroundFriction;
             }
             else
             {
@@ -132,12 +124,14 @@ public class CharacterController : MonoBehaviour {
             }
         }
 
+        vspd = -2;
+        rb2d.velocity = new Vector2(hspd, vspd);
         
 
 
 
 
-
+        /*
 
         //Estado de "en el suelo"
 
