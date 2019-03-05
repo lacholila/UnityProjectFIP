@@ -20,7 +20,7 @@ MonoBehaviour:
   characterFallSpeed: 10
   characterSlideSpeed: 2
   characterSlideAcceleration: 0.05
-  characterGroundFriction: 1
+  characterGroundFriction: 0.1
   characterAirFriction: 0.5
   characterPush: 10
   characterTotalHits: 3
