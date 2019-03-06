@@ -14,13 +14,14 @@ MonoBehaviour:
   characterName: Default
   characterAnimator: {fileID: 0}
   characterSpeed: 3
-  charcterAcceleration: 100
+  charcterAcceleration: 0.05
   characterJumpSpeed: 7
   characterTotalJumps: 2
   characterFallSpeed: 10
+  characterFallAcceleration: 0.5
   characterSlideSpeed: 2
   characterSlideAcceleration: 0.05
-  characterGroundFriction: 0.1
+  characterGroundFriction: 0.01
   characterAirFriction: 0.5
   characterPush: 10
   characterTotalHits: 3

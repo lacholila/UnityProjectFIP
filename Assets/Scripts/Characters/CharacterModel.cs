@@ -9,18 +9,19 @@ public class CharacterModel : ScriptableObject {
     public Animator characterAnimator;
 
     public float characterSpeed = 3f;
-    [HideInInspector] public float charcterAcceleration = 100f;
+    public float charcterAcceleration = 0.5f;
 
     public float characterJumpSpeed = 7f;
     public int characterTotalJumps = 2;
 
     public float characterFallSpeed = 10f;
+    public float characterFallAcceleration = 0.5f;
 
     public float characterSlideSpeed = 2f;
-    [HideInInspector] public float characterSlideAcceleration = 0.05f;
+    public float characterSlideAcceleration = 0.05f;
 
-    [HideInInspector] public float characterGroundFriction = 1f;
-    [HideInInspector] public float characterAirFriction = 0.5f;
+    public float characterGroundFriction = 0.2f;
+    public float characterAirFriction = 0.5f;
 
     public float characterPush = 10f;
 
