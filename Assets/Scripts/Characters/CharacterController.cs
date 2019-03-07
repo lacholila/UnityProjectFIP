@@ -29,6 +29,7 @@ public class CharacterController : MonoBehaviour {
     private int characterTotalHits, characterCurrentHits;
 
     private bool isInGround, isInWallRight, isInWallLeft;
+    private bool isSliding;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
     private RaycastHit2D[] resultsL = new RaycastHit2D[10];
@@ -106,6 +107,9 @@ public class CharacterController : MonoBehaviour {
             //Determinar gravedad
             rb2d.gravityScale = 1f;
 
+            //Salir del estado deslizar
+            isSliding = false;
+
             //Determinar fricción
             switch (resultsD[0].transform.tag)
             {
@@ -119,18 +123,30 @@ public class CharacterController : MonoBehaviour {
                     break;
             }
         }
-        //En una pared
-        else if (isInWallLeft || isInWallRight)
+        //En una pared (izquierda)
+        else if (isInWallLeft)
         {
-            //Poner los saltos a 1 (salto de pared)
-            characterCurrentJumps = 1;
-
-            //Determinar gravedad
-            if (isInWallLeft)
+            //Entrar en el estado de deslizar
+            if (inputHorizontalMovement < 0)
             {
+                isSliding = true;
+            }
+
+            //Deslizando
+            if (isSliding)
+            {
+                //Poner los saltos a 1 (salto de pared)
+                characterCurrentJumps = 1;
+
+                //Determinar fricción
+                characterAcceleration = 0.3f;
+                characterFriction = 0.05f;
+
+                //Determinar gravedad
                 switch (resultsL[0].transform.tag)
                 {
-                    case "Ground": default:
+                    case "Ground":
+                    default:
                         rb2d.gravityScale = 0.2f;
                         break;
                     case "Ice":
@@ -138,22 +154,38 @@ public class CharacterController : MonoBehaviour {
                         break;
                 }
             }
-            else
+        }
+        //En una pared (derecha)
+        else if (isInWallRight)
+        {
+            //Entrar en el estado de deslizar
+            if (inputHorizontalMovement > 0)
             {
-                switch (resultsR[0].transform.tag)
-                {
-                    case "Ground": default:
-                        rb2d.gravityScale = 0.2f;
-                        break;
-                    case "Ice":
-                        rb2d.gravityScale = 0.8f;
-                        break;
-                }
+                isSliding = true;
             }
 
-            //Determinar fricción
-            characterAcceleration = 0.3f;
-            characterFriction = 0.05f;
+            //Deslizando
+            if (isSliding)
+            {
+                //Poner los saltos a 1 (salto de pared)
+                characterCurrentJumps = 1;
+
+                //Determinar fricción
+                characterAcceleration = 0.3f;
+                characterFriction = 0.05f;
+
+                //Determinar gravedad
+                switch (resultsR[0].transform.tag)
+                {
+                    case "Ground":
+                    default:
+                        rb2d.gravityScale = 0.2f;
+                        break;
+                    case "Ice":
+                        rb2d.gravityScale = 0.8f;
+                        break;
+                }
+            }
         }
         //En el aire
         else
@@ -191,14 +223,13 @@ public class CharacterController : MonoBehaviour {
             }
         }
 
-        rb2d.velocity = new Vector2(hspd, rb2d.velocity.y);
-
+        
 
         //Salto
         if (inputJump) 
         {
             //Normal o en el aire
-            if ((isInGround || characterCurrentJumps > 0) && !(isInWallLeft || isInWallRight))
+            if ((isInGround || characterCurrentJumps > 0) && !isSliding)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(Vector2.up * characterJumpSpeed, ForceMode2D.Impulse);
@@ -206,22 +237,29 @@ public class CharacterController : MonoBehaviour {
                 print("Zalto");
             }
             //En pared
-            else if ((isInWallLeft || isInWallRight) && (characterCurrentJumps) > 0 && !isInGround )
+            else if (isSliding && !isInGround)
             {
+                print("Zalto en pared");
                 characterCurrentJumps--;
                 rb2d.velocity = new Vector2(0, 0);
                 rb2d.AddForce(Vector2.up * characterJumpSpeed / 2, ForceMode2D.Impulse);
-                
+
                 if (isInWallLeft)
-                {
-                    hspd = characterJumpSpeed/2;
-                }
-                else if (isInWallRight)
                 {
                     hspd = characterJumpSpeed / 2;
                 }
+                else if (isInWallRight)
+                {
+                    hspd = -characterJumpSpeed / 2;
+                }
+
+                //Salir del estado de deslizar
+                isSliding = false;
             }
         }
+
+        rb2d.velocity = new Vector2(hspd, rb2d.velocity.y);
+
     }
 
     #endregion
