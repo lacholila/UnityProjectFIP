@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
+    protected PlayerController player;
+
     protected Rigidbody2D rb2d;
     protected Animator animator;
     protected SpriteRenderer spriteRenderer;
@@ -64,15 +66,32 @@ public class Character : MonoBehaviour {
 		int nResultsL = rb2d.Cast(Vector2.left, resultsL, 0.01f);
 		walltouchL = (nResultsL > 0);
 
-		if (nResultsL > 0)
-		print ("izquierda");
-
 		int nResultsR = rb2d.Cast(Vector2.right, resultsR, 0.01f);
 		walltouch = (nResultsR > 0);
 
+        //SALTO EN PARED IZQUIERDA
+        if (walltouchL == true){
+            if (Input.GetButtonDown("Jump"))
+            {
+                rb2d.AddForce(Vector2.right * (playerJump + 6), ForceMode2D.Impulse);
+                rb2d.AddForce(Vector2.up * (playerJump + 2), ForceMode2D.Impulse);
+                spriteRenderer.flipX = false;
 
+            }
+        }
 
-		if (nResultsR > 0) {
+        //SALTO EN PARED DERECHA
+        if (walltouch == true)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                rb2d.AddForce(Vector2.left * (playerJump + 6), ForceMode2D.Impulse);
+                rb2d.AddForce(Vector2.up * (playerJump + 2), ForceMode2D.Impulse);
+                spriteRenderer.flipX = false;
+            }
+        }
+
+        if (nResultsR > 0) {
 			spriteRenderer.flipX = true;
 		} else {
 			spriteRenderer.flipX = false;
@@ -106,5 +125,79 @@ public class Character : MonoBehaviour {
             jump = false;
             jumps--;
         }
+
+        /*
+        //SISTEMA DE INPUT
+        if (controllerNumber > 0)
+        {
+            Horizontal = Input.GetAxis(horizontalAxis);
+            Thrust = Input.GetAxis(verticalAxis);
+        }
+        */
+
+
     }
+
+    //PLATAFORMASFALLING
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Platform")
+        {
+            rb2d.velocity = new Vector3(0f, 0f, 0f);
+            player.transform.parent = col.transform;
+            jump = true;
+        }
+    }
+
+    /*
+    //SISTEMA DE INPUT
+
+    private string horizontalAxis;
+    private string verticalAxis;
+    private string aButton;
+    private string bButton;
+    private string triggerAxis;
+    private int controllerNumber;
+
+    public float Horizontal { get; set; }
+    public float Thrust { get; set; }
+
+    public bool OverrideA { get; set; }
+    public bool OverrideB { get; set; }
+
+    private bool IsBot { get { return controllerNumber < 1; } }
+
+    public enum Button
+    {
+        A,
+        B,
+    }
+
+    internal bool ButtonIsDown (Button button)
+    {
+        switch (button)
+        {
+            case button.A:
+                return IsBot ? OverrideA : Input.GetButton(aButton);
+            case button.B:
+                return IsBot ? OverrideB : Input.GetButton(bButton);
+        }
+        return false;
+    }
+
+    internal void SetControllerNumber (int number)
+    {
+        controllerNumber = number;
+        horizontalAxis = "J" + controllerNumber + "Horizontal";
+        verticalAxis = "J" + controllerNumber + "Vertical";
+        aButton = "J" + controllerNumber + "A";
+        bButton = "J" + controllerNumber + "B";
+        triggerAxis = "J" + controllerNumber + "Trigger";
+    }
+
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+    }
+    */
 }
