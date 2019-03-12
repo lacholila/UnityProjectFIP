@@ -82,7 +82,8 @@ public class CharacterController : MonoBehaviour {
 
         //Determinar input
         inputHorizontalMovement = (Input.GetAxisRaw("Horizontal"));
-        inputJump = (Input.GetButtonDown("Jump"));
+        if (!inputJump)
+            inputJump = (Input.GetButtonDown("Jump"));
     }
 
     private void FixedUpdate()
@@ -244,6 +245,7 @@ public class CharacterController : MonoBehaviour {
         //Salto
         if (inputJump) 
         {
+            inputJump = false;
             //Normal o en el aire
             if ((isInGround || characterCurrentJumps > 0) && !isSliding)
             {
