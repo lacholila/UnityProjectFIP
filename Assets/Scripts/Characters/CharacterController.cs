@@ -69,7 +69,6 @@ public class CharacterController : MonoBehaviour {
     {
         //Determinar valor de algunas variables al inicio
         characterCurrentJumps = characterTotalJumps;
-        isInGround = true;
     }
 
     private void Update()
@@ -127,14 +126,21 @@ public class CharacterController : MonoBehaviour {
         else if (isInWallLeft)
         {
             //Entrar en el estado de deslizar
-            if (rb2d.velocity.x < 0)
+            if (hspd < 0)
             {
-                isSliding = true;
+                if (!isSliding)
+                {
+                    isSliding = true;
+                    rb2d.velocity = new Vector2(0, 0);
+                }
             }
 
             //Deslizando
             if (isSliding)
             {
+                //Determinar velocidad horizontal
+                hspd = 0;
+
                 //Poner los saltos a 1 (salto de pared)
                 characterCurrentJumps = 1;
 
@@ -159,14 +165,21 @@ public class CharacterController : MonoBehaviour {
         else if (isInWallRight)
         {
             //Entrar en el estado de deslizar
-            if (rb2d.velocity.x > 0)
+            if (hspd > 0)
             {
-                isSliding = true;
+                if (!isSliding)
+                {
+                    isSliding = true;
+                    rb2d.velocity = new Vector2(0, 0);
+                }
             }
 
             //Deslizando
             if (isSliding)
             {
+                //Determinar velocidad horizontal
+                hspd = 0;
+
                 //Poner los saltos a 1 (salto de pared)
                 characterCurrentJumps = 1;
 
@@ -192,6 +205,9 @@ public class CharacterController : MonoBehaviour {
         {
             //Determinar gravedad
             rb2d.gravityScale = 1f;
+
+            //Salir del estado deslizar
+            isSliding = false;
 
             //Determinar fricción
             characterAcceleration = 0.3f;
@@ -262,6 +278,11 @@ public class CharacterController : MonoBehaviour {
 
         rb2d.velocity = new Vector2(hspd, rb2d.velocity.y);
 
+    }
+
+    private IEnumerator ApplyWallJump()
+    {
+        yield return new WaitForSeconds(2f);
     }
 
     #endregion
