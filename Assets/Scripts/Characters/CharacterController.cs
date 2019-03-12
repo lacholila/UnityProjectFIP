@@ -127,7 +127,7 @@ public class CharacterController : MonoBehaviour {
         else if (isInWallLeft)
         {
             //Entrar en el estado de deslizar
-            if (inputHorizontalMovement < 0)
+            if (rb2d.velocity.x < 0)
             {
                 isSliding = true;
             }
@@ -159,7 +159,7 @@ public class CharacterController : MonoBehaviour {
         else if (isInWallRight)
         {
             //Entrar en el estado de deslizar
-            if (inputHorizontalMovement > 0)
+            if (rb2d.velocity.x > 0)
             {
                 isSliding = true;
             }
@@ -244,17 +244,19 @@ public class CharacterController : MonoBehaviour {
                 rb2d.velocity = new Vector2(0, 0);
                 rb2d.AddForce(Vector2.up * characterJumpSpeed / 2, ForceMode2D.Impulse);
 
+                //Salir del estado de deslizar
+                isSliding = false;
+
                 if (isInWallLeft)
                 {
+                    isInWallLeft = false;
                     hspd = characterJumpSpeed / 2;
                 }
                 else if (isInWallRight)
                 {
+                    isInWallRight = false;
                     hspd = -characterJumpSpeed / 2;
                 }
-
-                //Salir del estado de deslizar
-                isSliding = false;
             }
         }
 
