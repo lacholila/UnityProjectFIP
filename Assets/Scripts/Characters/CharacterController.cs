@@ -28,8 +28,8 @@ public class CharacterController : MonoBehaviour {
     private int characterTotalJumps, characterCurrentJumps;
     private int characterTotalHits, characterCurrentHits;
 
-    private bool isInGround, isInWallRight, isInWallLeft;
-    private bool isSliding;
+    private bool isInGround, isInWall, isInWallRight, isInWallLeft, isSliding;
+    private bool canMoveHorizontal, camJump;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
     private RaycastHit2D[] resultsL = new RaycastHit2D[10];
@@ -69,6 +69,8 @@ public class CharacterController : MonoBehaviour {
     {
         //Determinar valor de algunas variables al inicio
         characterCurrentJumps = characterTotalJumps;
+        canMoveHorizontal = true;
+        camJump = true;
     }
 
     private void Update()
@@ -89,14 +91,16 @@ public class CharacterController : MonoBehaviour {
     private void FixedUpdate()
     {
         //Determinar estado del personaje
-        int nResultsD = rb2d.Cast(Vector2.down, resultsD, 0.01f);
+        int nResultsD = rb2d.Cast(Vector2.down, resultsD, 0.02f);
         isInGround = (nResultsD > 0);
 
-        int nResultsL = rb2d.Cast(Vector2.left, resultsL, 0.01f);
+        int nResultsL = rb2d.Cast(Vector2.left, resultsL, 0.02f);
         isInWallLeft = ((nResultsL > 0) && !isInGround);
 
-        int nResultsR = rb2d.Cast(Vector2.right, resultsR, 0.01f);
+        int nResultsR = rb2d.Cast(Vector2.right, resultsR, 0.02f);
         isInWallRight = ((nResultsR > 0) && !isInGround);
+
+        isInWall = ((nResultsL > 0) || (nResultsR > 0));
 
         //En el suelo
         if (isInGround)
@@ -115,7 +119,7 @@ public class CharacterController : MonoBehaviour {
             {
                 case "Ground": default:
                     characterAcceleration = 0.5f;
-                    characterFriction = 0.2f;
+                    characterFriction = 1f;
                     break;
                 case "Ice":
                     characterAcceleration = 0.02f;
@@ -147,7 +151,7 @@ public class CharacterController : MonoBehaviour {
 
                 //Determinar fricción
                 characterAcceleration = 0.3f;
-                characterFriction = 0.05f;
+                characterFriction = 0.1f;
 
                 //Determinar gravedad
                 switch (resultsL[0].transform.tag)
@@ -186,7 +190,7 @@ public class CharacterController : MonoBehaviour {
 
                 //Determinar fricción
                 characterAcceleration = 0.3f;
-                characterFriction = 0.05f;
+                characterFriction = 0.1f;
 
                 //Determinar gravedad
                 switch (resultsR[0].transform.tag)
@@ -212,38 +216,46 @@ public class CharacterController : MonoBehaviour {
 
             //Determinar fricción
             characterAcceleration = 0.3f;
-            characterFriction = 0.05f;
+            characterFriction = 0.1f;
         }
 
 
         //Movimiento horizontal
-        if (inputHorizontalMovement != 0)
+        if (canMoveHorizontal)
         {
-            if (Mathf.Abs(hspd + characterAcceleration * inputHorizontalMovement) < characterSpeed)
+            //Al pulsar una dirección
+            if (inputHorizontalMovement != 0)
             {
-                hspd += characterAcceleration * inputHorizontalMovement;
+                //Aplicar aceleración
+                if (Mathf.Abs(hspd + characterAcceleration * inputHorizontalMovement) < characterSpeed)
+                {
+                    hspd += characterAcceleration * inputHorizontalMovement;
+                }
+                //Aplicar velocidad máxima
+                else
+                {
+                    hspd = characterSpeed * inputHorizontalMovement;
+                }
             }
             else
             {
-                hspd = characterSpeed * inputHorizontalMovement;
-            }
-        }
-        else
-        {
-            if (Mathf.Abs(hspd) >= characterFriction)
-            {
-                hspd -= characterFriction * Mathf.Sign(hspd);
-            }
-            else
-            {
-                hspd = 0;
+                //Aplicar fricción
+                if (Mathf.Abs(hspd) >= characterFriction)
+                {
+                    hspd -= characterFriction * Mathf.Sign(hspd);
+                }
+                //Frenar
+                else
+                {
+                    hspd = 0;
+                }
             }
         }
 
         
 
         //Salto
-        if (inputJump) 
+        if (inputJump && camJump) 
         {
             inputJump = false;
             //Normal o en el aire
@@ -252,15 +264,14 @@ public class CharacterController : MonoBehaviour {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(Vector2.up * characterJumpSpeed, ForceMode2D.Impulse);
                 characterCurrentJumps--;
-                print("Zalto");
             }
             //En pared
             else if (isSliding && !isInGround)
             {
-                print("Zalto en pared");
                 characterCurrentJumps--;
                 rb2d.velocity = new Vector2(0, 0);
-                rb2d.AddForce(Vector2.up * characterJumpSpeed / 2, ForceMode2D.Impulse);
+                rb2d.AddForce(Vector2.up * characterJumpSpeed * Mathf.Sin(Mathf.Deg2Rad * 45), ForceMode2D.Impulse);
+                StartCoroutine("ApplyWallJump");
 
                 //Salir del estado de deslizar
                 isSliding = false;
@@ -268,12 +279,12 @@ public class CharacterController : MonoBehaviour {
                 if (isInWallLeft)
                 {
                     isInWallLeft = false;
-                    hspd = characterJumpSpeed / 2;
+                    hspd = characterJumpSpeed * Mathf.Cos(Mathf.Deg2Rad * 45);
                 }
                 else if (isInWallRight)
                 {
                     isInWallRight = false;
-                    hspd = -characterJumpSpeed / 2;
+                    hspd = -characterJumpSpeed * Mathf.Cos(Mathf.Deg2Rad * 45);
                 }
             }
         }
@@ -282,9 +293,14 @@ public class CharacterController : MonoBehaviour {
 
     }
 
+    //Desactivar el control del movimiento horizontal durante un tiempo al saltar en la pared (Evitar escalada)
     private IEnumerator ApplyWallJump()
     {
-        yield return new WaitForSeconds(2f);
+        canMoveHorizontal = false;
+
+        yield return new WaitForSeconds(0.1f);
+
+        canMoveHorizontal = true;
     }
 
     #endregion
