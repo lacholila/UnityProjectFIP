@@ -273,7 +273,7 @@ public class CharacterController : MonoBehaviour {
                 characterCurrentJumps--;
                 rb2d.velocity = new Vector2(0, 0);
                 rb2d.AddForce(Vector2.up * characterJumpSpeed * Mathf.Sin(Mathf.Deg2Rad * 45), ForceMode2D.Impulse);
-                StartCoroutine("ApplyWallJump");
+                StartCoroutine(DisableHorizontalMove(0.1f));
 
                 //Salir del estado de deslizar
                 isSliding = false;
@@ -291,16 +291,22 @@ public class CharacterController : MonoBehaviour {
             }
         }
 
+
+        if(inputDash && canMoveHorizontal)
+        {
+
+        }
+
         rb2d.velocity = new Vector2(hspd, rb2d.velocity.y);
 
     }
 
     //Desactivar el control del movimiento horizontal durante un tiempo al saltar en la pared (Evitar escalada)
-    private IEnumerator ApplyWallJump()
+    private IEnumerator DisableHorizontalMove(float time)
     {
         canMoveHorizontal = false;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(time);
 
         canMoveHorizontal = true;
     }
