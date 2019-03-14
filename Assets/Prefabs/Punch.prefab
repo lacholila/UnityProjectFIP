@@ -79,9 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1fa0f4564169f4291c12589f60df8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onda: {fileID: 1266823735587710}
-  player: {fileID: 1373446574274206, guid: 5dadebed8551bd24dac88258df5d7f18, type: 2}
-  izquierda: 1
+  player: {fileID: 1491136490891904, guid: 317c5931c5f424845b8e0f281216d96a, type: 2}
 --- !u!212 &212575592375445130
 SpriteRenderer:
   m_ObjectHideFlags: 1
