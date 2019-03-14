@@ -11,3 +11,7 @@ public class PlayerController : MonoBehaviour {
         //
     }
 }
+
+public class CharacterType
+{
+}

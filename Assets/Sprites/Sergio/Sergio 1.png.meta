@@ -1,22 +1,31 @@
 fileFormatVersion: 2
-guid: 1dee82690452f5c4997e34d5ddce428f
+guid: 8a2b06debc6f5aa46b428a558d8e5cb1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ClassTile1_0
-    21300002: ClassTile1_1
-    21300004: ClassTile1_2
-    21300006: ClassTile1_3
-    21300008: ClassTile1_4
-    21300010: ClassTile1_5
-    21300012: ClassTile1_6
-    21300014: ClassTile1_7
-    21300016: ClassTile1_8
-    21300018: ClassTile1_9
-    21300020: ClassTile1_10
-    21300022: ClassTile1_11
-    21300024: ClassTile1_12
-    21300026: ClassTile1_13
-    21300028: ClassTile1_14
+    21300000: Sergio 1_0
+    21300002: Sergio 1_1
+    21300004: Sergio 1_2
+    21300006: Sergio 1_3
+    21300008: Sergio 1_4
+    21300010: Sergio 1_5
+    21300012: Sergio 1_6
+    21300014: Sergio 1_7
+    21300016: Sergio 1_8
+    21300018: Sergio 1_9
+    21300020: Sergio 1_10
+    21300022: Sergio 1_11
+    21300024: Sergio 1_12
+    21300026: Sergio 1_13
+    21300028: Sergio 1_14
+    21300030: Sergio 1_15
+    21300032: Sergio 1_16
+    21300034: Sergio 1_17
+    21300036: Sergio 1_18
+    21300038: Sergio 1_19
+    21300040: Sergio 1_20
+    21300042: Sergio 1_21
+    21300044: Sergio 1_22
+    21300046: Sergio 1_23
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -58,7 +67,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,7 +83,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +103,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +113,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,7 +123,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +133,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,7 +143,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -144,13 +153,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ClassTile1_0
+      name: Sergio 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 24
-        height: 24
+        y: 72
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,13 +167,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_1
+      name: Sergio 1_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 48
-        width: 24
-        height: 24
+        x: 18
+        y: 72
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,13 +181,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_2
+      name: Sergio 1_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 24
-        height: 24
+        x: 36
+        y: 72
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,13 +195,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_3
+      name: Sergio 1_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 72
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_4
       rect:
         serializedVersion: 2
         x: 72
-        y: 48
-        width: 24
-        height: 24
+        y: 72
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,27 +223,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_4
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 48
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ClassTile1_5
+      name: Sergio 1_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 24
-        height: 24
+        y: 54
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,13 +237,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_6
+      name: Sergio 1_6
       rect:
         serializedVersion: 2
-        x: 24
-        y: 24
-        width: 24
-        height: 24
+        x: 18
+        y: 54
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,13 +251,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_7
+      name: Sergio 1_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 24
-        width: 24
-        height: 24
+        x: 36
+        y: 54
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,13 +265,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_8
+      name: Sergio 1_8
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 54
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_9
       rect:
         serializedVersion: 2
         x: 72
-        y: 24
-        width: 24
-        height: 24
+        y: 54
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,13 +293,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_9
+      name: Sergio 1_10
       rect:
         serializedVersion: 2
-        x: 96
-        y: 24
-        width: 24
-        height: 24
+        x: 0
+        y: 36
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,13 +307,139 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_10
+      name: Sergio 1_11
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 36
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 36
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_13
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 36
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_14
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 36
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_16
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_17
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_18
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_19
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sergio 1_20
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,13 +447,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_11
+      name: Sergio 1_21
       rect:
         serializedVersion: 2
-        x: 24
+        x: 18
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,13 +461,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_12
+      name: Sergio 1_22
       rect:
         serializedVersion: 2
-        x: 48
+        x: 36
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,27 +475,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ClassTile1_13
+      name: Sergio 1_23
       rect:
         serializedVersion: 2
-        x: 72
+        x: 54
         y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ClassTile1_14
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
