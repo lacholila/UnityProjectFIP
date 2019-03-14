@@ -36,8 +36,10 @@ public class Character_Controller : MonoBehaviour
     private RaycastHit2D[] resultsL = new RaycastHit2D[10];
     private RaycastHit2D[] resultsR = new RaycastHit2D[10];
 
+    //VARIABLES PARA EL ANIMATOR
     private Animator ator;
     public GameObject puño1;                // gameobject que intanciara el puñetazo
+    private bool grounded;
 
     float inputHorizontalMovement;
     bool inputJump;
@@ -90,6 +92,9 @@ public class Character_Controller : MonoBehaviour
         inputHorizontalMovement = (Input.GetAxisRaw("Horizontal"));
         if (!inputJump)
             inputJump = (Input.GetButtonDown("Jump"));
+
+        ator.SetFloat("speed", Mathf.Abs(hspd));
+        ator.SetBool("grounded", grounded);
     }
 
     private void FixedUpdate()
