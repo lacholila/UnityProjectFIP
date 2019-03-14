@@ -11,7 +11,7 @@ public class Character_Controller : MonoBehaviour
 
     private Animator characterAnimator;
     private Rigidbody2D rb2d;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     private string characterName;
 
@@ -35,6 +35,9 @@ public class Character_Controller : MonoBehaviour
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
     private RaycastHit2D[] resultsL = new RaycastHit2D[10];
     private RaycastHit2D[] resultsR = new RaycastHit2D[10];
+
+    private Animator ator;
+    public GameObject puño1;                // gameobject que intanciara el puñetazo
 
     float inputHorizontalMovement;
     bool inputJump;
@@ -292,6 +295,15 @@ public class Character_Controller : MonoBehaviour
         }
 
         rb2d.velocity = new Vector2(hspd, rb2d.velocity.y);
+
+
+        //PUÑETAZO
+        if (Input.GetKeyDown("j"))
+            {
+
+            //ator.SetTrigger("squared");
+            Instantiate(puño1);
+        }
 
     }
 
