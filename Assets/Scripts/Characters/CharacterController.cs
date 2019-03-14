@@ -36,7 +36,7 @@ public class CharacterController : MonoBehaviour {
     private RaycastHit2D[] resultsR = new RaycastHit2D[10];
 
     float inputHorizontalMovement;
-    bool inputJump;
+    bool inputJump, inputDash;
 
     #endregion
 
@@ -84,6 +84,8 @@ public class CharacterController : MonoBehaviour {
         inputHorizontalMovement = (Input.GetAxisRaw("Horizontal"));
         if (!inputJump)
             inputJump = (Input.GetButtonDown("Jump"));
+        if (!inputDash)
+            inputJump = (Input.GetKeyDown(KeyCode.F));
     }
 
     private void FixedUpdate()
