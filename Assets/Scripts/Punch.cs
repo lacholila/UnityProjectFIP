@@ -9,6 +9,7 @@ public class Punch : MonoBehaviour {
     private bool izquierda;
 
     public Character_Controller hspd;
+    public AreaEffector2D propDireccion;
 
     //private SoundController sc;
     private SpriteRenderer spriteRenderer;
@@ -26,6 +27,8 @@ public class Punch : MonoBehaviour {
     void Update()
     {
         hspd = GameObject.FindGameObjectWithTag("Player").GetComponent<Character_Controller>();
+        propDireccion = GameObject.FindGameObjectWithTag("Punch").GetComponent<AreaEffector2D>();
+
 
         if (hspd.spriteRenderer.flipX == false)
         {
@@ -40,16 +43,21 @@ public class Punch : MonoBehaviour {
 
         if (Input.GetKey("j") && (izquierda == true))
         {
-            transform.position = player.transform.position + Vector3.right * -1.2f;
+            propDireccion.forceAngle = 180;
+            transform.position = player.transform.position + Vector3.right * -0.5f;
+            transform.position = transform.position + Vector3.up * -0.1f;
             //sc.GetComponent<AudioSource>().clip = sc.sonidos[0];			// recupera el clip de audio numero 0 en la array del SoundController
             //sc.GetComponent<AudioSource>().Play();  // ejecuta el clip recuperado en la linea anterior
             spriteRenderer.flipX = true;
+
 
         }
 
         if (Input.GetKey("j") && (izquierda == false))        // al atacar, el colider se movera un poco hacia al derecha o izquierda dependiendo de donde mire el jugador, ademas de que se reproducira un sonido
         {
-            transform.position = player.transform.position + Vector3.right * 1.2f;
+            propDireccion.forceAngle = 0;
+            transform.position = player.transform.position + Vector3.right * 0.5f;
+            transform.position = transform.position + Vector3.up * -0.1f;
             //sc.GetComponent<AudioSource>().clip = sc.sonidos[0];
             //sc.GetComponent<AudioSource>().Play();
         }
