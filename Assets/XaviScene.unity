@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 82966559}
   m_Layer: 0
   m_Name: Plataformas
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -764,14 +764,6 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 82966558}
     m_ColliderPaths:
-    - - X: -50000000
-        Y: 20000000
-      - X: -80000000
-        Y: 20000000
-      - X: -80000000
-        Y: -10000000
-      - X: -50000000
-        Y: -10000000
     - - X: 60000000
         Y: 20000000
       - X: 30000000
@@ -779,6 +771,14 @@ CompositeCollider2D:
       - X: 30000000
         Y: -10000000
       - X: 60000000
+        Y: -10000000
+    - - X: -50000000
+        Y: 20000000
+      - X: -80000000
+        Y: 20000000
+      - X: -80000000
+        Y: -10000000
+      - X: -50000000
         Y: -10000000
     - - X: 30000000
         Y: -10000000
@@ -790,14 +790,14 @@ CompositeCollider2D:
         Y: -40000000
   m_CompositePaths:
     m_Paths:
-    - - {x: -5, y: 2}
-      - {x: -8, y: 2}
-      - {x: -8, y: -1}
-      - {x: -5, y: -1}
     - - {x: 6, y: 2}
       - {x: 3, y: 2}
       - {x: 3, y: -1}
       - {x: 6, y: -1}
+    - - {x: -5, y: 2}
+      - {x: -8, y: 2}
+      - {x: -8, y: -1}
+      - {x: -5, y: -1}
     - - {x: 3, y: -1}
       - {x: -5, y: -1}
       - {x: -5, y: -4}
@@ -891,11 +891,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 3
-=======
-  m_RootOrder: 1
->>>>>>> parent of 22b1568... Animations, punch, movement system 1.0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &445498849
 GameObject:
@@ -935,11 +931,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4283235466798374, guid: 317c5931c5f424845b8e0f281216d96a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.398872
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4283235466798374, guid: 317c5931c5f424845b8e0f281216d96a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.4728809
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 4283235466798374, guid: 317c5931c5f424845b8e0f281216d96a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -971,6 +967,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1266823735587710, guid: 8ced91f2e706b194abae0b47e66a80fa,
         type: 2}
+    - target: {fileID: 95061974113178692, guid: 317c5931c5f424845b8e0f281216d96a,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 547e4958cfd29874cb6f8cd12a00b9c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 317c5931c5f424845b8e0f281216d96a, type: 2}
   m_IsPrefabAsset: 0
@@ -987,7 +988,6 @@ Transform:
   m_Father: {fileID: 756521246}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &699449595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,8 +1151,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> parent of 22b1568... Animations, punch, movement system 1.0
 --- !u!1001 &715223027
 Prefab:
   m_ObjectHideFlags: 0
@@ -1191,6 +1189,10 @@ Prefab:
     - target: {fileID: 4183453405362828, guid: 9835fe6e5f0cf014b90bd15339c4dd81, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195039281164780, guid: 9835fe6e5f0cf014b90bd15339c4dd81, type: 2}
+      propertyPath: m_TagString
+      value: Ice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9835fe6e5f0cf014b90bd15339c4dd81, type: 2}
@@ -1297,11 +1299,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 4
-=======
-  m_RootOrder: 2
->>>>>>> parent of 22b1568... Animations, punch, movement system 1.0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017713112
 GameObject:
@@ -1318,7 +1316,7 @@ GameObject:
   - component: {fileID: 1017713114}
   m_Layer: 0
   m_Name: Plataformamovil2
-  m_TagString: Platform
+  m_TagString: Ice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1489,11 +1487,7 @@ Transform:
   - {fileID: 756521246}
   - {fileID: 445498850}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 6
-=======
-  m_RootOrder: 4
->>>>>>> parent of 22b1568... Animations, punch, movement system 1.0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1411116374
 GameObject:
@@ -1608,11 +1602,7 @@ Transform:
   - {fileID: 86449343}
   - {fileID: 1017713113}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 7
-=======
-  m_RootOrder: 5
->>>>>>> parent of 22b1568... Animations, punch, movement system 1.0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804287940
 GameObject:
@@ -1654,11 +1644,7 @@ Transform:
   m_Children:
   - {fileID: 82966554}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 5
-=======
-  m_RootOrder: 3
->>>>>>> parent of 22b1568... Animations, punch, movement system 1.0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1804287943
 Rigidbody2D:
