@@ -30,18 +30,18 @@ public class Character_Controller : MonoBehaviour
     private int characterTotalHits, characterCurrentHits;
 
     private bool isInGround, isInWall, isInWallRight, isInWallLeft, isSliding;
-    private bool canMoveHorizontal, camJump;
+    private bool canMoveHorizontal, camJump, canDash;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
     private RaycastHit2D[] resultsL = new RaycastHit2D[10];
     private RaycastHit2D[] resultsR = new RaycastHit2D[10];
-
+    
     //VARIABLES PARA EL ANIMATOR
     public GameObject puño1;                // gameobject que intanciara el puñetazo
     private bool grounded;
-
+    
     float inputHorizontalMovement;
-    bool inputJump;
+    bool inputJump, inputDash;
 
     #endregion
 
@@ -76,22 +76,20 @@ public class Character_Controller : MonoBehaviour
         characterCurrentJumps = characterTotalJumps;
         canMoveHorizontal = true;
         camJump = true;
+        canDash = true;
         characterAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        //Determinar valor de las variables del animator
-        /*characterAnimator.SetBool("Grounded", isInGround);
-        characterAnimator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
-        characterAnimator.SetFloat("Air", Mathf.Sign(rb2d.velocity.y));
-        characterAnimator.SetBool("WallTouch", isInWallRight);
-        characterAnimator.SetBool("WallTouchL", isInWallLeft);*/
-
         //Determinar input
         inputHorizontalMovement = (Input.GetAxisRaw("Horizontal"));
+
         if (!inputJump)
             inputJump = (Input.GetButtonDown("Jump"));
+
+        if (!inputDash)
+            inputDash = (Input.GetKeyDown("x"));
 
         //Variables del animator    
         characterAnimator.SetFloat("Speed", Mathf.Abs(hspd));
@@ -283,7 +281,9 @@ public class Character_Controller : MonoBehaviour
         //Salto
         if (inputJump && camJump)
         {
+            //Poner el salto a false para evitar que se ponga a false en el Update y evitar el error de que no salte algunas veces
             inputJump = false;
+            
             //Normal o en el aire
             if ((isInGround || characterCurrentJumps > 0) && !isSliding)
             {
@@ -297,7 +297,7 @@ public class Character_Controller : MonoBehaviour
                 characterCurrentJumps--;
                 rb2d.velocity = new Vector2(0, 0);
                 rb2d.AddForce(Vector2.up * characterJumpSpeed * Mathf.Sin(Mathf.Deg2Rad * 60), ForceMode2D.Impulse);
-                StartCoroutine("ApplyWallJump");
+                StartCoroutine(DisableHorizontalMovement(0.1f));
 
                 //Salir del estado de deslizar
                 isSliding = false;
@@ -315,10 +315,23 @@ public class Character_Controller : MonoBehaviour
             }
         }
 
+
+        //Dash
+        if (inputDash && canDash)
+        {
+            //Poner el dash a false para evitar que se ponga a false en el Update y evitar el error de que no dashee algunas veces
+            inputDash = false;
+
+            hspd = 10f;
+            StartCoroutine(DisableHorizontalMovement(0.1f));
+        }
+
+
+        //Aplicar el movimiento
         rb2d.velocity = new Vector2(hspd, rb2d.velocity.y);
 
 
-        //PUÑETAZO
+        //Puñetazo
         if (Input.GetKeyDown("j"))
             {
 
@@ -329,14 +342,13 @@ public class Character_Controller : MonoBehaviour
     }
 
     //Desactivar el control del movimiento horizontal durante un tiempo al saltar en la pared (Evitar escalada)
-    private IEnumerator ApplyWallJump()
+    private IEnumerator DisableHorizontalMovement(float time)
     {
         canMoveHorizontal = false;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(time);
 
         canMoveHorizontal = true;
     }
-
     #endregion
 }
