@@ -37,7 +37,6 @@ public class Character_Controller : MonoBehaviour
     private RaycastHit2D[] resultsR = new RaycastHit2D[10];
 
     //VARIABLES PARA EL ANIMATOR
-    private Animator ator;
     public GameObject puño1;                // gameobject que intanciara el puñetazo
     private bool grounded;
 
@@ -77,6 +76,7 @@ public class Character_Controller : MonoBehaviour
         characterCurrentJumps = characterTotalJumps;
         canMoveHorizontal = true;
         camJump = true;
+        characterAnimator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -93,8 +93,11 @@ public class Character_Controller : MonoBehaviour
         if (!inputJump)
             inputJump = (Input.GetButtonDown("Jump"));
 
-        ator.SetFloat("speed", Mathf.Abs(hspd));
-        ator.SetBool("grounded", grounded);
+        //Variables del animator    
+        characterAnimator.SetFloat("Speed", Mathf.Abs(hspd));
+        characterAnimator.SetBool("Grounded", isInGround);
+        characterAnimator.SetBool("WallR", isInWallRight && isSliding);
+        characterAnimator.SetBool("WallL", isInWallLeft && isSliding);
     }
 
     private void FixedUpdate()
@@ -114,6 +117,12 @@ public class Character_Controller : MonoBehaviour
         //En el suelo
         if (isInGround)
         {
+            if(inputHorizontalMovement>0)
+                spriteRenderer.flipX = false;
+            if (inputHorizontalMovement < 0)
+                spriteRenderer.flipX = true;
+
+
             //Resetear saltos
             characterCurrentJumps = characterTotalJumps;
 
@@ -145,6 +154,7 @@ public class Character_Controller : MonoBehaviour
             {
                 if (!isSliding)
                 {
+                    spriteRenderer.flipX = true;
                     isSliding = true;
                     rb2d.velocity = new Vector2(0, 0);
                 }
@@ -184,6 +194,7 @@ public class Character_Controller : MonoBehaviour
             {
                 if (!isSliding)
                 {
+                    spriteRenderer.flipX = false;
                     isSliding = true;
                     rb2d.velocity = new Vector2(0, 0);
                 }
@@ -218,6 +229,11 @@ public class Character_Controller : MonoBehaviour
         //En el aire
         else
         {
+            if (inputHorizontalMovement > 0)
+                spriteRenderer.flipX = false;
+            if (inputHorizontalMovement < 0)
+                spriteRenderer.flipX = true;
+
             //Determinar gravedad
             rb2d.gravityScale = 1f;
 
