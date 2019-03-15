@@ -93,8 +93,8 @@ public class Character_Controller : MonoBehaviour
         if (!inputJump)
             inputJump = (Input.GetButtonDown("Jump"));
 
-        ator.SetFloat("speed", Mathf.Abs(hspd));
-        ator.SetBool("grounded", grounded);
+        //ator.SetFloat("speed", Mathf.Abs(hspd));
+        //ator.SetBool("grounded", grounded);
     }
 
     private void FixedUpdate()
