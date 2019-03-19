@@ -8,6 +8,7 @@ public class Character_Controller : MonoBehaviour
     #region ----------VARIABLES----------
 
     [SerializeField] private CharacterModel characterModel;
+    [SerializeField] private CharacterInput characterInput;
 
     private Animator characterAnimator;
     private Rigidbody2D rb2d;
