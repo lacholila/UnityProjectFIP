@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerToControllerAssigner : MonoBehaviour {
-
-    private List<int> assignedControllers = new List<int>();
-    //private PlayerPanel[] playerPanels;
-    private float newtBotTime;
+public class PhysicMaterialValues : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

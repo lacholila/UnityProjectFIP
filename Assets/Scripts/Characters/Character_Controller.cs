@@ -15,33 +15,28 @@ public class Character_Controller : MonoBehaviour
 
     private string characterName;
 
-    private float characterSpeed, characterAcceleration;
+    private float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
+    private float characterAccelerationRatio, characterFrictionRatio, characterGravityRatio;
     private float characterJumpSpeed;
-    private float characterFallSpeed, characterFallAcceleration;
-    private float characterSlideSpeed, characterSlideAcceleration;
-    private float characterFriction, characterAirFriction;
-    private float characterGroundRatio, characterAirRatio;
+
     private float characterPush;
 
-    private float limitedSpeedX, limitedSpeedY;
-    private float hspd, vspd;
+    private float hspd;
 
     private int characterTotalJumps, characterCurrentJumps;
     private int characterTotalHits, characterCurrentHits;
 
     private bool isInGround, isInWall, isInWallRight, isInWallLeft, isSliding;
-    private bool canMoveHorizontal, camJump, canDash;
+    private bool canMoveHorizontal, camJump, canDash, canSlide;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
     private RaycastHit2D[] resultsL = new RaycastHit2D[10];
     private RaycastHit2D[] resultsR = new RaycastHit2D[10];
     
-    //VARIABLES PARA EL ANIMATOR
-    public GameObject puño1;                // gameobject que intanciara el puñetazo
-    private bool grounded;
+    [SerializeField] private GameObject characterPushObject;
     
     float inputHorizontalMovement;
-    bool inputJump, inputDash;
+    bool inputJump, inputDash, inputPush;
 
     #endregion
 
@@ -57,7 +52,7 @@ public class Character_Controller : MonoBehaviour
         characterName = characterModel.characterName;
         //characterAnimator = characterModel.characterAnimator;
 
-        characterSpeed = characterModel.characterSpeed;
+        characterMaxSpeed = characterModel.characterSpeed;
         characterAcceleration = characterModel.charcterAcceleration;
 
         characterJumpSpeed = characterModel.characterJumpSpeed;
@@ -77,6 +72,8 @@ public class Character_Controller : MonoBehaviour
         canMoveHorizontal = true;
         camJump = true;
         canDash = true;
+        canSlide = true;
+
         characterAnimator = GetComponent<Animator>();
     }
 
@@ -89,7 +86,10 @@ public class Character_Controller : MonoBehaviour
             inputJump = (Input.GetButtonDown("Jump"));
 
         if (!inputDash)
-            inputDash = (Input.GetKeyDown("x"));
+            inputDash = (Input.GetKeyDown(KeyCode.X));
+
+        if (!inputPush)
+            inputPush = (Input.GetKeyDown(KeyCode.J));
 
         //Variables del animator    
         characterAnimator.SetFloat("Speed", Mathf.Abs(hspd));
@@ -112,37 +112,70 @@ public class Character_Controller : MonoBehaviour
 
         isInWall = ((nResultsL > 0) || (nResultsR > 0));
 
+
+        /*
+        //Determiar variables del mundo 
+        characterGravity = WorldPhysicsValues.worldGravity;
+
+        //Determinar variables de material
+        characterAccelerationRatio = WorldPhysicsValues.worldAcceleration;
+        characterFrictionRatio = WorldPhysicsValues.worldFriction;
+        */
+
         //En el suelo
         if (isInGround)
         {
+            //Voltear el sprite al caminar
             if(inputHorizontalMovement>0)
+            {
                 spriteRenderer.flipX = false;
+            }
+                
             if (inputHorizontalMovement < 0)
+            {
                 spriteRenderer.flipX = true;
-
-
+            }
+                
             //Resetear saltos
             characterCurrentJumps = characterTotalJumps;
 
-            //Determinar gravedad
-            rb2d.gravityScale = 1f;
+            //Frenar al tocar la pared
+            if (isInWall)
+            {
+                hspd = 0;
+            }
 
             //Salir del estado deslizar
             isSliding = false;
+
+            /*----------
+            CÓDIGO QUE DETECTE SI EL MATERIAL TIENE UN SCRIPT "physicMaterial".
+            EN CASO DE QUE HAYA, SE COMPROBARÁ SI SE USAN LAS PROPIEDADES DEL MATERIAL O LAS DEL MUNDO.
+            EN CASO DE QUE NO HAYA SCRIPT, SE PONDRÁN LAS DEL SCRIPT DE "worldPhysicsController" DIRECTAMENTE.
+            ----------
+
+            characterGravity = 1f;
+            characterAcceleration = 0.5f;
+            characterFriction = 1f;
+        
+            
+            //Determinar gravedad
+            rb2d.gravityScale = characterGravity;//1f;
 
             //Determinar fricción
             switch (resultsD[0].transform.tag)
             {
                 case "Ground":
                 default:
-                    characterAcceleration = 0.5f;
-                    characterFriction = 1f;
+                    characterAcceleration = characterGroundAcceleration; //0.5f
+                    characterFriction = characterGroundFriction; //1f
                     break;
                 case "Ice":
-                    characterAcceleration = 0.02f;
-                    characterFriction = 0.003f;
+                    characterAcceleration = characterGroundAcceleration; //0.02f;
+                    characterFriction = characterGroundFriction;//0.003f;
                     break;
             }
+            */
         }
         //En una pared (izquierda)
         else if (isInWallLeft)
@@ -176,10 +209,10 @@ public class Character_Controller : MonoBehaviour
                 {
                     case "Ground":
                     default:
-                        rb2d.gravityScale = 0.2f;
+                        characterGravity = 0.2f;
                         break;
                     case "Ice":
-                        rb2d.gravityScale = 0.8f;
+                        characterGravity = 0.8f;
                         break;
                 }
             }
@@ -190,6 +223,8 @@ public class Character_Controller : MonoBehaviour
             //Entrar en el estado de deslizar
             if (hspd > 0)
             {
+                hspd = 0;
+
                 if (!isSliding)
                 {
                     spriteRenderer.flipX = false;
@@ -216,10 +251,10 @@ public class Character_Controller : MonoBehaviour
                 {
                     case "Ground":
                     default:
-                        rb2d.gravityScale = 0.2f;
+                        characterGravity = 0.2f;
                         break;
                     case "Ice":
-                        rb2d.gravityScale = 0.8f;
+                        characterGravity = 0.8f;
                         break;
                 }
             }
@@ -233,7 +268,7 @@ public class Character_Controller : MonoBehaviour
                 spriteRenderer.flipX = true;
 
             //Determinar gravedad
-            rb2d.gravityScale = 1f;
+            characterGravity = 1f;
 
             //Salir del estado deslizar
             isSliding = false;
@@ -251,14 +286,14 @@ public class Character_Controller : MonoBehaviour
             if (inputHorizontalMovement != 0)
             {
                 //Aplicar aceleración
-                if (Mathf.Abs(hspd + characterAcceleration * inputHorizontalMovement) < characterSpeed)
+                if (Mathf.Abs(hspd + characterAcceleration * inputHorizontalMovement) < characterMaxSpeed)
                 {
                     hspd += characterAcceleration * inputHorizontalMovement;
                 }
                 //Aplicar velocidad máxima
                 else
                 {
-                    hspd = characterSpeed * inputHorizontalMovement;
+                    hspd = characterMaxSpeed * inputHorizontalMovement;
                 }
             }
             else
@@ -332,11 +367,10 @@ public class Character_Controller : MonoBehaviour
 
 
         //Puñetazo
-        if (Input.GetKeyDown("j"))
-            {
-
+        if (Input.GetKeyDown(KeyCode.J))
+        { 
             //ator.SetTrigger("squared");
-            Instantiate(puño1);
+            Instantiate(characterPushObject);
         }
 
     }
