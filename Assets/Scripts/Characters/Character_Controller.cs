@@ -8,14 +8,15 @@ public class Character_Controller : MonoBehaviour
     #region ----------VARIABLES----------
 
     [SerializeField] private CharacterModel characterModel;
-    [SerializeField] private CharacterInput characterInput;
+
+    [SerializeField] private int playerIndex;
 
     private Animator characterAnimator;
     private Rigidbody2D rb2d;
     public SpriteRenderer spriteRenderer;
 
     private string characterName;
-
+    
     private float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
     private float characterAccelerationRatio, characterFrictionRatio, characterGravityRatio;
     private float characterJumpSpeed;
@@ -81,16 +82,16 @@ public class Character_Controller : MonoBehaviour
     private void Update()
     {
         //Determinar input
-        inputHorizontalMovement = (Input.GetAxisRaw("Horizontal"));
+        inputHorizontalMovement = Input.GetAxisRaw("P" + playerIndex + "_Horizontal");
 
         if (!inputJump)
-            inputJump = (Input.GetButtonDown("Jump"));
+            inputJump = Input.GetButtonDown("P" + playerIndex + "_Jump");
 
         if (!inputDash)
-            inputDash = (Input.GetKeyDown(KeyCode.X));
+            inputDash = Input.GetButtonDown("P" + playerIndex + "_Dash");
 
         if (!inputPush)
-            inputPush = (Input.GetKeyDown(KeyCode.J));
+            inputPush = Input.GetButtonDown("P" + playerIndex + "_Push");
 
         //Variables del animator    
         characterAnimator.SetFloat("Speed", Mathf.Abs(hspd));
