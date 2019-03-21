@@ -8,28 +8,28 @@ public class Character_Controller : MonoBehaviour
     #region ----------VARIABLES----------
 
     [SerializeField] private CharacterModel characterModel;
-
+    
     [SerializeField] private int playerIndex;
 
-    private Animator characterAnimator;
+    private SpriteRenderer spriteRenderer;
+    
     private Rigidbody2D rb2d;
-    public SpriteRenderer spriteRenderer;
-
+    private Animator characterAnimator;
+        
     private string characterName;
     
     private float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
     private float characterAccelerationRatio, characterFrictionRatio, characterGravityRatio;
     private float characterJumpSpeed;
-
     private float characterPush;
 
-    private float hspd;
+    public float hspd;
 
     private int characterTotalJumps, characterCurrentJumps;
     private int characterTotalHits, characterCurrentHits;
 
     private bool isInGround, isInWall, isInWallRight, isInWallLeft, isSliding;
-    private bool canMoveHorizontal, camJump, canDash, canSlide;
+    private bool canMoveHorizontal, canJump, canDash, canSlide, canPush;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
     private RaycastHit2D[] resultsL = new RaycastHit2D[10];
@@ -50,6 +50,7 @@ public class Character_Controller : MonoBehaviour
         //Coger todos los cmponentes y variables del scriptable object
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        characterAnimator = GetComponent<Animator>();
 
         characterName = characterModel.characterName;
         //characterAnimator = characterModel.characterAnimator;
@@ -72,11 +73,10 @@ public class Character_Controller : MonoBehaviour
         //Determinar valor de algunas variables al inicio
         characterCurrentJumps = characterTotalJumps;
         canMoveHorizontal = true;
-        camJump = true;
+        canJump = true;
         canDash = true;
         canSlide = true;
-
-        characterAnimator = GetComponent<Animator>();
+        canPush = true;
     }
 
     private void Update()
@@ -311,12 +311,17 @@ public class Character_Controller : MonoBehaviour
                     hspd = 0;
                 }
             }
+
+            //Clampear velocidad máxima
+            if (Mathf.Abs(hspd) >= characterMaxSpeed)
+            {
+                hspd = characterMaxSpeed * inputHorizontalMovement;
+            }
         }
-
-
+        
 
         //Salto
-        if (inputJump && camJump)
+        if (inputJump && canJump)
         {
             //Poner el salto a false para evitar que se ponga a false en el Update y evitar el error de que no salte algunas veces
             inputJump = false;
@@ -359,8 +364,8 @@ public class Character_Controller : MonoBehaviour
             //Poner el dash a false para evitar que se ponga a false en el Update y evitar el error de que no dashee algunas veces
             inputDash = false;
 
-            hspd = 10f;
-            StartCoroutine(DisableHorizontalMovement(0.1f));
+            hspd = 20f;
+            StartCoroutine(DisableHorizontalMovement(0.05f));
         }
 
 
@@ -369,16 +374,21 @@ public class Character_Controller : MonoBehaviour
 
 
         //Puñetazo
-        if (Input.GetKeyDown(KeyCode.J))
-        { 
+        if (inputPush && canPush)
+        {
+            inputPush = false;
             //ator.SetTrigger("squared");
-            Instantiate(characterPushObject);
+            GameObject punch = Instantiate(characterPushObject, transform) as GameObject;
+            Punch punchController = punch.GetComponent<Punch>();
+
+            punchController.punchIndex = playerIndex;
+            punchController.punchForce = characterPush;
         }
 
     }
 
     //Desactivar el control del movimiento horizontal durante un tiempo al saltar en la pared (Evitar escalada)
-    private IEnumerator DisableHorizontalMovement(float time)
+    public IEnumerator DisableHorizontalMovement(float time)
     {
         canMoveHorizontal = false;
 

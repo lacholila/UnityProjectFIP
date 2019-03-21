@@ -834,8 +834,7 @@ GameObject:
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 95061974113178692, guid: 317c5931c5f424845b8e0f281216d96a,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 126110820}
   m_Enabled: 1
@@ -863,7 +862,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterModel: {fileID: 11400000, guid: 03e6285ed06e3544ab72ee76c87e4f8f, type: 2}
   playerIndex: 1
-  spriteRenderer: {fileID: 126110826}
   characterPushObject: {fileID: 1266823735587710, guid: 8ced91f2e706b194abae0b47e66a80fa,
     type: 2}
 --- !u!70 &126110823
@@ -1195,7 +1193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterModel: {fileID: 11400000, guid: 03e6285ed06e3544ab72ee76c87e4f8f, type: 2}
   playerIndex: 2
-  spriteRenderer: {fileID: 687230435}
   characterPushObject: {fileID: 1266823735587710, guid: 8ced91f2e706b194abae0b47e66a80fa,
     type: 2}
 --- !u!70 &687230432
