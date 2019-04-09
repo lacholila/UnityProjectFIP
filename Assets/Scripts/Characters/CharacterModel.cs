@@ -24,7 +24,11 @@ public class CharacterModel : ScriptableObject
     public float characterGroundFriction = 0.2f;
     public float characterAirFriction = 0.5f;
 
-    public float characterPush = 10f;
+    public float characterDashSpeed = 20f;
+
+    public float characterPunchImpulse = 10f;
+    public float characterPunchDuration = 0.1f;
+    public float charcaterPunchStunTime = 2f;
 
     public int characterTotalHits = 3;
 }

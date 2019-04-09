@@ -7,16 +7,23 @@ public class Punch : MonoBehaviour {
     public int punchIndex;
 
     public float punchForce;
+    public float punchDuration;
+    public float punchStunTime;
 
     private void Start()
     {
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, punchDuration);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.GetComponent<Character_Controller>().hspd = punchForce;
-        other.gameObject.GetComponent<Character_Controller>().StartCoroutine(other.gameObject.GetComponent<Character_Controller>().DisableHorizontalMovement(0.05f));
+
+        //Comprobar que objeto es (solo afecta a players? objetos?)
+
+        Character_Controller targetController = other.gameObject.GetComponent<Character_Controller>();
+        targetController.StartCoroutine(targetController.DisableInputWallJump(punchStunTime));
+        other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(100f, 0f);
+        
     }
 
 

@@ -21,24 +21,30 @@ public class Character_Controller : MonoBehaviour
     private float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
     private float characterAccelerationRatio, characterFrictionRatio, characterGravityRatio;
     private float characterJumpSpeed;
-    private float characterPush;
+    private float characterPunchImpulse, characterPunchDuration, characterPunchStunTime;
+    private float characterDashSpeed;
 
     public float hspd;
+    private int characterDir;
+    private Quaternion characterDirection;
 
     private int characterTotalJumps, characterCurrentJumps;
     private int characterTotalHits, characterCurrentHits;
 
     private bool isInGround, isInWall, isInWallRight, isInWallLeft, isSliding;
-    private bool canMoveHorizontal, canJump, canDash, canSlide, canPush;
+    private bool canMoveHorizontal, canJump, canDash, canSlide, canPunch;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
     private RaycastHit2D[] resultsL = new RaycastHit2D[10];
     private RaycastHit2D[] resultsR = new RaycastHit2D[10];
-    
+
+    [SerializeField] private ContactFilter2D characterCollide;
     [SerializeField] private GameObject characterPushObject;
     
     float inputHorizontalMovement;
-    bool inputJump, inputDash, inputPush;
+    bool inputJump, inputDash, inputPunch;
+
+    private Vector2 ssss;
 
     #endregion
 
@@ -53,8 +59,7 @@ public class Character_Controller : MonoBehaviour
         characterAnimator = GetComponent<Animator>();
 
         characterName = characterModel.characterName;
-        //characterAnimator = characterModel.characterAnimator;
-
+        
         characterMaxSpeed = characterModel.characterSpeed;
         characterAcceleration = characterModel.charcterAcceleration;
 
@@ -63,7 +68,11 @@ public class Character_Controller : MonoBehaviour
 
         characterFriction = characterModel.characterGroundFriction;
 
-        characterPush = characterModel.characterPush;
+        characterDashSpeed = characterModel.characterDashSpeed;
+
+        characterPunchImpulse = characterModel.characterPunchImpulse;
+        characterPunchDuration = characterModel.characterPunchDuration;
+        characterPunchStunTime = characterModel.charcaterPunchStunTime;
 
         characterTotalHits = characterModel.characterTotalHits;
     }
@@ -71,12 +80,15 @@ public class Character_Controller : MonoBehaviour
     private void Start()
     {
         //Determinar valor de algunas variables al inicio
+        hspd = 0;
+        characterDir = 1;
+        characterDirection = Quaternion.Euler(0, 0, 0);
         characterCurrentJumps = characterTotalJumps;
         canMoveHorizontal = true;
         canJump = true;
         canDash = true;
         canSlide = true;
-        canPush = true;
+        canPunch = true;
     }
 
     private void Update()
@@ -90,8 +102,8 @@ public class Character_Controller : MonoBehaviour
         if (!inputDash)
             inputDash = Input.GetButtonDown("P" + playerIndex + "_Dash");
 
-        if (!inputPush)
-            inputPush = Input.GetButtonDown("P" + playerIndex + "_Push");
+        if (!inputPunch)
+            inputPunch = Input.GetButtonDown("P" + playerIndex + "_Punch");
 
         //Variables del animator    
         characterAnimator.SetFloat("Speed", Mathf.Abs(hspd));
@@ -103,39 +115,36 @@ public class Character_Controller : MonoBehaviour
     private void FixedUpdate()
     {
         //Determinar estado del personaje
-        int nResultsD = rb2d.Cast(Vector2.down, resultsD, 0.02f);
+        int nResultsD = rb2d.Cast(Vector2.down, characterCollide, resultsD, 0.02f);
         isInGround = (nResultsD > 0);
 
-        int nResultsL = rb2d.Cast(Vector2.left, resultsL, 0.02f);
+        int nResultsL = rb2d.Cast(Vector2.left, characterCollide, resultsL, 0.02f);
         isInWallLeft = ((nResultsL > 0) && !isInGround);
 
-        int nResultsR = rb2d.Cast(Vector2.right, resultsR, 0.02f);
+        int nResultsR = rb2d.Cast(Vector2.right, characterCollide, resultsR, 0.02f);
         isInWallRight = ((nResultsR > 0) && !isInGround);
 
         isInWall = ((nResultsL > 0) || (nResultsR > 0));
 
 
-        /*
-        //Determiar variables del mundo 
-        characterGravity = WorldPhysicsValues.worldGravity;
-
-        //Determinar variables de material
-        characterAccelerationRatio = WorldPhysicsValues.worldAcceleration;
-        characterFrictionRatio = WorldPhysicsValues.worldFriction;
-        */
-
         //En el suelo
         if (isInGround)
         {
             //Voltear el sprite al caminar
-            if(inputHorizontalMovement>0)
+            if (inputHorizontalMovement>0)
             {
-                spriteRenderer.flipX = false;
+                //spriteRenderer.flipX = false;
+                characterDir = 1;
+                characterDirection = Quaternion.Euler(0, 0, 0);
+                gameObject.transform.rotation = characterDirection;
             }
                 
             if (inputHorizontalMovement < 0)
             {
-                spriteRenderer.flipX = true;
+                //spriteRenderer.flipX = true;
+                characterDir = -1;
+                characterDirection = Quaternion.Euler(0, 180, 0);
+                gameObject.transform.rotation = characterDirection;
             }
                 
             //Resetear saltos
@@ -149,35 +158,6 @@ public class Character_Controller : MonoBehaviour
 
             //Salir del estado deslizar
             isSliding = false;
-
-            /*----------
-            CÓDIGO QUE DETECTE SI EL MATERIAL TIENE UN SCRIPT "physicMaterial".
-            EN CASO DE QUE HAYA, SE COMPROBARÁ SI SE USAN LAS PROPIEDADES DEL MATERIAL O LAS DEL MUNDO.
-            EN CASO DE QUE NO HAYA SCRIPT, SE PONDRÁN LAS DEL SCRIPT DE "worldPhysicsController" DIRECTAMENTE.
-            ----------
-
-            characterGravity = 1f;
-            characterAcceleration = 0.5f;
-            characterFriction = 1f;
-        
-            
-            //Determinar gravedad
-            rb2d.gravityScale = characterGravity;//1f;
-
-            //Determinar fricción
-            switch (resultsD[0].transform.tag)
-            {
-                case "Ground":
-                default:
-                    characterAcceleration = characterGroundAcceleration; //0.5f
-                    characterFriction = characterGroundFriction; //1f
-                    break;
-                case "Ice":
-                    characterAcceleration = characterGroundAcceleration; //0.02f;
-                    characterFriction = characterGroundFriction;//0.003f;
-                    break;
-            }
-            */
         }
         //En una pared (izquierda)
         else if (isInWallLeft)
@@ -187,7 +167,6 @@ public class Character_Controller : MonoBehaviour
             {
                 if (!isSliding)
                 {
-                    spriteRenderer.flipX = true;
                     isSliding = true;
                     rb2d.velocity = new Vector2(0, 0);
                 }
@@ -196,6 +175,11 @@ public class Character_Controller : MonoBehaviour
             //Deslizando
             if (isSliding)
             {
+                //spriteRenderer.flipX = true;
+                characterDir = 1;
+                characterDirection = Quaternion.Euler(0, 0, 0);
+                gameObject.transform.rotation = characterDirection;
+
                 //Determinar velocidad horizontal
                 hspd = 0;
 
@@ -229,7 +213,6 @@ public class Character_Controller : MonoBehaviour
 
                 if (!isSliding)
                 {
-                    spriteRenderer.flipX = false;
                     isSliding = true;
                     rb2d.velocity = new Vector2(0, 0);
                 }
@@ -238,6 +221,11 @@ public class Character_Controller : MonoBehaviour
             //Deslizando
             if (isSliding)
             {
+                //spriteRenderer.flipX = false;
+                characterDir = -1;
+                characterDirection = Quaternion.Euler(0, 180, 0);
+                gameObject.transform.rotation = characterDirection;
+
                 //Determinar velocidad horizontal
                 hspd = 0;
 
@@ -264,10 +252,21 @@ public class Character_Controller : MonoBehaviour
         //En el aire
         else
         {
+            //Voltear el sprite 
             if (inputHorizontalMovement > 0)
-                spriteRenderer.flipX = false;
+            {
+                //spriteRenderer.flipX = false;
+                characterDir = 1;
+                characterDirection = Quaternion.Euler(0, 0, 0);
+                gameObject.transform.rotation = characterDirection;
+            }
             if (inputHorizontalMovement < 0)
-                spriteRenderer.flipX = true;
+            {
+                //spriteRenderer.flipX = true;
+                characterDir = -1;
+                characterDirection = Quaternion.Euler(0, 180, 0);
+                gameObject.transform.rotation = characterDirection;
+            }
 
             //Determinar gravedad
             characterGravity = 1f;
@@ -279,7 +278,6 @@ public class Character_Controller : MonoBehaviour
             characterAcceleration = 0.3f;
             characterFriction = 0.1f;
         }
-
 
         //Movimiento horizontal
         if (canMoveHorizontal)
@@ -318,77 +316,97 @@ public class Character_Controller : MonoBehaviour
                 hspd = characterMaxSpeed * inputHorizontalMovement;
             }
         }
-        
 
         //Salto
-        if (inputJump && canJump)
-        {
+        if (inputJump) {
+
             //Poner el salto a false para evitar que se ponga a false en el Update y evitar el error de que no salte algunas veces
             inputJump = false;
-            
-            //Normal o en el aire
-            if ((isInGround || characterCurrentJumps > 0) && !isSliding)
-            {
-                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-                rb2d.AddForce(Vector2.up * characterJumpSpeed, ForceMode2D.Impulse);
-                characterCurrentJumps--;
-            }
-            //En pared
-            else if (isSliding && !isInGround)
-            {
-                characterCurrentJumps--;
-                rb2d.velocity = new Vector2(0, 0);
-                rb2d.AddForce(Vector2.up * characterJumpSpeed * Mathf.Sin(Mathf.Deg2Rad * 60), ForceMode2D.Impulse);
-                StartCoroutine(DisableHorizontalMovement(0.1f));
 
-                //Salir del estado de deslizar
-                isSliding = false;
-
-                if (isInWallLeft)
+            if (canJump)
+            {
+                //Suelo o doble salto en el aire
+                if ((isInGround || characterCurrentJumps > 0) && !isSliding)
                 {
-                    isInWallLeft = false;
-                    hspd = characterJumpSpeed * Mathf.Cos(Mathf.Deg2Rad * 60);
+                    rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                    rb2d.AddForce(Vector2.up * characterJumpSpeed, ForceMode2D.Impulse);
+                    characterCurrentJumps--;
                 }
-                else if (isInWallRight)
+                //En pared
+                else if (isSliding && !isInGround)
                 {
-                    isInWallRight = false;
-                    hspd = -characterJumpSpeed * Mathf.Cos(Mathf.Deg2Rad * 60);
+                    characterCurrentJumps--;
+                    rb2d.velocity = new Vector2(0, 0);
+                    rb2d.AddForce(Vector2.up * characterJumpSpeed * Mathf.Sin(Mathf.Deg2Rad * 60), ForceMode2D.Impulse);
+                    StartCoroutine(DisableInputWallJump(0.1f));
+
+                    //Salir del estado de deslizar
+                    isSliding = false;
+
+                    if (isInWallLeft)
+                    {
+                        isInWallLeft = false;
+                        hspd = characterJumpSpeed * Mathf.Cos(Mathf.Deg2Rad * 60);
+                        //spriteRenderer.flipX = true;
+                        characterDir = 1;
+                        characterDirection = Quaternion.Euler(0, 0, 0);
+                        gameObject.transform.rotation = characterDirection;
+
+
+                    }
+                    else if (isInWallRight)
+                    {
+                        isInWallRight = false;
+                        hspd = -characterJumpSpeed * Mathf.Cos(Mathf.Deg2Rad * 60);
+                        //spriteRenderer.flipX = false;
+                        characterDir = -1;
+                        characterDirection = Quaternion.Euler(0, 180, 0);
+                        gameObject.transform.rotation = characterDirection;
+                    }
                 }
             }
         }
 
-
         //Dash
-        if (inputDash && canDash)
+        if (inputDash)
         {
             //Poner el dash a false para evitar que se ponga a false en el Update y evitar el error de que no dashee algunas veces
             inputDash = false;
 
-            hspd = 20f;
-            StartCoroutine(DisableHorizontalMovement(0.05f));
+            if (canDash)
+            {
+                hspd = characterDashSpeed * characterDir;
+                StartCoroutine(DisableInputDash(0.05f, 1f));
+            }
         }
-
 
         //Aplicar el movimiento
         rb2d.velocity = new Vector2(hspd, rb2d.velocity.y);
 
-
         //Puñetazo
-        if (inputPush && canPush)
+        if (inputPunch)
         {
-            inputPush = false;
-            //ator.SetTrigger("squared");
-            GameObject punch = Instantiate(characterPushObject, transform) as GameObject;
-            Punch punchController = punch.GetComponent<Punch>();
+            //Poner el punch a false para evitar que se ponga a false en el Update y evitar el error de que no lo haga algunas veces
+            inputPunch = false;
 
-            punchController.punchIndex = playerIndex;
-            punchController.punchForce = characterPush;
+            if (canPunch)
+            {
+                StartCoroutine(DisableInputPunch(characterPunchDuration, 1f));
+
+                
+                GameObject punch = Instantiate(characterPushObject, transform.position, characterDirection) as GameObject;
+                Punch punchController = punch.GetComponent<Punch>();
+
+                punchController.punchIndex = playerIndex;
+                punchController.punchForce = characterPunchImpulse;
+                punchController.punchDuration = characterPunchDuration;
+                punchController.punchStunTime = characterPunchStunTime;
+            }
         }
-
     }
 
-    //Desactivar el control del movimiento horizontal durante un tiempo al saltar en la pared (Evitar escalada)
-    public IEnumerator DisableHorizontalMovement(float time)
+    //Desactivar el control del movimiento durante un tiempo
+    public IEnumerator DisableInputWallJump(float time) //, bool hMov, bool jump, bool dash, bool slide, bool punch)
     {
         canMoveHorizontal = false;
 
@@ -396,5 +414,52 @@ public class Character_Controller : MonoBehaviour
 
         canMoveHorizontal = true;
     }
+
+    public IEnumerator DisableInputDash(float time, float cooldown)
+    {
+        canMoveHorizontal = false;
+        canJump = false;
+        canDash = false;
+        canSlide = false;
+        canPunch = false;
+
+        yield return new WaitForSeconds(time);
+
+        canMoveHorizontal = true;
+        canJump = true;
+        canSlide = true;
+        canPunch = true;
+
+        yield return new WaitForSeconds(cooldown);
+
+        canDash = true;
+    }
+
+    public IEnumerator DisableInputPunch(float time, float cooldown)
+    {
+        canMoveHorizontal = false;
+        canJump = false;
+        canDash = false;
+        canSlide = false;
+        canPunch = false;
+
+        yield return new WaitForSeconds(time);
+
+        canMoveHorizontal = true;
+        canJump = true;
+        canDash = true;
+        canSlide = true;
+
+        yield return new WaitForSeconds(cooldown);
+
+        canPunch = true;
+    }
+
     #endregion
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * 3f * characterDir);
+    }
 }
