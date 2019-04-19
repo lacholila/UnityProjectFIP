@@ -4,8 +4,10 @@ using UnityEngine;
 
 public abstract class Weapons  {
 
-    public Cozitax playerWeaponController;
+    public CharacterWeaponController playerWeaponController;
     public WeaponModel weaponModel;
+    
+    public Sprite WeaponSprite;
 
     public virtual void PickObject() { }
     public virtual void UseObject() { }
@@ -14,18 +16,5 @@ public abstract class Weapons  {
     public virtual void CarryObject()
     {
 
-    }
-
-    public virtual Sprite weaponSprite
-    {
-        get
-        {
-            return weaponSprite;
-        }
-
-        set
-        {
-            weaponSprite = value;
-        }
     }
 }

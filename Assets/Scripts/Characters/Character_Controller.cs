@@ -189,16 +189,7 @@ public class Character_Controller : MonoBehaviour
                 characterFriction = 0.1f;
 
                 //Determinar gravedad
-                switch (resultsL[0].transform.tag)
-                {
-                    case "Ground":
-                    default:
-                        characterGravity = 0.2f;
-                        break;
-                    case "Ice":
-                        characterGravity = 0.8f;
-                        break;
-                }
+                characterGravity = 0.2f;
             }
         }
         //En una pared (derecha)
@@ -235,16 +226,7 @@ public class Character_Controller : MonoBehaviour
                 characterFriction = 0.1f;
 
                 //Determinar gravedad
-                switch (resultsR[0].transform.tag)
-                {
-                    case "Ground":
-                    default:
-                        characterGravity = 0.2f;
-                        break;
-                    case "Ice":
-                        characterGravity = 0.8f;
-                        break;
-                }
+                characterGravity = 0.2f;
             }
         }
         //En el aire
@@ -392,7 +374,7 @@ public class Character_Controller : MonoBehaviour
                 StartCoroutine(DisableInputPunch(characterPunchDuration, 1f));
 
                 GameObject punch = Instantiate(characterPushObject, transform) as GameObject;
-                Punch punchController = punch.GetComponent<Punch>();
+                CharacterPunch punchController = punch.GetComponent<CharacterPunch>();
 
                 punchController.punchIndex = playerIndex;
                 punchController.punchForce = characterPunchImpulse;

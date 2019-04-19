@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WeaponBottle : Weapons
 {
-    public Cozitax cozitax;
+    public CharacterWeaponController cozitax;
 
-    public new Sprite weaponSprite;
+    public Sprite WeaponSprite;
 
     public WeaponBottle()
     {
-        
+        WeaponSprite = null;
     }
 
     public override void PickObject()
