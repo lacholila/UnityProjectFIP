@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 70990083300024794}
   - component: {fileID: 50523955598025930}
   - component: {fileID: 70932246091829878}
-  - component: {fileID: 114281100448749560}
   - component: {fileID: 95061974113178692}
+  - component: {fileID: 114358999126243660}
   m_Layer: 0
   m_Name: Sergio
   m_TagString: Player
@@ -113,7 +113,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114281100448749560
+--- !u!114 &114358999126243660
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,12 +121,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1491136490891904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa409ecd45d09e448b7ffc8923fe70ef, type: 3}
+  m_Script: {fileID: 11500000, guid: bf1d3a0ffc2b693459434784fb59c2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterModel: {fileID: 11400000, guid: 03e6285ed06e3544ab72ee76c87e4f8f, type: 2}
-  spriteRenderer: {fileID: 0}
-  "pu\xF1o1": {fileID: 1266823735587710, guid: 8ced91f2e706b194abae0b47e66a80fa, type: 2}
+  playerIndex: 0
+  hspd: 0
+  characterCollide:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  characterPushObject: {fileID: 1266823735587710, guid: 8ced91f2e706b194abae0b47e66a80fa,
+    type: 2}
 --- !u!212 &212907209257673380
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -160,7 +176,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1932296631
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8a2b06debc6f5aa46b428a558d8e5cb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
