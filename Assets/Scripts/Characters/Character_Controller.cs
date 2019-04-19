@@ -44,8 +44,6 @@ public class Character_Controller : MonoBehaviour
     float inputHorizontalMovement;
     bool inputJump, inputDash, inputPunch;
 
-    private Vector2 ssss;
-
     #endregion
 
 
@@ -393,8 +391,7 @@ public class Character_Controller : MonoBehaviour
             {
                 StartCoroutine(DisableInputPunch(characterPunchDuration, 1f));
 
-                
-                GameObject punch = Instantiate(characterPushObject, transform.position, characterDirection) as GameObject;
+                GameObject punch = Instantiate(characterPushObject, transform) as GameObject;
                 Punch punchController = punch.GetComponent<Punch>();
 
                 punchController.punchIndex = playerIndex;
@@ -406,7 +403,24 @@ public class Character_Controller : MonoBehaviour
     }
 
     //Desactivar el control del movimiento durante un tiempo
-    public IEnumerator DisableInputWallJump(float time) //, bool hMov, bool jump, bool dash, bool slide, bool punch)
+    public IEnumerator DisableInputActions(float time)
+    {
+        canMoveHorizontal = false;
+        canSlide = false;
+        canJump = false;
+        canDash = false;
+        canPunch = false;
+
+        yield return new WaitForSeconds(time);
+
+        canMoveHorizontal = true;
+        canSlide = true;
+        canJump = true;
+        canDash = true;
+        canPunch = true;
+    }
+
+    public IEnumerator DisableInputWallJump(float time) 
     {
         canMoveHorizontal = false;
 
@@ -418,17 +432,11 @@ public class Character_Controller : MonoBehaviour
     public IEnumerator DisableInputDash(float time, float cooldown)
     {
         canMoveHorizontal = false;
-        canJump = false;
         canDash = false;
-        canSlide = false;
-        canPunch = false;
 
         yield return new WaitForSeconds(time);
 
         canMoveHorizontal = true;
-        canJump = true;
-        canSlide = true;
-        canPunch = true;
 
         yield return new WaitForSeconds(cooldown);
 
@@ -438,17 +446,11 @@ public class Character_Controller : MonoBehaviour
     public IEnumerator DisableInputPunch(float time, float cooldown)
     {
         canMoveHorizontal = false;
-        canJump = false;
-        canDash = false;
-        canSlide = false;
         canPunch = false;
 
         yield return new WaitForSeconds(time);
 
         canMoveHorizontal = true;
-        canJump = true;
-        canDash = true;
-        canSlide = true;
 
         yield return new WaitForSeconds(cooldown);
 

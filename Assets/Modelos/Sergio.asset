@@ -23,7 +23,8 @@ MonoBehaviour:
   characterSlideAcceleration: 0.05
   characterGroundFriction: 0.2
   characterAirFriction: 0.5
-  characterPunchImpulse: 100
+  characterDashSpeed: 20
+  characterPunchImpulse: 10
   characterPunchDuration: 0.2
   charcaterPunchStunTime: 2
   characterTotalHits: 3
