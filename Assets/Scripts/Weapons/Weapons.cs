@@ -5,16 +5,26 @@ using UnityEngine;
 public abstract class Weapons  {
 
     public CharacterWeaponController playerWeaponController;
-    public WeaponModel weaponModel;
-    
-    public Sprite WeaponSprite;
 
-    public virtual void PickObject() { }
-    public virtual void UseObject() { }
-    public virtual void ThrowObject() { }
+    public Sprite WeaponSprite;
+    
+    public virtual void PickObject()
+    {
+        Debug.Log("Weapon cogida");
+    }
+
+    public virtual void UseObject()
+    {
+        Debug.Log("Weapon usada");
+    }
+
+    public virtual void ThrowObject()
+    {
+        Debug.Log("Weapon tirada");
+    }
 
     public virtual void CarryObject()
     {
-
+        Debug.Log("LLevando weapon");
     }
 }

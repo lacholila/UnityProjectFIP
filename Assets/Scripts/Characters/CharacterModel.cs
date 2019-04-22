@@ -6,29 +6,18 @@ using UnityEngine;
 public class CharacterModel : ScriptableObject
 {
 
-    public string characterName = "Default";
+    public string characterName;
     public Animator characterAnimator;
 
-    public float characterSpeed = 3f;
-    public float charcterAcceleration = 0.5f;
+    public float characterSpeed;
+    
+    public float characterJumpSpeed;
+    public int characterTotalJumps;
 
-    public float characterJumpSpeed = 7f;
-    public int characterTotalJumps = 2;
+    public float characterDashSpeed;
 
-    public float characterFallSpeed = 10f;
-    public float characterFallAcceleration = 0.5f;
+    public float characterPunchImpulse;
+    public float charcaterPunchStunTime;
 
-    public float characterSlideSpeed = 2f;
-    public float characterSlideAcceleration = 0.05f;
-
-    public float characterGroundFriction = 0.2f;
-    public float characterAirFriction = 0.5f;
-
-    public float characterDashSpeed = 20f;
-
-    public float characterPunchImpulse = 10f;
-    public float characterPunchDuration = 0.1f;
-    public float charcaterPunchStunTime = 2f;
-
-    public int characterTotalHits = 3;
+    public int characterTotalHits;
 }

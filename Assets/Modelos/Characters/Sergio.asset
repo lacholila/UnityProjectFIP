@@ -11,20 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838a8d466cafa4c44ba1ca232bf55a50, type: 3}
   m_Name: Sergio
   m_EditorClassIdentifier: 
-  characterName: Default
+  characterName: Sergio
   characterAnimator: {fileID: 0}
-  characterSpeed: 4
-  charcterAcceleration: 0.5
-  characterJumpSpeed: 6
+  characterSpeed: 6
+  characterJumpSpeed: 10
   characterTotalJumps: 2
-  characterFallSpeed: 10
-  characterFallAcceleration: 0.5
-  characterSlideSpeed: 2
-  characterSlideAcceleration: 0.05
-  characterGroundFriction: 0.2
-  characterAirFriction: 0.5
   characterDashSpeed: 20
   characterPunchImpulse: 10
-  characterPunchDuration: 0.2
-  charcaterPunchStunTime: 2
+  charcaterPunchStunTime: 1
   characterTotalHits: 3

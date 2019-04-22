@@ -9,7 +9,7 @@ public class Character_Controller : MonoBehaviour
 
     [SerializeField] private CharacterModel characterModel;
     
-    [SerializeField] private int playerIndex;
+    public int playerIndex;
 
     private SpriteRenderer spriteRenderer;
     
@@ -19,17 +19,16 @@ public class Character_Controller : MonoBehaviour
     private string characterName;
     
     private float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
-    private float characterAccelerationRatio, characterFrictionRatio, characterGravityRatio;
     private float characterJumpSpeed;
     private float characterPunchImpulse, characterPunchDuration, characterPunchStunTime;
     private float characterDashSpeed;
 
     public float hspd;
-    private int characterDir;
+    public int characterDir;
     private Quaternion characterDirection;
 
     private int characterTotalJumps, characterCurrentJumps;
-    private int characterTotalHits, characterCurrentHits;
+    public int characterTotalHits, characterCurrentHits;
 
     private bool isInGround, isInWall, isInWallRight, isInWallLeft, isSliding;
     private bool canMoveHorizontal, canJump, canDash, canSlide, canPunch;
@@ -42,7 +41,7 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] private GameObject characterPushObject;
     
     float inputHorizontalMovement;
-    bool inputJump, inputDash, inputPunch;
+    public bool inputJump, inputDash, inputPunch, inputUseWeapon, inputPickWeapon;
 
     #endregion
 
@@ -59,17 +58,16 @@ public class Character_Controller : MonoBehaviour
         characterName = characterModel.characterName;
         
         characterMaxSpeed = characterModel.characterSpeed;
-        characterAcceleration = characterModel.charcterAcceleration;
+        characterAcceleration = 0.5f;
+        characterFriction = 0.2f;
 
         characterJumpSpeed = characterModel.characterJumpSpeed;
         characterTotalJumps = characterModel.characterTotalJumps;
 
-        characterFriction = characterModel.characterGroundFriction;
-
         characterDashSpeed = characterModel.characterDashSpeed;
 
         characterPunchImpulse = characterModel.characterPunchImpulse;
-        characterPunchDuration = characterModel.characterPunchDuration;
+        characterPunchDuration = 0.1f;
         characterPunchStunTime = characterModel.charcaterPunchStunTime;
 
         characterTotalHits = characterModel.characterTotalHits;
@@ -103,6 +101,10 @@ public class Character_Controller : MonoBehaviour
         if (!inputPunch)
             inputPunch = Input.GetButtonDown("P" + playerIndex + "_Punch");
 
+        inputUseWeapon = Input.GetButtonDown("P" + playerIndex + "_Use");
+
+        inputPickWeapon = Input.GetButtonDown("P" + playerIndex + "_Pick");
+
         //Variables del animator    
         characterAnimator.SetFloat("Speed", Mathf.Abs(hspd));
         characterAnimator.SetBool("Grounded", isInGround);
@@ -128,10 +130,9 @@ public class Character_Controller : MonoBehaviour
         //En el suelo
         if (isInGround)
         {
-            //Voltear el sprite al caminar
+            //Voltear el objeto
             if (inputHorizontalMovement>0)
             {
-                //spriteRenderer.flipX = false;
                 characterDir = 1;
                 characterDirection = Quaternion.Euler(0, 0, 0);
                 gameObject.transform.rotation = characterDirection;
@@ -139,7 +140,6 @@ public class Character_Controller : MonoBehaviour
                 
             if (inputHorizontalMovement < 0)
             {
-                //spriteRenderer.flipX = true;
                 characterDir = -1;
                 characterDirection = Quaternion.Euler(0, 180, 0);
                 gameObject.transform.rotation = characterDirection;
@@ -173,7 +173,6 @@ public class Character_Controller : MonoBehaviour
             //Deslizando
             if (isSliding)
             {
-                //spriteRenderer.flipX = true;
                 characterDir = 1;
                 characterDirection = Quaternion.Euler(0, 0, 0);
                 gameObject.transform.rotation = characterDirection;
@@ -210,7 +209,6 @@ public class Character_Controller : MonoBehaviour
             //Deslizando
             if (isSliding)
             {
-                //spriteRenderer.flipX = false;
                 characterDir = -1;
                 characterDirection = Quaternion.Euler(0, 180, 0);
                 gameObject.transform.rotation = characterDirection;
@@ -232,10 +230,9 @@ public class Character_Controller : MonoBehaviour
         //En el aire
         else
         {
-            //Voltear el sprite 
+            //Voltear el objeto 
             if (inputHorizontalMovement > 0)
             {
-                //spriteRenderer.flipX = false;
                 characterDir = 1;
                 characterDirection = Quaternion.Euler(0, 0, 0);
                 gameObject.transform.rotation = characterDirection;
@@ -327,7 +324,6 @@ public class Character_Controller : MonoBehaviour
                     {
                         isInWallLeft = false;
                         hspd = characterJumpSpeed * Mathf.Cos(Mathf.Deg2Rad * 60);
-                        //spriteRenderer.flipX = true;
                         characterDir = 1;
                         characterDirection = Quaternion.Euler(0, 0, 0);
                         gameObject.transform.rotation = characterDirection;
@@ -338,7 +334,6 @@ public class Character_Controller : MonoBehaviour
                     {
                         isInWallRight = false;
                         hspd = -characterJumpSpeed * Mathf.Cos(Mathf.Deg2Rad * 60);
-                        //spriteRenderer.flipX = false;
                         characterDir = -1;
                         characterDirection = Quaternion.Euler(0, 180, 0);
                         gameObject.transform.rotation = characterDirection;

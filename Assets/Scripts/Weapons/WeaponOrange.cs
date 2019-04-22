@@ -2,31 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponBottle : Weapons
+public class WeaponOrange : Weapons
 {
     /*
     public override void PickObject()
     {
         base.PickObject();
-        Debug.Log("Botella cogida");
+        Debug.Log("Mandarina cogida");
     }
 
     public override void UseObject()
     {
         base.UseObject();
-        Debug.Log("Botella usada");
+        Debug.Log("Mandarina usada");
     }
 
     public override void ThrowObject()
     {
         base.ThrowObject();
-        Debug.Log("Botella tirada");
+        Debug.Log("Mandarina tirada");
     }
 
     public override void CarryObject()
     {
         base.CarryObject();
-        Debug.Log("LLevando botella");
+        Debug.Log("LLevando Mandarina");
     }
     */
-} 
+}
