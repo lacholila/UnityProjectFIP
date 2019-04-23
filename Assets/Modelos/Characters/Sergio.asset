@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838a8d466cafa4c44ba1ca232bf55a50, type: 3}
+  m_Name: Sergio
+  m_EditorClassIdentifier: 
+  characterName: Sergio
+  characterAnimator: {fileID: 0}
+  characterSpeed: 6
+  characterJumpSpeed: 10
+  characterTotalJumps: 2
+  characterDashSpeed: 20
+  characterPunchImpulse: 10
+  charcaterPunchStunTime: 1
+  characterTotalHits: 3

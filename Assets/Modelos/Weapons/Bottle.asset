@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6fa984cd5e949499b788151243fb2e, type: 3}
+  m_Name: Bottle
+  m_EditorClassIdentifier: 
+  weaponName: Bottle
+  weaponSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  instantiateObject: {fileID: 1943951454023818, guid: 09532b4f623e15042b1cb3e91575569d,
+    type: 2}
