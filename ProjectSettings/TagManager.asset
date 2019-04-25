@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - Platform
   - Damage
+  - Explosion
   layers:
   - Default
   - TransparentFX

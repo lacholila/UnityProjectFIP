@@ -56,7 +56,7 @@ public class CharacterWeaponController : MonoBehaviour {
                         GameObject bottle = Instantiate(instantiateObject, transform.position + Vector3.up * 1.5f, transform.rotation) as GameObject;
                         Rigidbody2D bottlerb = bottle.GetComponent<Rigidbody2D>();
                         WeaponController bottlewc = bottle.GetComponent<WeaponController>();
-
+                        
                         bottlerb.AddForce(new Vector2(10f * characterController.characterDir, 5f), ForceMode2D.Impulse);
                         bottlerb.AddTorque(1f * characterController.characterDir, ForceMode2D.Impulse);
 

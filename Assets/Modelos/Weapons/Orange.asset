@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Orange
   m_EditorClassIdentifier: 
   weaponName: Orange
-  weaponSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  weaponSprite: {fileID: 21300000, guid: 030f06b00826d7c47b9a24798058d86e, type: 3}
   instantiateObject: {fileID: 1464552477993700, guid: 7726dd99f59fb444d84e2068ac5c5ce1,
     type: 2}
