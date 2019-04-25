@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class CharacterSpawnerController : MonoBehaviour {
 
-    public int playersNum;
+    private GameController gameController;
+    private int playersNum;
     public GameObject[] spawners;
-    public GameObject[] playerToSpawn;
 
+    public List<GameObject> playerToSpawn;
     public List<bool> selected;
 
     private void Awake()
     {
+        gameController = GetComponent<GameController>();
+
+        playersNum = gameController.characterIndex.Length;
+        playerToSpawn = gameController.SetPlayers();
+
         for (int i = 0; i < spawners.Length; i++)
         {
             selected.Add(false);
+            gameController.spawners.Add(spawners[i]);
         }
-
         
         if (playersNum <= spawners.Length)
         {
@@ -39,7 +45,9 @@ public class CharacterSpawnerController : MonoBehaviour {
             }
 
             selected[rnd] = true;
-            print("player " + i + ": Spawn: " + rnd);
+            print("Player " + i + ": Spawn: " + rnd);
+
+            Instantiate(playerToSpawn[i], spawners[rnd].transform.position, Quaternion.identity);
         }
     }
 }

@@ -13,6 +13,8 @@ public class WeaponController : MonoBehaviour
     private void Awake()
     {
         isItem = true;
+
+        Destroy(gameObject, 10f);
     }
 
     private void Update()
@@ -38,7 +40,10 @@ public class WeaponController : MonoBehaviour
         switch (weaponModel.weaponName)
         {
             case "Bottle":
-                
+                if (!isItem)
+                {
+                    Destroy(gameObject, 3f);
+                }
                 break;
 
             case "Orange":

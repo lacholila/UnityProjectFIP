@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class GameController {
+public class GameController : MonoBehaviour {
 
-    public static int playersNum;
-    public static GameObject[] charactersList;
+    public int[] characterIndex;
+    public GameObject[] charactersArray;
+    public GameObject[] itemsArray;
 
-    public static void SetPlayers()
+    public List<GameObject> spawners;
+    public List<GameObject> selectedCharacters;
+
+    public List<GameObject> SetPlayers()
     {
-        for (int i = 0; i < playersNum; i ++)
+        for (int i = 0; i < characterIndex.Length; i ++)
         {
-
+            selectedCharacters.Add(charactersArray[characterIndex[i]]);
         }
+
+        return selectedCharacters;
     }
 }

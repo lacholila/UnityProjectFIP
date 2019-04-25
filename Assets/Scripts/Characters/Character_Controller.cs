@@ -8,7 +8,9 @@ public class Character_Controller : MonoBehaviour
     #region ----------VARIABLES----------
 
     [SerializeField] private CharacterModel characterModel;
-    
+
+    public GameController gameController;
+
     public int playerIndex;
 
     private SpriteRenderer spriteRenderer;
@@ -42,6 +44,8 @@ public class Character_Controller : MonoBehaviour
     
     float inputHorizontalMovement;
     public bool inputJump, inputDash, inputPunch, inputUseWeapon, inputPickWeapon;
+
+    Vector3 initialPosition;
 
     #endregion
 
@@ -85,6 +89,8 @@ public class Character_Controller : MonoBehaviour
         canDash = true;
         canSlide = true;
         canPunch = true;
+
+        initialPosition = transform.position;
     }
 
     private void Update()
@@ -377,6 +383,23 @@ public class Character_Controller : MonoBehaviour
                 punchController.punchStunTime = characterPunchStunTime;
             }
         }
+    }
+
+    //Detectar golpe o caída
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Damage")
+        {
+            LoseLife();
+        }
+    }
+
+    //Quitar vida
+    public void LoseLife()
+    {
+        characterCurrentHits++;
+
+        transform.position = initialPosition;
     }
 
     //Desactivar el control del movimiento durante un tiempo
