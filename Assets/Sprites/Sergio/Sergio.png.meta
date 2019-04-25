@@ -1,31 +1,29 @@
 fileFormatVersion: 2
-guid: 8a2b06debc6f5aa46b428a558d8e5cb1
+guid: e9cd76d623e6edc4bbc0d11898ecb638
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sergio 1_0
-    21300002: Sergio 1_1
-    21300004: Sergio 1_2
-    21300006: Sergio 1_3
-    21300008: Sergio 1_4
-    21300010: Sergio 1_5
-    21300012: Sergio 1_6
-    21300014: Sergio 1_7
-    21300016: Sergio 1_8
-    21300018: Sergio 1_9
-    21300020: Sergio 1_10
-    21300022: Sergio 1_11
-    21300024: Sergio 1_12
-    21300026: Sergio 1_13
-    21300028: Sergio 1_14
-    21300030: Sergio 1_15
-    21300032: Sergio 1_16
-    21300034: Sergio 1_17
-    21300036: Sergio 1_18
-    21300038: Sergio 1_19
-    21300040: Sergio 1_20
-    21300042: Sergio 1_21
-    21300044: Sergio 1_22
-    21300046: Sergio 1_23
+    21300000: Sergio_0
+    21300002: Sergio_1
+    21300004: Sergio_2
+    21300006: Sergio_3
+    21300008: Sergio_4
+    21300010: Sergio_5
+    21300012: Sergio_6
+    21300014: Sergio_7
+    21300016: Sergio_8
+    21300018: Sergio_9
+    21300020: Sergio_10
+    21300022: Sergio_11
+    21300024: Sergio_12
+    21300026: Sergio_13
+    21300028: Sergio_14
+    21300030: Sergio_15
+    21300032: Sergio_16
+    21300034: Sergio_17
+    21300036: Sergio_18
+    21300038: Sergio_19
+    21300040: Sergio_20
+    21300042: Sergio_21
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -55,7 +53,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -69,7 +67,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,66 +102,11 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sergio 1_0
+      name: Sergio_0
       rect:
         serializedVersion: 2
         x: 0
@@ -177,13 +120,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e03a0b58c022f9468ebb5114f24dd71
+      spriteID: d00ee07bc6bfeea459cdd342efbeac76
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_1
+      name: Sergio_1
       rect:
         serializedVersion: 2
         x: 18
@@ -197,13 +140,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eba33d690e07a4a4892d0012d23147f1
+      spriteID: c694de7079b8f7747ba3d72e40d476a9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_2
+      name: Sergio_2
       rect:
         serializedVersion: 2
         x: 36
@@ -217,13 +160,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42db4e9264fb04441968a63ec329b76b
+      spriteID: 45e4bc5ed82a20645bd8f45879929c58
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_3
+      name: Sergio_3
       rect:
         serializedVersion: 2
         x: 54
@@ -237,13 +180,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 018193065fc70ec42ba2eb3f493b6c6a
+      spriteID: c76e3d57e2670b640920ce2c36b4e515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_4
+      name: Sergio_4
       rect:
         serializedVersion: 2
         x: 72
@@ -257,13 +200,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8deb575dab36a1b4e829ae3e4ef23b57
+      spriteID: c1e99a20ac3f3ea4d9c5aa055c3d5cc6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_5
+      name: Sergio_5
       rect:
         serializedVersion: 2
         x: 0
@@ -277,13 +220,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47e105acb700f3f4897bdfee26fe8c27
+      spriteID: 1fd1fb6ba3b189b48ba88bb2f726df40
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_6
+      name: Sergio_6
       rect:
         serializedVersion: 2
         x: 18
@@ -297,13 +240,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 810b4abf4bd413c41b40ab1cd6719c07
+      spriteID: ea2e7d78f30aede47a2b71bc97bc168f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_7
+      name: Sergio_7
       rect:
         serializedVersion: 2
         x: 36
@@ -317,13 +260,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 313235544f05c3c4d96ac7d6ba1c3b91
+      spriteID: d9a27516666ac6b4da89df9d462df403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_8
+      name: Sergio_8
       rect:
         serializedVersion: 2
         x: 54
@@ -337,13 +280,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be6ac561c169a6046af5c20975cc13af
+      spriteID: bde2a08013fbb884c9d1c99718713ddf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_9
+      name: Sergio_9
       rect:
         serializedVersion: 2
         x: 72
@@ -357,13 +300,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6690f1d5e9d88b34eae5ba2cb58ca235
+      spriteID: 4b36b59b4ab7d5a4ebd94da64093360e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_10
+      name: Sergio_10
       rect:
         serializedVersion: 2
         x: 0
@@ -377,13 +320,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb6edf3e9caa05f46a5b5389ceb5a130
+      spriteID: 5bdde0b52969e0743b66ace8407651b4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_11
+      name: Sergio_11
       rect:
         serializedVersion: 2
         x: 18
@@ -397,13 +340,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e786fcc7a5c7ce347aeb6a27e24efaf6
+      spriteID: 7b94466e7dae8c7428a477a3e7e982f8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_12
+      name: Sergio_12
       rect:
         serializedVersion: 2
         x: 36
@@ -417,13 +360,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7b33323fa91a544d9ba5f009c2d441c
+      spriteID: 0cef5e990d6f6e54cb06c6b17a28f2b4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_13
+      name: Sergio_13
       rect:
         serializedVersion: 2
         x: 54
@@ -437,13 +380,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cf0253ac11db3842b43f57b27c4ad59
+      spriteID: 94ca6884b1d5be94f964c037a6d84d8b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_14
+      name: Sergio_14
       rect:
         serializedVersion: 2
         x: 72
@@ -457,13 +400,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac15f9795287bd34ebd3146c1b869466
+      spriteID: 0c5f27537c02d81499a312cd4bde7053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_15
+      name: Sergio_15
       rect:
         serializedVersion: 2
         x: 0
@@ -477,13 +420,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2071d9cb6fddcf245874f1f5c944a64c
+      spriteID: 192271e77a792ed45ae8d154c03f32cd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_16
+      name: Sergio_16
       rect:
         serializedVersion: 2
         x: 18
@@ -497,13 +440,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec6e65ce4e5c81943b9e208f6daf1bc7
+      spriteID: b5a7f4f2f602ce54fad061f32b8b7ad1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_17
+      name: Sergio_17
       rect:
         serializedVersion: 2
         x: 36
@@ -517,13 +460,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 599ac19cf23fa4d488385fbd5b2ee868
+      spriteID: fee1e4cb6f6a9eb408ae4d508988fc57
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_18
+      name: Sergio_18
       rect:
         serializedVersion: 2
         x: 54
@@ -537,13 +480,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a147aca450166194b8ee911fde96092e
+      spriteID: 7f976a904eaaea344a90e7e8d18d0d05
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_19
+      name: Sergio_19
       rect:
         serializedVersion: 2
         x: 72
@@ -557,13 +500,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72fffc7e753f97b4280e7d4ef3dfde26
+      spriteID: c9f354dc121a15146be76214f49033e2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_20
+      name: Sergio_20
       rect:
         serializedVersion: 2
         x: 0
@@ -577,13 +520,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c4ba2a160360f041a88930d30fd4b66
+      spriteID: 2018c0cb2265cf04f96cde7bae20f3b8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio 1_21
+      name: Sergio_21
       rect:
         serializedVersion: 2
         x: 18
@@ -597,47 +540,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 757692f002dd3344188d22e7521d5183
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sergio 1_22
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 0
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cef0b2afa35dd14d9fce8b7c8694b56
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sergio 1_23
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 0
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7105605eb738d748b6d9dee4f170432
+      spriteID: b616a5864acf14549a07046fe8368fde
       vertices: []
       indices: 
       edges: []
@@ -645,7 +548,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 133b66795c3cf374d9a38e6588fc55c3
     vertices: []
     indices: 
     edges: []
