@@ -10,8 +10,8 @@ public class CharacterSpawnerController : MonoBehaviour {
     public GameObject[] spawners;
 
     public int[] playerIndexArray;
-    private List<GameObject> playerToSpawn = new List<GameObject>();
-    private List<bool> selected = new List<bool>();
+    public List<GameObject> playerToSpawn;
+    public List<bool> selected;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class CharacterSpawnerController : MonoBehaviour {
         }
     }
 
-    private void SetPlayers()
+    public void SetPlayers()
     {
         for (int i = 0; i < playerIndexArray.Length; i++)
         {
