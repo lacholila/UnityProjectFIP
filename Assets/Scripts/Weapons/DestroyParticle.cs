@@ -8,6 +8,6 @@ public class DestroyParticle : MonoBehaviour {
 
 	void Start ()
     {
-        Destroy(gameObject, timeToDestroy);	
+        //Destroy(gameObject, timeToDestroy);	
 	}
 }

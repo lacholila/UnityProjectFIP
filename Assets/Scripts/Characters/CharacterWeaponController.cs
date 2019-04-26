@@ -67,7 +67,7 @@ public class CharacterWeaponController : MonoBehaviour {
                         WeaponController bottlewc = bottle.GetComponent<WeaponController>();
                         
                         bottlerb.AddForce(new Vector2(10f * characterController.characterDir, 5f), ForceMode2D.Impulse);
-                        bottlerb.AddTorque(Random.Range(0.1f, 1f) * characterController.characterDir, ForceMode2D.Impulse);
+                        //bottlerb.AddTorque(Random.Range(0.1f, 1f) * characterController.characterDir, ForceMode2D.Impulse);
 
                         bottlewc.isItem = false;
                         bottlewc.itemIndex = characterController.playerIndex;

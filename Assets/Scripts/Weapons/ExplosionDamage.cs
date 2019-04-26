@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionDMG : MonoBehaviour {
+public class ExplosionDamage : MonoBehaviour {
 
     private void Start()
     {
-        Destroy(gameObject, 0.1f);
+        //Destroy(gameObject, 0.1f);
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")

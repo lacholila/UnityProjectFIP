@@ -1,29 +1,29 @@
 fileFormatVersion: 2
-guid: e9cd76d623e6edc4bbc0d11898ecb638
+guid: 80eaf35aaea00c547beeb6c0dd3747dd
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sergio_0
-    21300002: Sergio_1
-    21300004: Sergio_2
-    21300006: Sergio_3
-    21300008: Sergio_4
-    21300010: Sergio_5
-    21300012: Sergio_6
-    21300014: Sergio_7
-    21300016: Sergio_8
-    21300018: Sergio_9
-    21300020: Sergio_10
-    21300022: Sergio_11
-    21300024: Sergio_12
-    21300026: Sergio_13
-    21300028: Sergio_14
-    21300030: Sergio_15
-    21300032: Sergio_16
-    21300034: Sergio_17
-    21300036: Sergio_18
-    21300038: Sergio_19
-    21300040: Sergio_20
-    21300042: Sergio_21
+    21300000: Xavi_0
+    21300002: Xavi_1
+    21300004: Xavi_2
+    21300006: Xavi_3
+    21300008: Xavi_4
+    21300010: Xavi_5
+    21300012: Xavi_6
+    21300014: Xavi_7
+    21300016: Xavi_8
+    21300018: Xavi_9
+    21300020: Xavi_10
+    21300022: Xavi_11
+    21300024: Xavi_12
+    21300026: Xavi_13
+    21300028: Xavi_14
+    21300030: Xavi_15
+    21300032: Xavi_16
+    21300034: Xavi_17
+    21300036: Xavi_18
+    21300038: Xavi_19
+    21300040: Xavi_20
+    21300042: Xavi_21
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -114,17 +114,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: Android
     maxTextureSize: 128
     resizeAlgorithm: 0
@@ -135,33 +124,11 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sergio_0
+      name: Xavi_0
       rect:
         serializedVersion: 2
         x: 0
@@ -175,13 +142,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d00ee07bc6bfeea459cdd342efbeac76
+      spriteID: f75cbe8a9e4e3ba4f926f71cbacb08f0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_1
+      name: Xavi_1
       rect:
         serializedVersion: 2
         x: 18
@@ -195,13 +162,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c694de7079b8f7747ba3d72e40d476a9
+      spriteID: ba7e0aa4609485e488d06c0cc19c5aba
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_2
+      name: Xavi_2
       rect:
         serializedVersion: 2
         x: 36
@@ -215,13 +182,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e4bc5ed82a20645bd8f45879929c58
+      spriteID: faba1f405f42cfc43a26e2a293564adb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_3
+      name: Xavi_3
       rect:
         serializedVersion: 2
         x: 54
@@ -235,13 +202,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c76e3d57e2670b640920ce2c36b4e515
+      spriteID: 12c4dad9a122ad24eb1bf5c7c3b2a27f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_4
+      name: Xavi_4
       rect:
         serializedVersion: 2
         x: 72
@@ -255,13 +222,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1e99a20ac3f3ea4d9c5aa055c3d5cc6
+      spriteID: 54d4467c57297b748abefda1b3ac4d7a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_5
+      name: Xavi_5
       rect:
         serializedVersion: 2
         x: 0
@@ -275,13 +242,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fd1fb6ba3b189b48ba88bb2f726df40
+      spriteID: 27fb9cd8b7d85ad49b73890d01c3c47f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_6
+      name: Xavi_6
       rect:
         serializedVersion: 2
         x: 18
@@ -295,13 +262,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea2e7d78f30aede47a2b71bc97bc168f
+      spriteID: 03efdd5623d27d144a20ae28ce090dbf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_7
+      name: Xavi_7
       rect:
         serializedVersion: 2
         x: 36
@@ -315,13 +282,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9a27516666ac6b4da89df9d462df403
+      spriteID: 1ef1fe86e9d5c4f49afdee32e460ecdb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_8
+      name: Xavi_8
       rect:
         serializedVersion: 2
         x: 54
@@ -335,13 +302,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bde2a08013fbb884c9d1c99718713ddf
+      spriteID: 821204ea49b2ec245b5d6d70a29b2e32
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_9
+      name: Xavi_9
       rect:
         serializedVersion: 2
         x: 72
@@ -355,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b36b59b4ab7d5a4ebd94da64093360e
+      spriteID: 7b035914ee8cba2429738d94e4950c8e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_10
+      name: Xavi_10
       rect:
         serializedVersion: 2
         x: 0
@@ -375,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bdde0b52969e0743b66ace8407651b4
+      spriteID: cebb8f2c7567892488de6593a2b92cab
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_11
+      name: Xavi_11
       rect:
         serializedVersion: 2
         x: 18
@@ -395,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b94466e7dae8c7428a477a3e7e982f8
+      spriteID: ae2d9b075436f4d4e9d069019b71f8ec
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_12
+      name: Xavi_12
       rect:
         serializedVersion: 2
         x: 36
@@ -415,13 +382,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cef5e990d6f6e54cb06c6b17a28f2b4
+      spriteID: 57aafad9269d5eb4a867c4815b329fd1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_13
+      name: Xavi_13
       rect:
         serializedVersion: 2
         x: 54
@@ -435,13 +402,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94ca6884b1d5be94f964c037a6d84d8b
+      spriteID: 78aeac056d1b2a44d92050f1cd99270d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_14
+      name: Xavi_14
       rect:
         serializedVersion: 2
         x: 72
@@ -455,13 +422,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c5f27537c02d81499a312cd4bde7053
+      spriteID: 57062ff03814f114b8dfdf205dace5c7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_15
+      name: Xavi_15
       rect:
         serializedVersion: 2
         x: 0
@@ -475,13 +442,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 192271e77a792ed45ae8d154c03f32cd
+      spriteID: 6fc69efbb43382d4abf312dffd162126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_16
+      name: Xavi_16
       rect:
         serializedVersion: 2
         x: 18
@@ -495,13 +462,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a7f4f2f602ce54fad061f32b8b7ad1
+      spriteID: 109c9500dd29c8448810cac49bcd3d0c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_17
+      name: Xavi_17
       rect:
         serializedVersion: 2
         x: 36
@@ -515,13 +482,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fee1e4cb6f6a9eb408ae4d508988fc57
+      spriteID: c6ccb8fd6f864ec4cb6a89f47561a8f2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_18
+      name: Xavi_18
       rect:
         serializedVersion: 2
         x: 54
@@ -535,13 +502,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f976a904eaaea344a90e7e8d18d0d05
+      spriteID: 98cd1c6aa6c0cee4a823e3ddd6825af2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_19
+      name: Xavi_19
       rect:
         serializedVersion: 2
         x: 72
@@ -555,13 +522,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9f354dc121a15146be76214f49033e2
+      spriteID: ea5a741bf433cf243b28cbb1d311040a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_20
+      name: Xavi_20
       rect:
         serializedVersion: 2
         x: 0
@@ -575,13 +542,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2018c0cb2265cf04f96cde7bae20f3b8
+      spriteID: 0a8f707ac38c0fb4980b9928380ea76a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_21
+      name: Xavi_21
       rect:
         serializedVersion: 2
         x: 18
@@ -595,7 +562,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b616a5864acf14549a07046fe8368fde
+      spriteID: a91510a39ee80d64dbe7e018617e444b
       vertices: []
       indices: 
       edges: []
@@ -603,7 +570,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 133b66795c3cf374d9a38e6588fc55c3
+    spriteID: 63ac613d4e5f5404bba50d98bf46b5f7
     vertices: []
     indices: 
     edges: []

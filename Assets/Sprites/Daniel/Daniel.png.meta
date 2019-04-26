@@ -1,29 +1,29 @@
 fileFormatVersion: 2
-guid: e9cd76d623e6edc4bbc0d11898ecb638
+guid: 22e4ef2d1448bee4ebe7b954414a7cc0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sergio_0
-    21300002: Sergio_1
-    21300004: Sergio_2
-    21300006: Sergio_3
-    21300008: Sergio_4
-    21300010: Sergio_5
-    21300012: Sergio_6
-    21300014: Sergio_7
-    21300016: Sergio_8
-    21300018: Sergio_9
-    21300020: Sergio_10
-    21300022: Sergio_11
-    21300024: Sergio_12
-    21300026: Sergio_13
-    21300028: Sergio_14
-    21300030: Sergio_15
-    21300032: Sergio_16
-    21300034: Sergio_17
-    21300036: Sergio_18
-    21300038: Sergio_19
-    21300040: Sergio_20
-    21300042: Sergio_21
+    21300000: Daniel_0
+    21300002: Daniel_1
+    21300004: Daniel_2
+    21300006: Daniel_3
+    21300008: Daniel_4
+    21300010: Daniel_5
+    21300012: Daniel_6
+    21300014: Daniel_7
+    21300016: Daniel_8
+    21300018: Daniel_9
+    21300020: Daniel_10
+    21300022: Daniel_11
+    21300024: Daniel_12
+    21300026: Daniel_13
+    21300028: Daniel_14
+    21300030: Daniel_15
+    21300032: Daniel_16
+    21300034: Daniel_17
+    21300036: Daniel_18
+    21300038: Daniel_19
+    21300040: Daniel_20
+    21300042: Daniel_21
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -114,17 +114,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: Android
     maxTextureSize: 128
     resizeAlgorithm: 0
@@ -135,33 +124,11 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sergio_0
+      name: Daniel_0
       rect:
         serializedVersion: 2
         x: 0
@@ -175,13 +142,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d00ee07bc6bfeea459cdd342efbeac76
+      spriteID: 847e07eabfe91f844862350bb3dc8714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_1
+      name: Daniel_1
       rect:
         serializedVersion: 2
         x: 18
@@ -195,13 +162,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c694de7079b8f7747ba3d72e40d476a9
+      spriteID: dd470c3482b173a4aaabae66730f2198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_2
+      name: Daniel_2
       rect:
         serializedVersion: 2
         x: 36
@@ -215,13 +182,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e4bc5ed82a20645bd8f45879929c58
+      spriteID: eca1cd187c5e67848b9f5598be7b7616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_3
+      name: Daniel_3
       rect:
         serializedVersion: 2
         x: 54
@@ -235,13 +202,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c76e3d57e2670b640920ce2c36b4e515
+      spriteID: 58cd2d5f2d15d3c478d660f43593a13c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_4
+      name: Daniel_4
       rect:
         serializedVersion: 2
         x: 72
@@ -255,13 +222,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1e99a20ac3f3ea4d9c5aa055c3d5cc6
+      spriteID: aad4afe0253bc444ab6c01b227ee58af
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_5
+      name: Daniel_5
       rect:
         serializedVersion: 2
         x: 0
@@ -275,13 +242,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fd1fb6ba3b189b48ba88bb2f726df40
+      spriteID: a587cb81e4d5d87409a984af2a2d6129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_6
+      name: Daniel_6
       rect:
         serializedVersion: 2
         x: 18
@@ -295,13 +262,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea2e7d78f30aede47a2b71bc97bc168f
+      spriteID: d7b8f45abdcdf464e9641d5613be49e8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_7
+      name: Daniel_7
       rect:
         serializedVersion: 2
         x: 36
@@ -315,13 +282,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9a27516666ac6b4da89df9d462df403
+      spriteID: ffb38de16575d374e8f3849fd534168b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_8
+      name: Daniel_8
       rect:
         serializedVersion: 2
         x: 54
@@ -335,13 +302,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bde2a08013fbb884c9d1c99718713ddf
+      spriteID: 19bbcec23d5fff84bbca7e8d95987798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_9
+      name: Daniel_9
       rect:
         serializedVersion: 2
         x: 72
@@ -355,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b36b59b4ab7d5a4ebd94da64093360e
+      spriteID: 862b3342374935f4286cb1b6fe1accbe
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_10
+      name: Daniel_10
       rect:
         serializedVersion: 2
         x: 0
@@ -375,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bdde0b52969e0743b66ace8407651b4
+      spriteID: 4871457a019cd3d4a9f7e752dfb308ad
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_11
+      name: Daniel_11
       rect:
         serializedVersion: 2
         x: 18
@@ -395,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b94466e7dae8c7428a477a3e7e982f8
+      spriteID: 7dbc9ab8ba5756844b3d5fd46d867648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_12
+      name: Daniel_12
       rect:
         serializedVersion: 2
         x: 36
@@ -415,13 +382,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cef5e990d6f6e54cb06c6b17a28f2b4
+      spriteID: 9e42aa2f583f0534785cc5baa98b9c90
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_13
+      name: Daniel_13
       rect:
         serializedVersion: 2
         x: 54
@@ -435,13 +402,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94ca6884b1d5be94f964c037a6d84d8b
+      spriteID: c2fb2d95b2ebf8043bdb2b57c306c2bc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_14
+      name: Daniel_14
       rect:
         serializedVersion: 2
         x: 72
@@ -455,13 +422,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c5f27537c02d81499a312cd4bde7053
+      spriteID: aa6bf4fbcf7375d4587b92d85282e5f8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_15
+      name: Daniel_15
       rect:
         serializedVersion: 2
         x: 0
@@ -475,13 +442,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 192271e77a792ed45ae8d154c03f32cd
+      spriteID: c68d770d4151fd74f92c2da7741b227a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_16
+      name: Daniel_16
       rect:
         serializedVersion: 2
         x: 18
@@ -495,13 +462,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a7f4f2f602ce54fad061f32b8b7ad1
+      spriteID: 4968d4d44a3f0fb428176e3ab52dc3c7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_17
+      name: Daniel_17
       rect:
         serializedVersion: 2
         x: 36
@@ -515,13 +482,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fee1e4cb6f6a9eb408ae4d508988fc57
+      spriteID: 453f6cba4109a21429cb5e252058362b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_18
+      name: Daniel_18
       rect:
         serializedVersion: 2
         x: 54
@@ -535,13 +502,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f976a904eaaea344a90e7e8d18d0d05
+      spriteID: cc991aa814ccfb24e9088ffa44d687b3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_19
+      name: Daniel_19
       rect:
         serializedVersion: 2
         x: 72
@@ -555,13 +522,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9f354dc121a15146be76214f49033e2
+      spriteID: 6add4791f35681c4d9c4feb590b6af1e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_20
+      name: Daniel_20
       rect:
         serializedVersion: 2
         x: 0
@@ -575,13 +542,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2018c0cb2265cf04f96cde7bae20f3b8
+      spriteID: 85284b80d9beaef4eb99dccee912ada1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_21
+      name: Daniel_21
       rect:
         serializedVersion: 2
         x: 18
@@ -595,7 +562,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b616a5864acf14549a07046fe8368fde
+      spriteID: 314e4aad09f10874ab4b1822964b4b8c
       vertices: []
       indices: 
       edges: []
@@ -603,7 +570,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 133b66795c3cf374d9a38e6588fc55c3
+    spriteID: 70dc061d6e0459e44b2dd79c7ac77cb9
     vertices: []
     indices: 
     edges: []

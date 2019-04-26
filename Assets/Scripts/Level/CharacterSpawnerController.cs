@@ -3,39 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterSpawnerController : MonoBehaviour {
-
-    private GameController gameController;
-        
+            
     public GameObject[] charactersArray;
     public GameObject[] spawners;
 
-    public int[] playerIndexArray;
-    public List<GameObject> playerToSpawn;
-    public List<bool> selected;
+    private List<int> playerIndexArray = new List<int>();
+    private List<GameObject> playerToSpawn = new List<GameObject>();
+    private List<bool> selected = new List<bool>();
 
     private void Awake()
     {
-        gameController = GetComponent<GameController>();
-        playerIndexArray = gameController.playerIndexArray;
+        playerIndexArray = GameController.playerIndexList;
+
+        selected.Clear();
 
         for (int i = 0; i < spawners.Length; i++)
         {
             selected.Add(false);
         }
         
-        if (playerIndexArray.Length <= spawners.Length)
+        if (playerIndexArray.Count <= spawners.Length)
         {
             SetPlayers();
         }
         else
         {
-            print("Hola, soy un print que evita un loop infinito :D");
+            Debug.LogError("Illo, ¿ereh tonto? El número de players ha de ser igual o menor al número de spawners");
         }
     }
 
     public void SetPlayers()
     {
-        for (int i = 0; i < playerIndexArray.Length; i++)
+        GameController.charactersNameList.Clear();
+        playerToSpawn.Clear();
+
+        for (int i = 0; i < playerIndexArray.Count; i++)
         {
             playerToSpawn.Add(charactersArray[playerIndexArray[i]]);
 
@@ -50,7 +52,16 @@ public class CharacterSpawnerController : MonoBehaviour {
 
             GameObject player = Instantiate(playerToSpawn[i], spawners[rnd].transform.position, Quaternion.identity) as GameObject;
             Character_Controller characterController = player.GetComponent<Character_Controller>();
+            CharacterModel characterModel = characterController.characterModel;
+
             characterController.playerIndex = i + 1;
+
+            
+            
+
+            GameController.charactersNameList.Add(characterModel.characterName);
+            GameController.characterIconList.Add(characterModel.characterIcon);
+            GameController.charactersColorList.Add(characterModel.characterColor);
         }
     }
 }

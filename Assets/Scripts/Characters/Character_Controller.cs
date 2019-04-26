@@ -7,10 +7,8 @@ public class Character_Controller : MonoBehaviour
 
     #region ----------VARIABLES----------
 
-    [SerializeField] private CharacterModel characterModel;
-
-    public GameController gameController;
-
+    public CharacterModel characterModel;
+    
     public int playerIndex;
 
     private SpriteRenderer spriteRenderer;

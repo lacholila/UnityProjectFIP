@@ -1,29 +1,29 @@
 fileFormatVersion: 2
-guid: e9cd76d623e6edc4bbc0d11898ecb638
+guid: 8781d6ce030b51f4ca784a8da429cf95
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sergio_0
-    21300002: Sergio_1
-    21300004: Sergio_2
-    21300006: Sergio_3
-    21300008: Sergio_4
-    21300010: Sergio_5
-    21300012: Sergio_6
-    21300014: Sergio_7
-    21300016: Sergio_8
-    21300018: Sergio_9
-    21300020: Sergio_10
-    21300022: Sergio_11
-    21300024: Sergio_12
-    21300026: Sergio_13
-    21300028: Sergio_14
-    21300030: Sergio_15
-    21300032: Sergio_16
-    21300034: Sergio_17
-    21300036: Sergio_18
-    21300038: Sergio_19
-    21300040: Sergio_20
-    21300042: Sergio_21
+    21300000: Adri_0
+    21300002: Adri_1
+    21300004: Adri_2
+    21300006: Adri_3
+    21300008: Adri_4
+    21300010: Adri_5
+    21300012: Adri_6
+    21300014: Adri_7
+    21300016: Adri_8
+    21300018: Adri_9
+    21300020: Adri_10
+    21300022: Adri_11
+    21300024: Adri_12
+    21300026: Adri_13
+    21300028: Adri_14
+    21300030: Adri_15
+    21300032: Adri_16
+    21300034: Adri_17
+    21300036: Adri_18
+    21300038: Adri_19
+    21300040: Adri_20
+    21300042: Adri_21
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -114,17 +114,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: Android
     maxTextureSize: 128
     resizeAlgorithm: 0
@@ -135,33 +124,11 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sergio_0
+      name: Adri_0
       rect:
         serializedVersion: 2
         x: 0
@@ -175,13 +142,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d00ee07bc6bfeea459cdd342efbeac76
+      spriteID: f54a1343884bdc94bbebb9723ea24140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_1
+      name: Adri_1
       rect:
         serializedVersion: 2
         x: 18
@@ -195,13 +162,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c694de7079b8f7747ba3d72e40d476a9
+      spriteID: b9a4587ed5e691b44a8b4c009b5068b7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_2
+      name: Adri_2
       rect:
         serializedVersion: 2
         x: 36
@@ -215,13 +182,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e4bc5ed82a20645bd8f45879929c58
+      spriteID: 4e5f1234b95370b4cb2a63829f673fb4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_3
+      name: Adri_3
       rect:
         serializedVersion: 2
         x: 54
@@ -235,13 +202,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c76e3d57e2670b640920ce2c36b4e515
+      spriteID: 160b2c3aad639084abcdefef4eef0216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_4
+      name: Adri_4
       rect:
         serializedVersion: 2
         x: 72
@@ -255,13 +222,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1e99a20ac3f3ea4d9c5aa055c3d5cc6
+      spriteID: ccbd8e4075c07da4aa767800126fcb8a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_5
+      name: Adri_5
       rect:
         serializedVersion: 2
         x: 0
@@ -275,13 +242,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fd1fb6ba3b189b48ba88bb2f726df40
+      spriteID: b4fc0c268a947b6479bcc43f1be3125f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_6
+      name: Adri_6
       rect:
         serializedVersion: 2
         x: 18
@@ -295,13 +262,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea2e7d78f30aede47a2b71bc97bc168f
+      spriteID: 29ad2c5c67e098942b61d0f8510ecf35
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_7
+      name: Adri_7
       rect:
         serializedVersion: 2
         x: 36
@@ -315,13 +282,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9a27516666ac6b4da89df9d462df403
+      spriteID: 102456fd387663f4c949dcae3d64ab84
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_8
+      name: Adri_8
       rect:
         serializedVersion: 2
         x: 54
@@ -335,13 +302,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bde2a08013fbb884c9d1c99718713ddf
+      spriteID: afc50c96eb3cd7644b003bc2a16dda60
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_9
+      name: Adri_9
       rect:
         serializedVersion: 2
         x: 72
@@ -355,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b36b59b4ab7d5a4ebd94da64093360e
+      spriteID: e1f235ac3f2fa5246ba13da81905f40d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_10
+      name: Adri_10
       rect:
         serializedVersion: 2
         x: 0
@@ -375,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bdde0b52969e0743b66ace8407651b4
+      spriteID: 88e9ad9382d5b6b45a4e473f16159b65
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_11
+      name: Adri_11
       rect:
         serializedVersion: 2
         x: 18
@@ -395,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b94466e7dae8c7428a477a3e7e982f8
+      spriteID: 1f957fc56fb00fe4d9c67f6118493ec5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_12
+      name: Adri_12
       rect:
         serializedVersion: 2
         x: 36
@@ -415,13 +382,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cef5e990d6f6e54cb06c6b17a28f2b4
+      spriteID: 49d61635de5932b458cc786b93860fe9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_13
+      name: Adri_13
       rect:
         serializedVersion: 2
         x: 54
@@ -435,13 +402,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94ca6884b1d5be94f964c037a6d84d8b
+      spriteID: 6aa832ce6b84a624fb0207ac789d7b2f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_14
+      name: Adri_14
       rect:
         serializedVersion: 2
         x: 72
@@ -455,13 +422,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c5f27537c02d81499a312cd4bde7053
+      spriteID: d21299376fe4dc34b83105178fd8d3da
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_15
+      name: Adri_15
       rect:
         serializedVersion: 2
         x: 0
@@ -475,13 +442,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 192271e77a792ed45ae8d154c03f32cd
+      spriteID: 515b1f75486782146b6d337c4769739b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_16
+      name: Adri_16
       rect:
         serializedVersion: 2
         x: 18
@@ -495,13 +462,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a7f4f2f602ce54fad061f32b8b7ad1
+      spriteID: df4e4dfc501ce66499ba1a891deba51b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_17
+      name: Adri_17
       rect:
         serializedVersion: 2
         x: 36
@@ -515,13 +482,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fee1e4cb6f6a9eb408ae4d508988fc57
+      spriteID: 4d3c183b2f7760242952f42788a45c2d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_18
+      name: Adri_18
       rect:
         serializedVersion: 2
         x: 54
@@ -535,13 +502,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f976a904eaaea344a90e7e8d18d0d05
+      spriteID: 68bd4c3f82dd8974e9cac6cfc4e67766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_19
+      name: Adri_19
       rect:
         serializedVersion: 2
         x: 72
@@ -555,13 +522,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9f354dc121a15146be76214f49033e2
+      spriteID: 14872b2cc472d5549adb8c7676cb2ccd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_20
+      name: Adri_20
       rect:
         serializedVersion: 2
         x: 0
@@ -575,13 +542,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2018c0cb2265cf04f96cde7bae20f3b8
+      spriteID: 9d80bc6be19880c449c8fc5e8c00ed14
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sergio_21
+      name: Adri_21
       rect:
         serializedVersion: 2
         x: 18
@@ -595,7 +562,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b616a5864acf14549a07046fe8368fde
+      spriteID: 1caff454a8fc2b84fb7120139cb225f5
       vertices: []
       indices: 
       edges: []
@@ -603,7 +570,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 133b66795c3cf374d9a38e6588fc55c3
+    spriteID: 27bb7462c24c20b47ad5ea4300baeb89
     vertices: []
     indices: 
     edges: []

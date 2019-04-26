@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
 
     public int itemIndex;
 
-    public GameObject expArea, partBotella;
+    public GameObject bottleExplosion, bottleParticles;
 
     private void Awake()
     {
@@ -27,10 +27,12 @@ public class WeaponController : MonoBehaviour
                 if (!isItem && GetComponent<Rigidbody2D>().velocity.magnitude == 0 && ((Mathf.Abs(transform.localRotation.eulerAngles.z - 180) < 1f) || (Mathf.Abs(transform.localRotation.eulerAngles.z - 360) < 1f) || (Mathf.Abs(transform.localRotation.eulerAngles.z) < 1f)))
                 {
                     //ecsplozion
-                    Instantiate(expArea, transform.position, Quaternion.identity);
-                    Instantiate(partBotella, transform.position, Quaternion.identity);
+                    GameObject bottleExp = Instantiate(bottleExplosion, transform.position, Quaternion.identity) as GameObject;
+                    GameObject bottlePart = Instantiate(bottleParticles, transform.position, Quaternion.identity) as GameObject;
+
                     Destroy(gameObject);
-                    print("ameisin borel flep");
+                    Destroy(bottleExp, 0.1f);
+                    Destroy(bottlePart, 1f);
                 }
                 break;
 
@@ -54,7 +56,6 @@ public class WeaponController : MonoBehaviour
             case "Orange":
                 if (!isItem)
                 {
-
                     Destroy(gameObject);
                 }
                 break;
