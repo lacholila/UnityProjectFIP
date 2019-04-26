@@ -4,20 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-    public int[] characterIndex;
-    public GameObject[] charactersArray;
-    public GameObject[] itemsArray;
+    public int[] playerIndexArray;
+    public Color[] charactersColorArray;
 
-    public List<GameObject> spawners;
-    public List<GameObject> selectedCharacters;
-
-    public List<GameObject> SetPlayers()
-    {
-        for (int i = 0; i < characterIndex.Length; i ++)
-        {
-            selectedCharacters.Add(charactersArray[characterIndex[i]]);
-        }
-
-        return selectedCharacters;
-    }
 }

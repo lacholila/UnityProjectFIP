@@ -5,28 +5,27 @@ using UnityEngine;
 public class CharacterSpawnerController : MonoBehaviour {
 
     private GameController gameController;
-    private int playersNum;
+        
+    public GameObject[] charactersArray;
     public GameObject[] spawners;
 
+    public int[] playerIndexArray;
     public List<GameObject> playerToSpawn;
     public List<bool> selected;
 
     private void Awake()
     {
         gameController = GetComponent<GameController>();
-
-        playersNum = gameController.characterIndex.Length;
-        playerToSpawn = gameController.SetPlayers();
+        playerIndexArray = gameController.playerIndexArray;
 
         for (int i = 0; i < spawners.Length; i++)
         {
             selected.Add(false);
-            gameController.spawners.Add(spawners[i]);
         }
         
-        if (playersNum <= spawners.Length)
+        if (playerIndexArray.Length <= spawners.Length)
         {
-            SetSpawns();
+            SetPlayers();
         }
         else
         {
@@ -34,12 +33,14 @@ public class CharacterSpawnerController : MonoBehaviour {
         }
     }
 
-    public void SetSpawns()
+    public void SetPlayers()
     {
-        for(int i = 0; i < playersNum; i++)
+        for (int i = 0; i < playerIndexArray.Length; i++)
         {
+            playerToSpawn.Add(charactersArray[playerIndexArray[i]]);
+
             int rnd = Random.Range(0, spawners.Length);
-            while(selected[rnd] == true)
+            while (selected[rnd] == true)
             {
                 rnd = Random.Range(0, spawners.Length);
             }
@@ -47,7 +48,9 @@ public class CharacterSpawnerController : MonoBehaviour {
             selected[rnd] = true;
             print("Player " + i + ": Spawn: " + rnd);
 
-            Instantiate(playerToSpawn[i], spawners[rnd].transform.position, Quaternion.identity);
+            GameObject player = Instantiate(playerToSpawn[i], spawners[rnd].transform.position, Quaternion.identity) as GameObject;
+            Character_Controller characterController = player.GetComponent<Character_Controller>();
+            characterController.playerIndex = i + 1;
         }
     }
 }

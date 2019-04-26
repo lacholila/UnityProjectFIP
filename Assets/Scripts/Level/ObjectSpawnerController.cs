@@ -5,8 +5,9 @@ using UnityEngine;
 public class ObjectSpawnerController : MonoBehaviour {
 
     private GameController gameController;
-    public GameObject[] spawners;
+
     public GameObject[] itemsToSpawn;
+    public GameObject[] spawners;
         
     private void Awake()
     {
