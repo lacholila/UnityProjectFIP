@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50115534570076860}
   - component: {fileID: 70821270656642042}
   - component: {fileID: 95767155771989502}
-  - component: {fileID: 114502354559153816}
+  - component: {fileID: 114685078670781540}
   - component: {fileID: 114309154087489882}
   m_Layer: 9
   m_Name: Sergio
@@ -160,7 +160,7 @@ MonoBehaviour:
   weaponName: 
   weaponSprite: {fileID: 0}
   instantiateObject: {fileID: 0}
---- !u!114 &114502354559153816
+--- !u!114 &114685078670781540
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,11 +168,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1187145835787152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1d3a0ffc2b693459434784fb59c2ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 23e4ea8760cda684b82fe5fe73a545b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterModel: {fileID: 11400000, guid: 03e6285ed06e3544ab72ee76c87e4f8f, type: 2}
-  playerIndex: 1
+  gameController: {fileID: 0}
+  playerIndex: 0
   hspd: 0
   characterDir: 0
   characterTotalHits: 0
@@ -233,12 +234,12 @@ SpriteRenderer:
   m_SortingLayerID: 1932296631
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8a2b06debc6f5aa46b428a558d8e5cb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9cd76d623e6edc4bbc0d11898ecb638, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.18, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

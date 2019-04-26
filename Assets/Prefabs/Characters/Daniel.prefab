@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50054738089356530}
   - component: {fileID: 70744464296422802}
   - component: {fileID: 95366798125958320}
-  - component: {fileID: 114708848828849656}
+  - component: {fileID: 114126097206915448}
   - component: {fileID: 114575658729862102}
   m_Layer: 9
   m_Name: Daniel
@@ -144,7 +144,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114575658729862102
+--- !u!114 &114126097206915448
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,27 +152,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1612850982193622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c551a908311c94fa0d830584d3878b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPosition: {fileID: 4083136983258072}
-  tienesUnObjeto: 0
-  weaponName: 
-  weaponSprite: {fileID: 0}
-  instantiateObject: {fileID: 0}
---- !u!114 &114708848828849656
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612850982193622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1d3a0ffc2b693459434784fb59c2ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 23e4ea8760cda684b82fe5fe73a545b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterModel: {fileID: 11400000, guid: fa87da727c44c944fbb981d14fe2097c, type: 2}
-  playerIndex: 3
+  gameController: {fileID: 0}
+  playerIndex: 0
   hspd: 0
   characterDir: 0
   characterTotalHits: 0
@@ -198,6 +183,22 @@ MonoBehaviour:
   inputPunch: 0
   inputUseWeapon: 0
   inputPickWeapon: 0
+--- !u!114 &114575658729862102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612850982193622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c551a908311c94fa0d830584d3878b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPosition: {fileID: 4083136983258072}
+  tienesUnObjeto: 0
+  weaponName: 
+  weaponSprite: {fileID: 0}
+  instantiateObject: {fileID: 0}
 --- !u!212 &212507493882002860
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -233,12 +234,12 @@ SpriteRenderer:
   m_SortingLayerID: 1932296631
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8a2b06debc6f5aa46b428a558d8e5cb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9cd76d623e6edc4bbc0d11898ecb638, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.18, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

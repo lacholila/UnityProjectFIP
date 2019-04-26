@@ -43,25 +43,10 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] private GameObject characterPushObject;
     
     float inputHorizontalMovement;
-  
-    #region ----------PRUEBA PUNCH----------
-    //PRUEBA PUNCH
-    public GameObject player;
-    private bool izquierda;
-
-    public Character_Controller hspd2;
-    public AreaEffector2D propDireccion;
-
-    //private SoundController sc;
-    private SpriteRenderer spriteRenderer2;
-    #endregion
-
     public bool inputJump, inputDash, inputPunch, inputUseWeapon, inputPickWeapon;
 
-<<<<<<< HEAD
-=======
+
     Vector3 initialPosition;
->>>>>>> origin/Chumas
 
     #endregion
 
@@ -136,45 +121,6 @@ public class Character_Controller : MonoBehaviour
         characterAnimator.SetBool("Grounded", isInGround);
         characterAnimator.SetBool("WallR", isInWallRight && isSliding);
         characterAnimator.SetBool("WallL", isInWallLeft && isSliding);
-
-        #region ----------PRUEBA PUNCH----------
-        //PRUEBA PUNCH
-        hspd2 = GameObject.FindGameObjectWithTag("Player").GetComponent<Character_Controller>();
-        propDireccion = GameObject.FindGameObjectWithTag("Punch").GetComponent<AreaEffector2D>();
-
-
-        if (hspd2.spriteRenderer2.flipX == false)
-        {
-            izquierda = false;
-        }
-
-        if (hspd2.spriteRenderer2.flipX == true)
-        {
-            izquierda = true;
-        }
-
-
-        if (inputPunch && (izquierda == true))
-        {
-            propDireccion.forceAngle = 180;
-            transform.position = player.transform.position + Vector3.right * -0.5f;
-            transform.position = transform.position + Vector3.up * -0.1f;
-            //sc.GetComponent<AudioSource>().clip = sc.sonidos[0];			// recupera el clip de audio numero 0 en la array del SoundController
-            //sc.GetComponent<AudioSource>().Play();  // ejecuta el clip recuperado en la linea anterior
-            spriteRenderer.flipX = true;
-
-
-        }
-
-        if (inputPunch && (izquierda == false))        // al atacar, el colider se movera un poco hacia al derecha o izquierda dependiendo de donde mire el jugador, ademas de que se reproducira un sonido
-        {
-            propDireccion.forceAngle = 0;
-            transform.position = player.transform.position + Vector3.right * 0.5f;
-            transform.position = transform.position + Vector3.up * -0.1f;
-            //sc.GetComponent<AudioSource>().clip = sc.sonidos[0];
-            //sc.GetComponent<AudioSource>().Play();
-        }
-        #endregion
     }
 
     private void FixedUpdate()

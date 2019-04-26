@@ -2816,11 +2816,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3986b314f215fb94980f3d2b7cb34f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charactersArray:
+  - {fileID: 1612850982193622, guid: fbb697a990172d647b2007425db03775, type: 2}
+  - {fileID: 1187145835787152, guid: 0b2de00effca50647bd84e8f14ee6c6d, type: 2}
+  - {fileID: 1413461171031912, guid: 7e3bafd4ce54c12488e54d6329f8c03e, type: 2}
   spawners:
   - {fileID: 214221602}
   - {fileID: 1897884860}
   - {fileID: 1009886193}
   - {fileID: 262078825}
+  playerIndexArray: 
+  playerToSpawn: []
+  selected: 
 --- !u!114 &1049973698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2832,11 +2839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcbb4d917975e54b8d12c8eb6dc81a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterIndex: 000000000100000002000000
-  charactersArray:
-  - {fileID: 1612850982193622, guid: fbb697a990172d647b2007425db03775, type: 2}
-  - {fileID: 1187145835787152, guid: 0b2de00effca50647bd84e8f14ee6c6d, type: 2}
-  - {fileID: 1413461171031912, guid: 7e3bafd4ce54c12488e54d6329f8c03e, type: 2}
+  playerIndexArray: 010000000000000002000000
   charactersColorArray:
   - {r: 0.39215687, g: 1, b: 0.39215687, a: 1}
   - {r: 0.39215687, g: 0.39215687, b: 1, a: 1}
@@ -2852,15 +2855,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36633a738e28624cace6f9ab875ce14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsToSpawn:
+  - {fileID: 1943951454023818, guid: 09532b4f623e15042b1cb3e91575569d, type: 2}
+  - {fileID: 1464552477993700, guid: 7726dd99f59fb444d84e2068ac5c5ce1, type: 2}
   spawners:
   - {fileID: 1787709907}
   - {fileID: 622226855}
   - {fileID: 1556108963}
   - {fileID: 753498246}
   - {fileID: 1408583426}
-  itemsToSpawn:
-  - {fileID: 1943951454023818, guid: 09532b4f623e15042b1cb3e91575569d, type: 2}
-  - {fileID: 1464552477993700, guid: 7726dd99f59fb444d84e2068ac5c5ce1, type: 2}
 --- !u!1 &1072758147
 GameObject:
   m_ObjectHideFlags: 0
