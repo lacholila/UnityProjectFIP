@@ -16,9 +16,12 @@ public class CharacterWeaponController : MonoBehaviour {
 
     public GameObject instantiateObject;
 
+    private Animator characterAnimator;
+
     private void Awake()
     {
         characterController = GetComponent<Character_Controller>();
+        characterAnimator = GetComponent<Animator>();
     }
 
     void Update ()
@@ -31,6 +34,7 @@ public class CharacterWeaponController : MonoBehaviour {
             if (characterController.inputPickWeapon)
             {
                 objetoActual.ThrowObject();
+
 
                 tienesUnObjeto = false;
 
@@ -45,10 +49,15 @@ public class CharacterWeaponController : MonoBehaviour {
                 instantiateObject = null;
             }
 
+            
+
             //Usar arma
             if (characterController.inputUseWeapon)
             {
                 objetoActual.UseObject();
+                //Variables del animator    
+                characterAnimator.SetTrigger("ThrowObject");
+                characterAnimator.SetTrigger("ThrowObject");
 
                 switch (weaponName)
                 {
