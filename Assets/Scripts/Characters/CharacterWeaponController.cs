@@ -42,7 +42,7 @@ public class CharacterWeaponController : MonoBehaviour {
                 Rigidbody2D gameObjrb = gameObj.GetComponent<Rigidbody2D>();
 
                 gameObjrb.AddForce(new Vector2(5f * characterController.characterDir, 5f), ForceMode2D.Impulse);
-                gameObjrb.AddTorque(1f * characterController.characterDir, ForceMode2D.Impulse);
+                gameObjrb.AddTorque(Random.Range(0.1f, 1f) * -characterController.characterDir, ForceMode2D.Impulse);
 
                 weaponName = "";
                 weaponSprite = null;
@@ -55,8 +55,8 @@ public class CharacterWeaponController : MonoBehaviour {
             if (characterController.inputUseWeapon)
             {
                 objetoActual.UseObject();
+                
                 //Variables del animator    
-                characterAnimator.SetTrigger("ThrowObject");
                 characterAnimator.SetTrigger("ThrowObject");
 
                 switch (weaponName)
@@ -67,7 +67,7 @@ public class CharacterWeaponController : MonoBehaviour {
                         WeaponController bottlewc = bottle.GetComponent<WeaponController>();
                         
                         bottlerb.AddForce(new Vector2(10f * characterController.characterDir, 5f), ForceMode2D.Impulse);
-                        bottlerb.AddTorque(1f * characterController.characterDir, ForceMode2D.Impulse);
+                        bottlerb.AddTorque(Random.Range(0.1f, 1f) * characterController.characterDir, ForceMode2D.Impulse);
 
                         bottlewc.isItem = false;
                         bottlewc.itemIndex = characterController.playerIndex;
@@ -86,7 +86,7 @@ public class CharacterWeaponController : MonoBehaviour {
                         WeaponController orangewp = orange.GetComponent<WeaponController>();
 
                         orangerb.AddForce(new Vector2(10f * characterController.characterDir, 10f), ForceMode2D.Impulse);
-                        orangerb.AddTorque(1f * characterController.characterDir, ForceMode2D.Impulse);
+                        orangerb.AddTorque(Random.Range(0.1f, 1f) * -characterController.characterDir, ForceMode2D.Impulse);
 
                         orangewp.isItem = false;
                         orangewp.itemIndex = characterController.playerIndex;
