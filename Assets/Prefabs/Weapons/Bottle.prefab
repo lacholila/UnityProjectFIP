@@ -157,6 +157,9 @@ MonoBehaviour:
   weaponModel: {fileID: 11400000, guid: 3ad41a46d1c294a46a987b0430e95434, type: 2}
   isItem: 0
   itemIndex: 0
+  expArea: {fileID: 1921946970562042, guid: 996f6475603f41446a22292eeb0fd497, type: 2}
+  partBotella: {fileID: 1567357615493490, guid: ec5dabfdf1e0a704481613e5506749d6,
+    type: 2}
 --- !u!212 &212311582338949498
 SpriteRenderer:
   m_ObjectHideFlags: 1
