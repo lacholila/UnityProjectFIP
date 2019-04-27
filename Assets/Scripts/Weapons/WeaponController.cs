@@ -10,8 +10,6 @@ public class WeaponController : MonoBehaviour
 
     public int itemIndex;
 
-    public GameObject bottleExplosion, bottleParticles;
-
     private void Awake()
     {
         isItem = true;
@@ -24,15 +22,27 @@ public class WeaponController : MonoBehaviour
         switch (weaponModel.weaponName)
         {
             case "Bottle":
-                if (!isItem && GetComponent<Rigidbody2D>().velocity.magnitude == 0 && ((Mathf.Abs(transform.localRotation.eulerAngles.z - 180) < 1f) || (Mathf.Abs(transform.localRotation.eulerAngles.z - 360) < 1f) || (Mathf.Abs(transform.localRotation.eulerAngles.z) < 1f)))
-                {
-                    //ecsplozion
-                    GameObject bottleExp = Instantiate(bottleExplosion, transform.position, Quaternion.identity) as GameObject;
-                    GameObject bottlePart = Instantiate(bottleParticles, transform.position, Quaternion.identity) as GameObject;
+                if (!isItem && GetComponent<Rigidbody2D>().velocity.magnitude == 0) {
+                    if ((Mathf.Abs(transform.localRotation.eulerAngles.z - 180) < 5f) || (Mathf.Abs(transform.localRotation.eulerAngles.z - 360) < 5f) || (Mathf.Abs(transform.localRotation.eulerAngles.z) < 5f))
+                    {
+                        //ecsplozion
+                        GameObject bottleExp = Instantiate(weaponModel.explosionEffect, transform.position, Quaternion.identity) as GameObject;
+                        GameObject bottlePart = Instantiate(weaponModel.explosionParticles, transform.position, Quaternion.identity) as GameObject;
 
-                    Destroy(gameObject);
-                    Destroy(bottleExp, 0.1f);
-                    Destroy(bottlePart, 1f);
+                        Destroy(gameObject);
+                        Destroy(bottleExp, 0.1f);
+                        Destroy(bottlePart, 1f);
+                    }
+                    else
+                    {
+                        Invoke("DestroyWeapon", 2f);
+                        Debug.Log("DestroyWeapon");
+                    }
+                }
+                else
+                {
+                    CancelInvoke("DestroyWeapon");
+                    Debug.Log("Cancelao DestroyWeapon");
                 }
                 break;
 
@@ -47,18 +57,52 @@ public class WeaponController : MonoBehaviour
         switch (weaponModel.weaponName)
         {
             case "Bottle":
-                if (!isItem)
-                {
-                    Destroy(gameObject, 3f);
-                }
+                
                 break;
 
             case "Orange":
                 if (!isItem)
                 {
+                    //ecsplozion
+                    GameObject orangeExp = Instantiate(weaponModel.explosionEffect, transform.position, Quaternion.identity) as GameObject;
+                    GameObject orangePart = Instantiate(weaponModel.explosionParticles, transform.position, Quaternion.identity) as GameObject;
+
                     Destroy(gameObject);
+                    Destroy(orangeExp, 0.1f);
+                    Destroy(orangePart, 1f);
                 }
                 break;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            switch (weaponModel.weaponName)
+            {
+                case "Bottle":
+                    
+                    break;
+
+                case "Orange":
+                    if (!isItem)
+                    {
+                        //ecsplozion
+                        GameObject orangeExp = Instantiate(weaponModel.explosionEffect, transform.position, Quaternion.identity) as GameObject;
+                        GameObject orangePart = Instantiate(weaponModel.explosionParticles, transform.position, Quaternion.identity) as GameObject;
+
+                        Destroy(gameObject);
+                        Destroy(orangeExp, 0.1f);
+                        Destroy(orangePart, 1f);
+                    }
+                    break;
+            }
+        }
+    }
+
+    private void DestroyWeapon()
+    {
+        Destroy(gameObject);
     }
 }

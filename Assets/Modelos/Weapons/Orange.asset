@@ -15,3 +15,7 @@ MonoBehaviour:
   weaponSprite: {fileID: 21300000, guid: 030f06b00826d7c47b9a24798058d86e, type: 3}
   instantiateObject: {fileID: 1464552477993700, guid: 7726dd99f59fb444d84e2068ac5c5ce1,
     type: 2}
+  explosionEffect: {fileID: 1902719360027814, guid: d4441b0472e77934f96086462e2e4718,
+    type: 2}
+  explosionParticles: {fileID: 1540658697355236, guid: f1ed569a308e5f14593c9ad26d43e1b5,
+    type: 2}

@@ -101,7 +101,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1270213450721514}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f70ef5f0ba75e0e40950c766102fd646, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -157,10 +157,6 @@ MonoBehaviour:
   weaponModel: {fileID: 11400000, guid: 3ad41a46d1c294a46a987b0430e95434, type: 2}
   isItem: 0
   itemIndex: 0
-  bottleExplosion: {fileID: 1921946970562042, guid: 996f6475603f41446a22292eeb0fd497,
-    type: 2}
-  bottleParticles: {fileID: 1567357615493490, guid: ec5dabfdf1e0a704481613e5506749d6,
-    type: 2}
 --- !u!212 &212311582338949498
 SpriteRenderer:
   m_ObjectHideFlags: 1

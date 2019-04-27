@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838a8d466cafa4c44ba1ca232bf55a50, type: 3}
   m_Name: Adri
   m_EditorClassIdentifier: 
-  characterName: 
-  characterColor: {r: 0, g: 0, b: 0, a: 0}
-  characterIcon: {fileID: 0}
-  characterSpeed: 0
-  characterJumpSpeed: 0
-  characterTotalJumps: 0
-  characterDashSpeed: 0
-  characterPunchImpulse: 0
-  charcaterPunchStunTime: 0
-  characterTotalHits: 0
+  characterName: Adri
+  characterColor: {r: 1, g: 1, b: 0.39215687, a: 1}
+  characterIcon: {fileID: 21300000, guid: 8781d6ce030b51f4ca784a8da429cf95, type: 3}
+  characterSpeed: 6
+  characterJumpSpeed: 10
+  characterTotalJumps: 2
+  characterDashSpeed: 20
+  characterPunchImpulse: 4
+  charcaterPunchStunTime: 1
+  characterTotalHits: 3

@@ -6,7 +6,9 @@ public class CharacterWeaponController : MonoBehaviour {
 
     private Character_Controller characterController;
 
-    public Transform objectPosition;
+    public Transform weaponIconPosition;
+    public Transform weaponUsePosition;
+
     public bool tienesUnObjeto = false;
 
     public Weapons objetoActual;
@@ -38,11 +40,11 @@ public class CharacterWeaponController : MonoBehaviour {
 
                 tienesUnObjeto = false;
 
-                GameObject gameObj = Instantiate(instantiateObject, transform.position + Vector3.up * 1.5f, transform.rotation) as GameObject;
+                GameObject gameObj = Instantiate(instantiateObject, weaponUsePosition.position, transform.rotation) as GameObject;
                 Rigidbody2D gameObjrb = gameObj.GetComponent<Rigidbody2D>();
 
                 gameObjrb.AddForce(new Vector2(5f * characterController.characterDir, 5f), ForceMode2D.Impulse);
-                gameObjrb.AddTorque(Random.Range(0.1f, 1f) * -characterController.characterDir, ForceMode2D.Impulse);
+                gameObjrb.AddTorque(Random.Range(0.1f, 0.3f) * -characterController.characterDir, ForceMode2D.Impulse);
 
                 weaponName = "";
                 weaponSprite = null;
@@ -62,12 +64,12 @@ public class CharacterWeaponController : MonoBehaviour {
                 switch (weaponName)
                 {
                     case "Bottle":
-                        GameObject bottle = Instantiate(instantiateObject, transform.position + Vector3.up * 1.5f, transform.rotation) as GameObject;
+                        GameObject bottle = Instantiate(instantiateObject, weaponUsePosition.position, transform.rotation) as GameObject;
                         Rigidbody2D bottlerb = bottle.GetComponent<Rigidbody2D>();
                         WeaponController bottlewc = bottle.GetComponent<WeaponController>();
                         
                         bottlerb.AddForce(new Vector2(10f * characterController.characterDir, 5f), ForceMode2D.Impulse);
-                        //bottlerb.AddTorque(Random.Range(0.1f, 1f) * characterController.characterDir, ForceMode2D.Impulse);
+                        bottlerb.AddTorque(Random.Range(0.1f, 0.5f) * characterController.characterDir, ForceMode2D.Impulse);
 
                         bottlewc.isItem = false;
                         bottlewc.itemIndex = characterController.playerIndex;
@@ -81,12 +83,12 @@ public class CharacterWeaponController : MonoBehaviour {
                         break;
 
                     case "Orange":
-                        GameObject orange = Instantiate(instantiateObject, transform.position + Vector3.up * 1.5f, transform.rotation) as GameObject;
+                        GameObject orange = Instantiate(instantiateObject, weaponUsePosition.position, transform.rotation) as GameObject;
                         Rigidbody2D orangerb = orange.GetComponent<Rigidbody2D>();
                         WeaponController orangewp = orange.GetComponent<WeaponController>();
 
                         orangerb.AddForce(new Vector2(10f * characterController.characterDir, 10f), ForceMode2D.Impulse);
-                        orangerb.AddTorque(Random.Range(0.1f, 1f) * -characterController.characterDir, ForceMode2D.Impulse);
+                        orangerb.AddTorque(Random.Range(0.1f, 0.5f) * -characterController.characterDir, ForceMode2D.Impulse);
 
                         orangewp.isItem = false;
                         orangewp.itemIndex = characterController.playerIndex;
@@ -101,11 +103,9 @@ public class CharacterWeaponController : MonoBehaviour {
                 }
             }
 
-            objectPosition.gameObject.GetComponent<SpriteRenderer>().sprite = weaponSprite;
+            weaponIconPosition.gameObject.GetComponent<SpriteRenderer>().sprite = weaponSprite;
         }
 	}
-
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {

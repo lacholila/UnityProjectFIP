@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class ExplosionDamage : MonoBehaviour {
 
+    private int frames;
+
     private void Start()
     {
-        //Destroy(gameObject, 0.1f);
+        frames = 0;
     }
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void FixedUpdate()
     {
-        if(collision.tag == "Player")
+        if (frames > 0)
         {
-            print("Ha esho pupa al jugador");
+            Destroy(gameObject);
         }
+
+        frames++;
     }
 }

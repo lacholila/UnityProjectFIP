@@ -10,4 +10,7 @@ public class WeaponModel : ScriptableObject {
 
     public GameObject instantiateObject;
 
+    public GameObject explosionEffect;
+    public GameObject explosionParticles;
+
 }

@@ -30,7 +30,7 @@ public class Character_Controller : MonoBehaviour
     private int characterTotalJumps, characterCurrentJumps;
     public int characterTotalHits, characterCurrentHits;
 
-    private bool isInGround, isInWall, isInWallRight, isInWallLeft, isSliding;
+    private bool isInGround, isInWall, isInWallRight, isInWallLeft, isSliding, isInHit, isInStun;
     private bool canMoveHorizontal, canJump, canDash, canSlide, canPunch;
 
     private RaycastHit2D[] resultsD = new RaycastHit2D[10];
@@ -39,10 +39,9 @@ public class Character_Controller : MonoBehaviour
 
     [SerializeField] private ContactFilter2D characterCollide;
     [SerializeField] private GameObject characterPushObject;
-    
+
     float inputHorizontalMovement;
     public bool inputJump, inputDash, inputPunch, inputUseWeapon, inputPickWeapon;
-
 
     Vector3 initialPosition;
 
@@ -108,11 +107,7 @@ public class Character_Controller : MonoBehaviour
 
         inputUseWeapon = Input.GetButtonDown("P" + playerIndex + "_Use");
 
-        inputPickWeapon = Input.GetButtonDown("P" + playerIndex + "_Pick");
-
-        if (!inputPunch)
-            inputPunch = Input.GetButtonDown("P" + playerIndex + "_Punch");
-        
+        inputPickWeapon = Input.GetButtonDown("P" + playerIndex + "_Pick");        
 
         //Variables del animator    
         characterAnimator.SetFloat("Speed", Mathf.Abs(hspd));
@@ -172,7 +167,7 @@ public class Character_Controller : MonoBehaviour
             //Entrar en el estado de deslizar
             if (hspd < 0)
             {
-                if (!isSliding)
+                if (!isSliding && canSlide)
                 {
                     isSliding = true;
                     rb2d.velocity = new Vector2(0, 0);
@@ -208,7 +203,7 @@ public class Character_Controller : MonoBehaviour
             {
                 hspd = 0;
 
-                if (!isSliding)
+                if (!isSliding && canSlide)
                 {
                     isSliding = true;
                     rb2d.velocity = new Vector2(0, 0);
@@ -302,6 +297,10 @@ public class Character_Controller : MonoBehaviour
                 hspd = characterMaxSpeed * inputHorizontalMovement;
             }
         }
+        else
+        {
+            hspd = rb2d.velocity.x;
+        }
 
         //Salto
         if (inputJump) {
@@ -388,12 +387,24 @@ public class Character_Controller : MonoBehaviour
         }
     }
 
-    //Detectar golpe o caída
+    //Detectar golpe, caída o explosión
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Punch")
+        {
+            CharacterPunch otherPunch = other.GetComponent<CharacterPunch>();
+            StartCoroutine(DisableInputActions(otherPunch.punchStunTime));
+            rb2d.AddForce(new Vector2((otherPunch.punchForce * Mathf.Cos(Mathf.Deg2Rad * 45) * otherPunch.transform.right.x), otherPunch.punchForce * Mathf.Sin(Mathf.Deg2Rad * 45)), ForceMode2D.Impulse);
+        }
+
         if (other.gameObject.tag == "Damage")
         {
             LoseLife();
+        }
+
+        if (other.gameObject.tag == "Explosion")
+        {  
+            StartCoroutine(DisableInputActions(1f));
         }
     }
 
@@ -436,10 +447,12 @@ public class Character_Controller : MonoBehaviour
     {
         canMoveHorizontal = false;
         canDash = false;
+        canPunch = false;
 
         yield return new WaitForSeconds(time);
 
         canMoveHorizontal = true;
+        canPunch = true;
 
         yield return new WaitForSeconds(cooldown);
 
@@ -450,10 +463,12 @@ public class Character_Controller : MonoBehaviour
     {
         canMoveHorizontal = false;
         canPunch = false;
+        canDash = false;
 
         yield return new WaitForSeconds(time);
 
         canMoveHorizontal = true;
+        canDash = true;
 
         yield return new WaitForSeconds(cooldown);
 
