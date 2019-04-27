@@ -56,9 +56,6 @@ public class CharacterSpawnerController : MonoBehaviour {
 
             characterController.playerIndex = i + 1;
 
-            
-            
-
             GameController.charactersNameList.Add(characterModel.characterName);
             GameController.characterIconList.Add(characterModel.characterIcon);
             GameController.charactersColorList.Add(characterModel.characterColor);

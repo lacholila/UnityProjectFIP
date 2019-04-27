@@ -10,15 +10,6 @@ public class GameplayHUDController : MonoBehaviour {
 
     private void Start()
     {
-        for (int i = 0; i < playerHUDList.Count; i++)
-        {
-            playerHUDList[i].characterName = null;
-            playerHUDList[i].characterColor = Color.black;
-            playerHUDList[i].characterIconSprite = null;
-
-            playerHUDList[i].SetPlayerHUDColor();
-        }
-
         for (int i = 0; i < GameController.charactersNameList.Count; i ++)
         {
             playerHUDList[i].characterName = GameController.charactersNameList[i];

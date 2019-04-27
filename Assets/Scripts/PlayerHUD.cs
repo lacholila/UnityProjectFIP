@@ -20,6 +20,7 @@ public class PlayerHUD : MonoBehaviour {
         if (characterIconSprite != null)
         {
             characterIcon.sprite = characterIconSprite;
+            characterIcon.color = Color.white;
         }
         else
         {
