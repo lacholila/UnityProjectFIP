@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public static class GameController {
 
     //Variables que se deciden en el mapa
-    public static List<int> playerIndexList = new List<int>() { 1, Random.Range(0, 4), Random.Range(0, 4) };
+    public static List<int> playerIndexList = new List<int>() { Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
 
     //Variables que se inicializan al generar los characters (se accede al modelo)
     public static List<string> charactersNameList = new List<string>();
@@ -22,7 +22,7 @@ public static class GameController {
         charactersColorList.Clear();
         charactersObjectList.Clear();
 
-        playerIndexList = new List<int>() { 1, Random.Range(0, 4), Random.Range(0, 4) };
+        playerIndexList = new List<int>() { Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
     }
 
     public static void Update()
