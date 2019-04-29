@@ -135,20 +135,20 @@ public class Character_Controller : MonoBehaviour
         if (isInGround)
         {
             //Voltear el objeto
-            if (inputHorizontalMovement>0)
+            if (inputHorizontalMovement > 0)
             {
                 characterDir = 1;
                 characterDirection = Quaternion.Euler(0, 0, 0);
                 gameObject.transform.rotation = characterDirection;
             }
-                
+
             if (inputHorizontalMovement < 0)
             {
                 characterDir = -1;
                 characterDirection = Quaternion.Euler(0, 180, 0);
                 gameObject.transform.rotation = characterDirection;
             }
-                
+
             //Resetear saltos
             characterCurrentJumps = characterTotalJumps;
 
@@ -303,7 +303,8 @@ public class Character_Controller : MonoBehaviour
         }
 
         //Salto
-        if (inputJump) {
+        if (inputJump)
+        {
 
             //Poner el salto a false para evitar que se ponga a false en el Update y evitar el error de que no salte algunas veces
             inputJump = false;
@@ -385,6 +386,13 @@ public class Character_Controller : MonoBehaviour
                 punchController.punchStunTime = characterPunchStunTime;
             }
         }
+
+        //Al morir, las coordenadas son las de la cámara para no interferir en el punto medio
+        if (characterCurrentHits >= characterTotalHits)
+        {
+            gameObject.transform.position = Camera.main.gameObject.transform.position;
+            gameObject.SetActive(false);
+        }
     }
 
     //Detectar golpe, caída o explosión
@@ -428,11 +436,6 @@ public class Character_Controller : MonoBehaviour
 
             transform.position = initialPosition;
             rb2d.velocity = Vector2.zero;
-        }
-        else
-        {
-            transform.position = initialPosition;
-            gameObject.SetActive(false);
         }
     }
 
