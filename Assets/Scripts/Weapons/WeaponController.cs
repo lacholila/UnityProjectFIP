@@ -7,6 +7,7 @@ public class WeaponController : MonoBehaviour
     public WeaponModel weaponModel;
 
     public bool isItem;
+    public bool puedeCogerObjeto;
 
     public int itemIndex;
 
@@ -104,5 +105,11 @@ public class WeaponController : MonoBehaviour
     private void DestroyWeapon()
     {
         Destroy(gameObject);
+    }
+
+    public IEnumerator EnfriamientoCogerObjeto()
+    {
+        yield return new WaitForSeconds(2f);
+        puedeCogerObjeto = true;
     }
 }
