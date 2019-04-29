@@ -20,7 +20,7 @@ public class ObjectSpawnerController : MonoBehaviour {
 
         Instantiate(itemsToSpawn[rnd2], spawners[rnd].transform.position, Quaternion.identity);
 
-        float timeToSpawn = 1f;// Random.Range(1f, 10f);
+        float timeToSpawn = Random.Range(1f, 10f);
         Invoke("SpawnObject", timeToSpawn);
     }
 }

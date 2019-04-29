@@ -12,6 +12,6 @@ public class CharacterPunch : MonoBehaviour {
 
     private void Start()
     {
-        //Destroy(gameObject, punchDuration);
+        Destroy(gameObject, punchDuration);
     }
 }
