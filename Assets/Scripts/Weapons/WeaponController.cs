@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    private Rigidbody2D rb2d;
+
     public WeaponModel weaponModel;
 
     public bool isItem;
@@ -15,6 +17,8 @@ public class WeaponController : MonoBehaviour
     {
         isItem = true;
 
+        rb2d = GetComponent<Rigidbody2D>();
+
         Destroy(gameObject, 10f);
     }
 
@@ -23,27 +27,16 @@ public class WeaponController : MonoBehaviour
         switch (weaponModel.weaponName)
         {
             case "Bottle":
-                if (!isItem && GetComponent<Rigidbody2D>().velocity.magnitude == 0) {
+                if (!isItem && rb2d.velocity.magnitude <= 0f) {
                     if ((Mathf.Abs(transform.localRotation.eulerAngles.z - 180) < 5f) || (Mathf.Abs(transform.localRotation.eulerAngles.z - 360) < 5f) || (Mathf.Abs(transform.localRotation.eulerAngles.z) < 5f))
                     {
-                        //ecsplozion
-                        GameObject bottleExp = Instantiate(weaponModel.explosionEffect, transform.position, Quaternion.identity) as GameObject;
-                        GameObject bottlePart = Instantiate(weaponModel.explosionParticles, transform.position, Quaternion.identity) as GameObject;
-
-                        Destroy(gameObject);
-                        Destroy(bottleExp, 0.1f);
-                        Destroy(bottlePart, 1f);
+                        StartCoroutine(TiempoExplosion(0f));
                     }
                     else
                     {
-                        Invoke("DestroyWeapon", 2f);
+                        StartCoroutine(TiempoExplosion(2.5f));
                         Debug.Log("DestroyWeapon");
                     }
-                }
-                else
-                {
-                    CancelInvoke("DestroyWeapon");
-                    Debug.Log("Cancelao DestroyWeapon");
                 }
                 break;
 
@@ -111,5 +104,17 @@ public class WeaponController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         puedeCogerObjeto = true;
+    }
+
+    public IEnumerator TiempoExplosion(float tiempo)
+    {
+        GetComponent<Animator>().SetBool("Activar", true);
+        yield return new WaitForSeconds(tiempo);
+        //ecsplozion
+        GameObject bottleExp = Instantiate(weaponModel.explosionEffect, transform.position, Quaternion.identity) as GameObject;
+        GameObject bottlePart = Instantiate(weaponModel.explosionParticles, transform.position, Quaternion.identity) as GameObject;
+        Destroy(gameObject);
+        Destroy(bottleExp, 0.1f);
+        Destroy(bottlePart, 1f);
     }
 }
