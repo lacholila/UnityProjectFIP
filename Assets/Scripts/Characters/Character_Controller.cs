@@ -397,7 +397,7 @@ public class Character_Controller : MonoBehaviour
             rb2d.AddForce(new Vector2((otherPunch.punchForce * Mathf.Cos(Mathf.Deg2Rad * 45) * otherPunch.transform.right.x), otherPunch.punchForce * Mathf.Sin(Mathf.Deg2Rad * 45)), ForceMode2D.Impulse);
         }
 
-        if (other.gameObject.tag == "Damage")
+        if (other.gameObject.tag == "Void")
         {
             LoseLife();
         }
