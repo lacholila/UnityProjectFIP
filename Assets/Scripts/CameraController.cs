@@ -6,13 +6,15 @@ public class CameraController : MonoBehaviour {
 
     public GameObject background;
 
-    public BackgroundController backgroundController;
+    private BackgroundController backgroundController;
 
-    public List<GameObject> characterList = new List<GameObject>();
-    public List<Vector3> characterPosition = new List<Vector3>();
+    private List<GameObject> characterList = new List<GameObject>();
+    private List<Vector2> characterPosition = new List<Vector2>();
 
-    public Vector3 totalCharacterPosition;
+    private Vector2 totalCharacterPosition;
+    private Vector2 backgroundCurrentPosition, backgroundNewPosition, backgroundLerpPosition, cameraCurrentPosition, cameraNewPosition, cameraLerpPosition;
 
+    [Range(0f, 1f)] public float backgroundLerp;
 
     private void Start ()
     {
@@ -23,7 +25,7 @@ public class CameraController : MonoBehaviour {
 
         characterList = GameController.charactersObjectList;
 
-        totalCharacterPosition = Vector3.zero;
+        totalCharacterPosition = Vector2.zero;
 
         for (int i = 0; i < characterList.Count; i++)
         {
@@ -36,19 +38,34 @@ public class CameraController : MonoBehaviour {
         for (int i = 0; i < characterList.Count; i++)
         {
             characterPosition[i] = characterList[i].gameObject.transform.position;
+        }
+
+        totalCharacterPosition = Vector2.zero;
+
+        for (int i = 0; i < characterPosition.Count; i++)
+        {
+            characterPosition[i] = characterList[i].gameObject.transform.position;
             totalCharacterPosition += characterPosition[i];
         }
 
-        totalCharacterPosition /= characterList.Count;
+        totalCharacterPosition /= characterPosition.Count;
+        
+        backgroundCurrentPosition = background.transform.position;
+        cameraCurrentPosition = transform.position;
+
+        cameraNewPosition = totalCharacterPosition;
+        backgroundNewPosition -= totalCharacterPosition - cameraCurrentPosition;
+
+        backgroundLerpPosition = Vector3.Lerp(transform.position, totalCharacterPosition, backgroundLerp);
+        cameraLerpPosition = Vector3.Lerp(background.transform.position, backgroundNewPosition, backgroundLerp);
     }
 
     private void OnDrawGizmos()
     {
         for (int i = 0; i < characterList.Count; i++)
         {
-            Gizmos.DrawWireSphere(characterPosition[i], 1f);
-            Gizmos.DrawWireSphere(totalCharacterPosition, 1f);
+            Gizmos.DrawWireSphere(characterPosition[i], 0.1f);
+            Gizmos.DrawWireSphere(totalCharacterPosition, 0.1f);
         }
-        
     }
 }
