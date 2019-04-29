@@ -2864,6 +2864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 866731462}
   - component: {fileID: 866731461}
+  - component: {fileID: 866731463}
   m_Layer: 0
   m_Name: BackgroundClase
   m_TagString: Untagged
@@ -2930,6 +2931,24 @@ Transform:
   m_Father: {fileID: 1307829734}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &866731463
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866731460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e494925d2cd11cb41bc0c1733e89166b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &984979711
 Prefab:
   m_ObjectHideFlags: 0
@@ -4518,6 +4537,7 @@ GameObject:
   - component: {fileID: 2111607973}
   - component: {fileID: 2111607972}
   - component: {fileID: 2111607976}
+  - component: {fileID: 2111607977}
   m_Layer: 5
   m_Name: HUD_Gameplay
   m_TagString: Untagged
@@ -4620,6 +4640,24 @@ MonoBehaviour:
   - {fileID: 1976971325}
   - {fileID: 709831368}
   - {fileID: 36858311}
+--- !u!95 &2111607977
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2111607971}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 342c23294335d644d8226909be7f9f65, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2139368056
 GameObject:
   m_ObjectHideFlags: 0
