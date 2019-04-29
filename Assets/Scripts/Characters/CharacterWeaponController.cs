@@ -174,13 +174,6 @@ public class CharacterWeaponController : MonoBehaviour {
                         Destroy(other.gameObject);
                     }
                 }
-                else
-                {
-                    if (other.gameObject.GetComponent<WeaponController>().itemIndex != characterController.playerIndex)
-                    {
-                        characterController.characterCurrentHits++;
-                    }
-                }
             }
         }
     }
