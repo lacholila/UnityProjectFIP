@@ -106,4 +106,10 @@ public class WeaponController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public IEnumerator EnfriamientoCogerObjeto()
+    {
+        yield return new WaitForSeconds(2f);
+        puedeCogerObjeto = true;
+    }
 }
