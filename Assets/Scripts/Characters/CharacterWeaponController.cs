@@ -37,7 +37,6 @@ public class CharacterWeaponController : MonoBehaviour {
             {
                 objetoActual.ThrowObject();
 
-
                 tienesUnObjeto = false;
 
                 GameObject gameObj = Instantiate(instantiateObject, weaponUsePosition.position, transform.rotation) as GameObject;
@@ -116,26 +115,55 @@ public class CharacterWeaponController : MonoBehaviour {
             {
                 if (other.gameObject.GetComponent<WeaponController>().isItem)
                 {
-                    tienesUnObjeto = true;
-
-                    weaponName = other.gameObject.GetComponent<WeaponController>().weaponModel.weaponName;
-                    weaponSprite = other.gameObject.GetComponent<WeaponController>().weaponModel.weaponSprite;
-                    instantiateObject = other.gameObject.GetComponent<WeaponController>().weaponModel.instantiateObject;
-
-                    switch (weaponName)
+                    if(other.gameObject.GetComponent<WeaponController>().itemIndex == characterController.playerIndex)
                     {
-                        case "Bottle":
-                            objetoActual = new WeaponBottle();
-                            break;
+                        if (other.gameObject.GetComponent<WeaponController>().PuedeCogerObjeto(characterController.playerIndex))
+                        {
+                            tienesUnObjeto = true;
 
-                        case "Orange":
-                            objetoActual = new WeaponOrange();
-                            break;
+                            weaponName = other.gameObject.GetComponent<WeaponController>().weaponModel.weaponName;
+                            weaponSprite = other.gameObject.GetComponent<WeaponController>().weaponModel.weaponSprite;
+                            instantiateObject = other.gameObject.GetComponent<WeaponController>().weaponModel.instantiateObject;
+
+                            switch (weaponName)
+                            {
+                                case "Bottle":
+                                    objetoActual = new WeaponBottle();
+                                    break;
+
+                                case "Orange":
+                                    objetoActual = new WeaponOrange();
+                                    break;
+                            }
+
+                            objetoActual.PickObject();
+
+                            Destroy(other.gameObject);
+                        }
                     }
+                    else
+                    {
+                        tienesUnObjeto = true;
 
-                    objetoActual.PickObject();
+                        weaponName = other.gameObject.GetComponent<WeaponController>().weaponModel.weaponName;
+                        weaponSprite = other.gameObject.GetComponent<WeaponController>().weaponModel.weaponSprite;
+                        instantiateObject = other.gameObject.GetComponent<WeaponController>().weaponModel.instantiateObject;
 
-                    Destroy(other.gameObject);
+                        switch (weaponName)
+                        {
+                            case "Bottle":
+                                objetoActual = new WeaponBottle();
+                                break;
+
+                            case "Orange":
+                                objetoActual = new WeaponOrange();
+                                break;
+                        }
+
+                        objetoActual.PickObject();
+
+                        Destroy(other.gameObject);
+                    }
                 }
                 else
                 {

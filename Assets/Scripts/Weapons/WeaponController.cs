@@ -7,6 +7,7 @@ public class WeaponController : MonoBehaviour
     public WeaponModel weaponModel;
 
     public bool isItem;
+    public bool puedeCogerObjeto;
 
     public int itemIndex;
 
