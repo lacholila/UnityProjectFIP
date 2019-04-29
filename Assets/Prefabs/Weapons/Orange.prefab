@@ -116,7 +116,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1901988707379270}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 211188b822a0bae45ac71a8c090ac619, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -137,8 +137,6 @@ MonoBehaviour:
   weaponModel: {fileID: 11400000, guid: 8f402ca3a821fba4aa25598f75eddfd1, type: 2}
   isItem: 0
   itemIndex: 0
-  bottleExplosion: {fileID: 0}
-  bottleParticles: {fileID: 0}
 --- !u!212 &212610548397613472
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -411,9 +411,29 @@ public class Character_Controller : MonoBehaviour
     //Quitar vida
     public void LoseLife()
     {
+        Debug.Log("Oof");
         characterCurrentHits++;
+        StartCoroutine(Respawn());
+    }
 
-        transform.position = initialPosition;
+    //Respawn
+    public IEnumerator Respawn()
+    {
+        if (characterCurrentHits < characterTotalHits)
+        {
+            StartCoroutine(DisableInputActions(2f));
+            rb2d.velocity = Vector2.zero;
+
+            yield return new WaitForSeconds(2f);
+
+            transform.position = initialPosition;
+            rb2d.velocity = Vector2.zero;
+        }
+        else
+        {
+            transform.position = initialPosition;
+            gameObject.SetActive(false);
+        }
     }
 
     //Desactivar el control del movimiento durante un tiempo

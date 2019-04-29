@@ -1,9 +1,12 @@
 fileFormatVersion: 2
-guid: d2dc7c5694759f54888cc47f2be66144
+guid: 0a66082eeb4c5344f9d8b8b00698ecdd
 TextureImporter:
   fileIDToRecycleName:
-    21300000: HUD ProjectFIP_0
-    21300002: HUD ProjectFIP_1
+    21300000: HUD ProjectFIP clone (1)_0
+    21300002: HUD ProjectFIP clone (1)_1
+    21300004: HUD ProjectFIP clone (1)_2
+    21300006: HUD ProjectFIP clone (1)_3
+    21300008: HUD ProjectFIP clone (1)_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -62,7 +65,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -73,7 +76,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -84,7 +87,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -95,7 +98,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -108,7 +111,47 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HUD ProjectFIP_0
+      name: HUD ProjectFIP clone (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0d4470d790c8241ac385997adbbd93
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD ProjectFIP clone (1)_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a18e96184f8200438e88f717289778f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD ProjectFIP clone (1)_2
       rect:
         serializedVersion: 2
         x: 0
@@ -116,19 +159,39 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ebcd31762fc74641bc457705316b798
+      spriteID: ef2ebe5746003ea49b4c4120f375fa61
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD ProjectFIP_1
+      name: HUD ProjectFIP clone (1)_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 58
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4e399949504fe43a1ad5da0c1a5a82
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD ProjectFIP clone (1)_4
       rect:
         serializedVersion: 2
         x: 0
@@ -136,13 +199,13 @@ TextureImporter:
         width: 7
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dd017a26ae17b44f9b08d9d7ac2701c
+      spriteID: de883b217d664784e8e371a7477fc2ad
       vertices: []
       indices: 
       edges: []
@@ -150,7 +213,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a71e0149c4710bf4380205964517b985
+    spriteID: bc2ade5f0032976408d0db1324d58924
     vertices: []
     indices: 
     edges: []

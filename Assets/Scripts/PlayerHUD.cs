@@ -11,12 +11,15 @@ public class PlayerHUD : MonoBehaviour {
 
     public Image characterIcon;
     public Image characterIconCircle;
+    public Image characterIconFill;
     public List<Image> characterHearts;
 
     public void SetPlayerHUDColor()
     {
+        float colorAlpha = characterIconFill.color.a;
         characterIconCircle.color = characterColor;
-
+        characterIconFill.color = new Color(characterColor.r, characterColor.g, characterColor.b, colorAlpha);
+        
         if (characterIconSprite != null)
         {
             characterIcon.sprite = characterIconSprite;

@@ -22,6 +22,21 @@ public class GameplayHUDController : MonoBehaviour {
 
     private void Update()
     {
+        for (int i = 0; i < GameController.charactersNameList.Count; i++)
+        {
+            for (int j = 0; j < playerHUDList[i].characterHearts.Count; j++)
+            {
+                if (GameController.charactersObjectList[i].GetComponent<Character_Controller>().characterCurrentHits > j)
+                {
+                    playerHUDList[i].characterHearts[j].color = Color.black;
+                }
+                else
+                {
+                    playerHUDList[i].characterHearts[j].color = GameController.charactersColorList[i];
+                }
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(0);

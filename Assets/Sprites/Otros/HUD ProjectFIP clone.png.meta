@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: d2dc7c5694759f54888cc47f2be66144
+guid: ee2d4a93eb7791741858f1eb1d84b265
 TextureImporter:
   fileIDToRecycleName:
-    21300000: HUD ProjectFIP_0
-    21300002: HUD ProjectFIP_1
+    21300000: HUD ProjectFIP clone_0
+    21300002: HUD ProjectFIP clone_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -108,7 +108,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HUD ProjectFIP_0
+      name: HUD ProjectFIP clone_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,13 +122,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ebcd31762fc74641bc457705316b798
+      spriteID: 235a22eb4c25ded4f9b5a4d8a2e99fad
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD ProjectFIP_1
+      name: HUD ProjectFIP clone_1
       rect:
         serializedVersion: 2
         x: 0
@@ -142,7 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dd017a26ae17b44f9b08d9d7ac2701c
+      spriteID: d4105b96c1ca33e4ea1d4d86d198bf78
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a71e0149c4710bf4380205964517b985
+    spriteID: 72074f82b83a016418671cc477d656ea
     vertices: []
     indices: 
     edges: []
