@@ -14,7 +14,7 @@ public class PlayerHUD : MonoBehaviour {
     public Image characterIconFill;
     public List<Image> characterHearts;
 
-    public Text characterWinner;
+    public Text characterWinner, characterWinnerOutline;
 
     public void SetPlayerHUDColor()
     {

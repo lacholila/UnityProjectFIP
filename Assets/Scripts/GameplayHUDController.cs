@@ -50,8 +50,10 @@ public class GameplayHUDController : MonoBehaviour {
             {
                 Debug.Log("Ha ganado el jugador " + (i + 1));
                 playerHUDList[i].characterWinner.gameObject.SetActive(true);
+                playerHUDList[i].characterWinnerOutline.gameObject.SetActive(true);
                 winParticles.gameObject.transform.position = GameController.charactersObjectList[i].transform.position;
                 winParticles.gameObject.SetActive(true);
+
             }
         }
 
