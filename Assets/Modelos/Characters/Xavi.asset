@@ -18,6 +18,6 @@ MonoBehaviour:
   characterJumpSpeed: 10
   characterTotalJumps: 2
   characterDashSpeed: 20
-  characterPunchImpulse: 4
+  characterPunchImpulse: 6
   charcaterPunchStunTime: 1
   characterTotalHits: 3

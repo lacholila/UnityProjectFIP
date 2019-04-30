@@ -43,6 +43,8 @@ public class Character_Controller : MonoBehaviour
     float inputHorizontalMovement;
     public bool inputJump, inputDash, inputPunch, inputUseWeapon, inputPickWeapon;
 
+    public GameObject particlesGround, particlesWall, particlesDash, particlesDeath;
+
     Vector3 initialPosition;
 
     #endregion
@@ -305,7 +307,6 @@ public class Character_Controller : MonoBehaviour
         //Salto
         if (inputJump)
         {
-
             //Poner el salto a false para evitar que se ponga a false en el Update y evitar el error de que no salte algunas veces
             inputJump = false;
 
@@ -393,6 +394,11 @@ public class Character_Controller : MonoBehaviour
             gameObject.transform.position = Camera.main.gameObject.transform.position;
             gameObject.SetActive(false);
         }
+
+        //Particulitas
+        particlesGround.SetActive(isInGround && Mathf.Abs(hspd) > 0.1f);
+        particlesWall.SetActive(isSliding);
+        
     }
 
     //Detectar golpe, caída o explosión
@@ -421,6 +427,7 @@ public class Character_Controller : MonoBehaviour
     {
         Debug.Log("Oof");
         characterCurrentHits++;
+        particlesDeath.SetActive(true);
         StartCoroutine(Respawn());
     }
 
@@ -436,6 +443,7 @@ public class Character_Controller : MonoBehaviour
 
             transform.position = initialPosition;
             rb2d.velocity = Vector2.zero;
+            particlesDeath.SetActive(false);
         }
     }
 
@@ -471,6 +479,7 @@ public class Character_Controller : MonoBehaviour
         canMoveHorizontal = false;
         canDash = false;
         canPunch = false;
+        particlesDash.SetActive(true);
 
         yield return new WaitForSeconds(time);
 
@@ -480,6 +489,7 @@ public class Character_Controller : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
 
         canDash = true;
+        particlesDash.SetActive(false);
     }
 
     public IEnumerator DisableInputPunch(float time, float cooldown)
