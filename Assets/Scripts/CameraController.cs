@@ -85,8 +85,6 @@ public class CameraController : MonoBehaviour {
             }
         }
 
-        Debug.Log("MinX: " + characterMinX + "; MinY: " + characterMinY + "; MaxX: " + characterMaxX + "; MaxY: " + characterMaxY);
-
         totalCharacterPosition /= characterPosition.Count;
 
         //Mover cámara

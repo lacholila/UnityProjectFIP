@@ -60,6 +60,8 @@ public class CharacterSpawnerController : MonoBehaviour {
             GameController.characterIconList.Add(characterModel.characterIcon);
             GameController.charactersColorList.Add(characterModel.characterColor);
             GameController.charactersObjectList.Add(player);
+            GameController.charactersAliveList.Add(player);
+            GameController.characterIsAliveList.Add(true);
         }
     }
 }

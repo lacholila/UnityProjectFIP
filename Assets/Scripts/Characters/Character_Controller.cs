@@ -8,6 +8,8 @@ public class Character_Controller : MonoBehaviour
     #region ----------VARIABLES----------
 
     public CharacterModel characterModel;
+
+    private CharacterWeaponController characterWeaponController;
     
     public int playerIndex;
 
@@ -58,6 +60,7 @@ public class Character_Controller : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         characterAnimator = GetComponent<Animator>();
+        characterWeaponController = GetComponent<CharacterWeaponController>();
 
         characterName = characterModel.characterName;
         
@@ -398,7 +401,6 @@ public class Character_Controller : MonoBehaviour
         //Particulitas
         particlesGround.SetActive(isInGround && Mathf.Abs(hspd) > 0.1f);
         particlesWall.SetActive(isSliding);
-        
     }
 
     //Detectar golpe, caída o explosión
@@ -425,9 +427,17 @@ public class Character_Controller : MonoBehaviour
     //Quitar vida
     public void LoseLife()
     {
-        Debug.Log("Oof");
         characterCurrentHits++;
+
         particlesDeath.SetActive(true);
+
+        characterWeaponController.tienesUnObjeto = false;
+        characterWeaponController.weaponName = "";
+        characterWeaponController.weaponSprite = null;
+        characterWeaponController.instantiateObject = null;
+
+        characterWeaponController.weaponIconPosition.gameObject.GetComponent<SpriteRenderer>().sprite = characterWeaponController.weaponSprite;
+
         StartCoroutine(Respawn());
     }
 
