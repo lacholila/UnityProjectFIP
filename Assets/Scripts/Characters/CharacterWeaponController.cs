@@ -78,12 +78,6 @@ public class CharacterWeaponController : MonoBehaviour {
                         bottlewc.isItem = false;
                         bottlewc.itemIndex = characterController.playerIndex;
 
-                        tienesUnObjeto = false;
-
-                        weaponName = "";
-                        weaponSprite = null;
-                        instantiateObject = null;
-
                         break;
 
                     case "Orange":
@@ -97,14 +91,14 @@ public class CharacterWeaponController : MonoBehaviour {
                         orangewp.isItem = false;
                         orangewp.itemIndex = characterController.playerIndex;
 
-                        tienesUnObjeto = false;
-
-                        weaponName = "";
-                        weaponSprite = null;
-                        instantiateObject = null;
-
                         break;
                 }
+
+                tienesUnObjeto = false;
+
+                weaponName = "";
+                weaponSprite = null;
+                instantiateObject = null;
             }
 
             weaponIconPosition.gameObject.GetComponent<SpriteRenderer>().sprite = weaponSprite;
