@@ -39,6 +39,7 @@ public class GameplayHUDController : MonoBehaviour {
             }
 
             //Detectar ganador
+            
             Character_Controller characterController = GameController.charactersObjectList[i].gameObject.GetComponent<Character_Controller>();
             if (characterController.characterCurrentHits >= characterController.characterTotalHits && GameController.characterIsAliveList[i])
             {
@@ -57,13 +58,35 @@ public class GameplayHUDController : MonoBehaviour {
             }
         }
 
-        
-       
-
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(Random.Range(0, SceneManager.sceneCountInBuildSettings));
             GameController.ResetPlayers();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            GameController.playerIndexList.Clear();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            GameController.playerIndexList.Add(0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            GameController.playerIndexList.Add(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            GameController.playerIndexList.Add(2);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            GameController.playerIndexList.Add(3);
         }
     }
 }
