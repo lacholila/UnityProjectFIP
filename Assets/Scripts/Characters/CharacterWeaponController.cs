@@ -92,6 +92,11 @@ public class CharacterWeaponController : MonoBehaviour {
                         orangewp.itemIndex = characterController.playerIndex;
 
                         break;
+
+                    case "Boli":
+
+
+                        break;
                 }
 
                 tienesUnObjeto = false;
@@ -135,6 +140,10 @@ public class CharacterWeaponController : MonoBehaviour {
                                 case "Orange":
                                     objetoActual = new WeaponOrange();
                                     break;
+
+                                case "Boli":
+                                    objetoActual = new WeaponBoli();
+                                    break;
                             }
 
                             objetoActual.PickObject();
@@ -160,6 +169,10 @@ public class CharacterWeaponController : MonoBehaviour {
 
                             case "Orange":
                                 objetoActual = new WeaponOrange();
+                                break;
+
+                            case "Boli":
+                                objetoActual = new WeaponBoli();
                                 break;
                         }
 

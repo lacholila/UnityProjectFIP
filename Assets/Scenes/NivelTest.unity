@@ -2021,6 +2021,7 @@ MonoBehaviour:
   itemsToSpawn:
   - {fileID: 1943951454023818, guid: 09532b4f623e15042b1cb3e91575569d, type: 2}
   - {fileID: 1464552477993700, guid: 7726dd99f59fb444d84e2068ac5c5ce1, type: 2}
+  - {fileID: 1483770764576136, guid: aa96f12189807e54596028cec8725234, type: 2}
   spawners:
   - {fileID: 1787709907}
   - {fileID: 622226855}

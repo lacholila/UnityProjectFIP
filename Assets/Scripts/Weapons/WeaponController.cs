@@ -43,6 +43,10 @@ public class WeaponController : MonoBehaviour
             case "Orange":
                 
                 break;
+
+            case "Boli":
+
+                break;
         }
     }
 
@@ -65,6 +69,10 @@ public class WeaponController : MonoBehaviour
                     Destroy(orangeExp, 0.1f);
                     Destroy(orangePart, 1f);
                 }
+                break;
+
+            case "Boli":
+
                 break;
         }
     }
