@@ -11,6 +11,9 @@ TagManager:
   - Damage
   - Explosion
   - Void
+  - Cafe
+  - Snac
+  - Cola
   layers:
   - Default
   - TransparentFX
