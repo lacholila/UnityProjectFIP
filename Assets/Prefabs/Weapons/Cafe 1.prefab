@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 95881086005026824}
   - component: {fileID: 114794883947421896}
   m_Layer: 0
-  m_Name: Cafe 1
+  m_Name: Cafe
   m_TagString: Cafe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694917912782724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4764391850813282}
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1973039211029930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.167964, y: -0.87, z: 0.2034102}
+  m_LocalPosition: {x: -10.800572, y: -2.3586886, z: 0.2034102}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4731141179430152}
