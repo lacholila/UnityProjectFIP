@@ -453,6 +453,21 @@ public class Character_Controller : MonoBehaviour
             Invoke("DelayPowerUpCola", 3f);
         }
 
+        if (other.gameObject.tag == "Carnet")
+        {
+            
+        }
+
+        if (other.gameObject.tag == "Tenfe")
+        {
+            if (characterCurrentHits > 0)
+            {
+                characterCurrentHits--;
+                spriteRenderer.color = new Color(1F, 0.6F, 0F, 1F); ;
+                Invoke("DelayPowerUpCola", 0.3f);
+            }
+        }
+
     }
 
     //Delay de power ups
@@ -473,6 +488,12 @@ public class Character_Controller : MonoBehaviour
     void DelayPowerUpCola()
     {
         characterJumpSpeed = cantidadMaximaSaltoTemporalItem;
+        spriteRenderer.color = Color.white;
+    }
+
+    //Delay de power ups
+    void DelayPowerUpTenfe()
+    {
         spriteRenderer.color = Color.white;
     }
 

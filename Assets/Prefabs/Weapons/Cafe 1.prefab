@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 95881086005026824}
   - component: {fileID: 114794883947421896}
   m_Layer: 0
-  m_Name: Cafe
+  m_Name: Cafe 1
   m_TagString: Cafe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
