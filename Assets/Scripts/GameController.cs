@@ -16,12 +16,12 @@ public static class GameController {
     public static List<GameObject> charactersObjectList = new List<GameObject>();
     public static List<GameObject> charactersAliveList = new List<GameObject>();
     public static List<bool> characterIsAliveList = new List<bool>();
-    public static List<int> characterWinsList = new List<int>() { 0,0,0,0};
+    public static List<int> characterWinsList = new List<int>();
 
     //Resetea la lista de jugadores al reiniciar la escena
     public static void ResetPlayers()
     {
-        playerIndexList.Clear();
+        //playerIndexList.Clear();
         charactersNameList.Clear();
         characterIconList.Clear();
         charactersColorList.Clear();
@@ -29,7 +29,7 @@ public static class GameController {
         charactersAliveList.Clear();
         characterIsAliveList.Clear();
 
-        playerIndexList = new List<int>() { Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
+        //playerIndexList = new List<int>() { Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
     }
 
     //Reiniciar las wins

@@ -7,7 +7,9 @@ TO DO LIST:
 -Acabar carnet
 -La animación de los items encima de la cabeza no funciona
 -Efecto powerups en el Sergio no funciona
+-Zonidox y muzikita
 -Imágenes menuses
+-Al morir, reiniciar algunas variables character
 -Screenshake al explotar cosas / morir
 -Transiciones entre escenas (Fade out y fade in)
 -Transiciones logo
