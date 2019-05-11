@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameplayHUDController : MonoBehaviour {
 
     public List<PlayerHUD> playerHUDList;
-    private bool PARTIDADONE;
+    private bool roundEnded;
 
     public GameObject winParticles;
 
@@ -21,7 +21,8 @@ public class GameplayHUDController : MonoBehaviour {
 
             playerHUDList[i].SetPlayerHUDColor();
         }
-        PARTIDADONE = true;
+
+        roundEnded = false;
     }
 
     private void Update()
@@ -41,7 +42,6 @@ public class GameplayHUDController : MonoBehaviour {
             }
 
             //Detectar ganador
-            
             Character_Controller characterController = GameController.charactersObjectList[i].gameObject.GetComponent<Character_Controller>();
             if (characterController.characterCurrentHits >= characterController.characterTotalHits && GameController.characterIsAliveList[i])
             {
@@ -53,35 +53,29 @@ public class GameplayHUDController : MonoBehaviour {
             {
                 Debug.Log("Ha ganado el jugador " + (i + 1));
 
-               
-
                 playerHUDList[i].characterWinner.gameObject.SetActive(true);
                 playerHUDList[i].characterWinnerOutline.gameObject.SetActive(true);
+
                 winParticles.gameObject.transform.position = GameController.charactersObjectList[i].transform.position;
                 winParticles.gameObject.SetActive(true);
 
-                //CARGAR ESCENA RANDOM
-                if (PARTIDADONE)
+                //Cargar escena random
+                if (!roundEnded)
                 {
-                    GameController.characterWinsList.Insert(i, GameController.characterWinsList[i] + 1);
+                    GameController.characterWinsList[i] = GameController.characterWinsList[i] + 1;
                     Debug.Log("VICTORIAS: " + GameController.characterWinsList[0].ToString() + GameController.characterWinsList[1].ToString() + GameController.characterWinsList[2].ToString() + GameController.characterWinsList[3].ToString());
+
                     Invoke("DelayChargeScene", 3f);
-                    PARTIDADONE = false;
+                    roundEnded = true;
                 }
             }
         }
 
-<<<<<<< HEAD
-=======
-       
-
-
->>>>>>> Sergio
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(Random.Range(0, SceneManager.sceneCountInBuildSettings));
             GameController.ResetPlayers();
-            GameController.RESETEARWINS();
+            GameController.ResetWins();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -110,11 +104,10 @@ public class GameplayHUDController : MonoBehaviour {
         }
     }
 
-
     //Delay de scene manager
-    void DelayChargeScene()
+    public void DelayChargeScene()
     {
-        SceneManager.LoadScene(Random.Range(0,3));
+        SceneManager.LoadScene(2);
         GameController.ResetPlayers();
     }
 }

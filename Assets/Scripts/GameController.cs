@@ -27,15 +27,11 @@ public static class GameController {
         charactersAliveList.Clear();
         characterIsAliveList.Clear();
 
-<<<<<<< HEAD
-        //playerIndexList = new List<int>() { Random.Range(0, 4) };//, Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
-=======
         playerIndexList = new List<int>() { 2, 3, 0, 1 }; //Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
     }
 
-    public static void RESETEARWINS()
+    public static void ResetWins()
     {
         characterWinsList.Clear();
->>>>>>> Sergio
     }
 }
