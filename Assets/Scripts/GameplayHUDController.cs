@@ -41,6 +41,9 @@ public class GameplayHUDController : MonoBehaviour {
                 }
             }
 
+            playerHUDList[i].characterWins.text = "x" + GameController.characterWinsList[i].ToString();
+            playerHUDList[i].characterWinsOutline.text = "x" + GameController.characterWinsList[i].ToString();
+
             //Detectar ganador
             Character_Controller characterController = GameController.charactersObjectList[i].gameObject.GetComponent<Character_Controller>();
             if (characterController.characterCurrentHits >= characterController.characterTotalHits && GameController.characterIsAliveList[i])
@@ -65,7 +68,7 @@ public class GameplayHUDController : MonoBehaviour {
                     GameController.characterWinsList[i] = GameController.characterWinsList[i] + 1;
                     Debug.Log("VICTORIAS: " + GameController.characterWinsList[0].ToString() + GameController.characterWinsList[1].ToString() + GameController.characterWinsList[2].ToString() + GameController.characterWinsList[3].ToString());
 
-                    Invoke("DelayChargeScene", 3f);
+                    StartCoroutine(GameController.CheckForNextRound());
                     roundEnded = true;
                 }
             }
@@ -73,7 +76,7 @@ public class GameplayHUDController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(Random.Range(0, SceneManager.sceneCountInBuildSettings));
+            SceneManager.LoadScene(3);
             GameController.ResetPlayers();
             GameController.ResetWins();
         }
@@ -102,12 +105,5 @@ public class GameplayHUDController : MonoBehaviour {
         {
             GameController.playerIndexList.Add(3);
         }
-    }
-
-    //Delay de scene manager
-    public void DelayChargeScene()
-    {
-        SceneManager.LoadScene(2);
-        GameController.ResetPlayers();
     }
 }
