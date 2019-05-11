@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Character_Controller : MonoBehaviour
@@ -24,6 +25,9 @@ public class Character_Controller : MonoBehaviour
     private float characterJumpSpeed;
     private float characterPunchImpulse, characterPunchDuration, characterPunchStunTime;
     private float characterDashSpeed;
+    float cantidadMaximaVelocidadTemporalItem;
+    float cantidadMaximaSaltoTemporalItem;
+    float cantidadPuñetazoTemporalItem;
 
     public float hspd;
     public int characterDir;
@@ -112,7 +116,9 @@ public class Character_Controller : MonoBehaviour
 
         inputUseWeapon = Input.GetButtonDown("P" + playerIndex + "_Use");
 
-        inputPickWeapon = Input.GetButtonDown("P" + playerIndex + "_Pick");        
+        inputPickWeapon = Input.GetButtonDown("P" + playerIndex + "_Pick");   
+        
+       // Input.GetKeyDown(KeyCode.jo)
 
         //Variables del animator    
         characterAnimator.SetFloat("Speed", Mathf.Abs(hspd));
@@ -422,6 +428,73 @@ public class Character_Controller : MonoBehaviour
         {  
             StartCoroutine(DisableInputActions(1f));
         }
+
+        if (other.gameObject.tag == "Cafe")
+        {
+            cantidadMaximaVelocidadTemporalItem = characterMaxSpeed;
+            characterMaxSpeed += 5;
+            spriteRenderer.color = new Color(0.3F, 0.3F, 1F, 1F); ;
+            Invoke("DelayPowerUpCafe", 3f);
+        }
+
+        if (other.gameObject.tag == "Snac")
+        {
+            cantidadPuñetazoTemporalItem = characterPunchImpulse;
+            characterPunchImpulse += 5;
+            spriteRenderer.color = new Color(0.3F, 1F, 0.3F, 1F); ;
+            Invoke("DelayPowerUpSnac", 3f);
+        }
+
+        if (other.gameObject.tag == "Cola")
+        {
+            cantidadMaximaSaltoTemporalItem = characterJumpSpeed;
+            characterJumpSpeed += 4;
+            spriteRenderer.color = new Color(1F, 0.3F, 0.3F, 1F); ;
+            Invoke("DelayPowerUpCola", 3f);
+        }
+
+        if (other.gameObject.tag == "Carnet")
+        {
+            
+        }
+
+        if (other.gameObject.tag == "Tenfe")
+        {
+            if (characterCurrentHits > 0)
+            {
+                characterCurrentHits--;
+                spriteRenderer.color = new Color(1F, 0.6F, 0F, 1F); ;
+                Invoke("DelayPowerUpCola", 0.3f);
+            }
+        }
+
+    }
+
+    //Delay de power ups
+    void DelayPowerUpCafe()
+    {
+        characterMaxSpeed = cantidadMaximaVelocidadTemporalItem;
+        spriteRenderer.color = Color.white;
+    }
+
+    //Delay de power ups
+    void DelayPowerUpSnac()
+    {
+        characterPunchImpulse = cantidadPuñetazoTemporalItem;
+        spriteRenderer.color = Color.white;
+    }
+
+    //Delay de power ups
+    void DelayPowerUpCola()
+    {
+        characterJumpSpeed = cantidadMaximaSaltoTemporalItem;
+        spriteRenderer.color = Color.white;
+    }
+
+    //Delay de power ups
+    void DelayPowerUpTenfe()
+    {
+        spriteRenderer.color = Color.white;
     }
 
     //Quitar vida

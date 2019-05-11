@@ -14,6 +14,7 @@ public static class GameController {
     public static List<GameObject> charactersObjectList = new List<GameObject>();
     public static List<GameObject> charactersAliveList = new List<GameObject>();
     public static List<bool> characterIsAliveList = new List<bool>();
+    public static List<int> characterWinsList = new List<int>(){0, 0, 0, 0};
 
     //Resetea la lista de jugadores al reiniciar la escena
     public static void ResetPlayers()
@@ -26,6 +27,15 @@ public static class GameController {
         charactersAliveList.Clear();
         characterIsAliveList.Clear();
 
+<<<<<<< HEAD
         //playerIndexList = new List<int>() { Random.Range(0, 4) };//, Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
+=======
+        playerIndexList = new List<int>() { 2, 3, 0, 1 }; //Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
+    }
+
+    public static void RESETEARWINS()
+    {
+        characterWinsList.Clear();
+>>>>>>> Sergio
     }
 }

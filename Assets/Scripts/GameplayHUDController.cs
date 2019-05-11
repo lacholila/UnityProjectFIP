@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameplayHUDController : MonoBehaviour {
 
     public List<PlayerHUD> playerHUDList;
+    private bool PARTIDADONE;
 
     public GameObject winParticles;
 
@@ -20,6 +21,7 @@ public class GameplayHUDController : MonoBehaviour {
 
             playerHUDList[i].SetPlayerHUDColor();
         }
+        PARTIDADONE = true;
     }
 
     private void Update()
@@ -50,18 +52,36 @@ public class GameplayHUDController : MonoBehaviour {
             if (GameController.charactersAliveList.Count == 1 && GameController.characterIsAliveList[i])
             {
                 Debug.Log("Ha ganado el jugador " + (i + 1));
+
+               
+
                 playerHUDList[i].characterWinner.gameObject.SetActive(true);
                 playerHUDList[i].characterWinnerOutline.gameObject.SetActive(true);
                 winParticles.gameObject.transform.position = GameController.charactersObjectList[i].transform.position;
                 winParticles.gameObject.SetActive(true);
 
+                //CARGAR ESCENA RANDOM
+                if (PARTIDADONE)
+                {
+                    GameController.characterWinsList.Insert(i, GameController.characterWinsList[i] + 1);
+                    Debug.Log("VICTORIAS: " + GameController.characterWinsList[0].ToString() + GameController.characterWinsList[1].ToString() + GameController.characterWinsList[2].ToString() + GameController.characterWinsList[3].ToString());
+                    Invoke("DelayChargeScene", 3f);
+                    PARTIDADONE = false;
+                }
             }
         }
 
+<<<<<<< HEAD
+=======
+       
+
+
+>>>>>>> Sergio
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(Random.Range(0, SceneManager.sceneCountInBuildSettings));
             GameController.ResetPlayers();
+            GameController.RESETEARWINS();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -88,5 +108,13 @@ public class GameplayHUDController : MonoBehaviour {
         {
             GameController.playerIndexList.Add(3);
         }
+    }
+
+
+    //Delay de scene manager
+    void DelayChargeScene()
+    {
+        SceneManager.LoadScene(Random.Range(0,3));
+        GameController.ResetPlayers();
     }
 }

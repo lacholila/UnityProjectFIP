@@ -11,6 +11,11 @@ TagManager:
   - Damage
   - Explosion
   - Void
+  - Cafe
+  - Snac
+  - Cola
+  - Tenfe
+  - Carnet
   layers:
   - Default
   - TransparentFX
