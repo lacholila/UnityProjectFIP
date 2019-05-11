@@ -49,7 +49,7 @@ public static class GameController {
             if (characterWinsList[i] >= roundsToWin)
             {
                 gameEnded = true;
-                //Jugador i ha ganado la partida
+                Debug.Log("Jugador " + (i + 1) + " ha ganado la partida!");
             }
         }
 

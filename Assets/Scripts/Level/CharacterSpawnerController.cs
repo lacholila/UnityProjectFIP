@@ -48,7 +48,6 @@ public class CharacterSpawnerController : MonoBehaviour {
             }
 
             selected[rnd] = true;
-            print("Player " + i + ": Spawn: " + rnd);
 
             GameObject player = Instantiate(playerToSpawn[i], spawners[rnd].transform.position, Quaternion.identity) as GameObject;
             Character_Controller characterController = player.GetComponent<Character_Controller>();
