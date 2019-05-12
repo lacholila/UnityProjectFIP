@@ -7,7 +7,7 @@ public static class GameController {
 
     //Variables que se deciden en el menu
     public static List<int> playerIndexList = new List<int>() { Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
-    public static int roundsToWin = 3;
+    public static int roundsToWin = 1;
 
     //Variables que se inicializan al generar los characters (se accede al modelo)
     public static List<string> charactersNameList = new List<string>();
@@ -36,8 +36,7 @@ public static class GameController {
     public static void ResetWins()
     {
         characterWinsList.Clear();
-        characterWinsList = new List<int>() { 0, 0, 0, 0 };
-}
+    }
 
     //Detectar si ha acabado el juego
     public static IEnumerator CheckForNextRound()
@@ -66,5 +65,12 @@ public static class GameController {
     {
         SceneManager.LoadScene(3);
         ResetPlayers();
+    }
+
+    public static void GoToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        ResetPlayers();
+        ResetWins();
     }
 }

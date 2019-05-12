@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuCanvasController : MonoBehaviour
 {
@@ -19,6 +21,13 @@ public class MenuCanvasController : MonoBehaviour
     public GameObject audioMenuCanvas;
 
     public Transform currentCanvasTransform, nextCanvasTransform, previousCanvasTransform;
+
+    public GameObject fadeIn, fadeOut;
+
+    private void Start()
+    {
+        Instantiate(fadeIn, transform);
+    }
 
     public void MakeMenuTransition(GameObject currentCanvas, GameObject nextCanvas)
     {
@@ -77,8 +86,20 @@ public class MenuCanvasController : MonoBehaviour
     public void PlayPressMultiplayer()
     {
         Debug.Log("multiplayer");
-        MakeMenuTransition(playMenuCanvas, multiplayerMenuCanvas, 0.5f, true);
+        //MakeMenuTransition(playMenuCanvas, multiplayerMenuCanvas, 0.5f, true);
+        StartCoroutine(GoToPlayScene());
+        
     }
+        //----------
+        private IEnumerator GoToPlayScene()
+        {
+            Instantiate(fadeOut, transform);
+
+            yield return new WaitForSeconds(1f);
+
+            SceneManager.LoadScene("Nivel3");
+        }
+        //----------
 
     public void PlayPressArcade()
     {

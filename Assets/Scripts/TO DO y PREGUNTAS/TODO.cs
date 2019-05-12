@@ -11,8 +11,8 @@ TO DO LIST:
 -Imágenes menuses
 -Al morir, reiniciar algunas variables character
 -Screenshake al explotar cosas / morir
--Transiciones entre escenas (Fade out y fade in)
--Transiciones logo
+-Transiciones entre escenas (Fade out y fade in) X
+-Transiciones logo X
 -Más niveles
 
 EN UN FUTURO (O SI NOS DA TIEMPO):

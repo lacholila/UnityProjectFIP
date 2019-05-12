@@ -11,8 +11,12 @@ public class GameplayHUDController : MonoBehaviour {
 
     public GameObject winParticles;
 
+    public GameObject fadeIn, fadeOut;
+
     private void Start()
     {
+        Instantiate(fadeIn, transform);
+
         for (int i = 0; i < GameController.charactersNameList.Count; i ++)
         {
             playerHUDList[i].characterName = GameController.charactersNameList[i];
@@ -67,8 +71,18 @@ public class GameplayHUDController : MonoBehaviour {
                 {
                     GameController.characterWinsList[i] = GameController.characterWinsList[i] + 1;
                     Debug.Log("VICTORIAS: " + GameController.characterWinsList[0].ToString() + GameController.characterWinsList[1].ToString() + GameController.characterWinsList[2].ToString() + GameController.characterWinsList[3].ToString());
-
+                    
                     StartCoroutine(GameController.CheckForNextRound());
+
+                    if (GameController.characterWinsList[i] < GameController.roundsToWin)
+                    {
+                        StartCoroutine(ApplyFadeOut(4f));
+                    }
+                    else
+                    {
+                        StartCoroutine(MoveWinnerHUD(playerHUDList[i].gameObject, playerHUDList[i].gameObject.transform.localPosition + Vector3.up, 1f));
+                    }
+
                     roundEnded = true;
                 }
             }
@@ -105,5 +119,38 @@ public class GameplayHUDController : MonoBehaviour {
         {
             GameController.playerIndexList.Add(3);
         }
+    }
+
+    private IEnumerator ApplyFadeOut(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        Instantiate(fadeOut, transform);
+    }
+
+    public IEnumerator MoveWinnerHUD(GameObject objectToMove, Vector3 targetPosition, float time)
+    {
+        float totalTime = 0;
+        Vector3 startPosition = objectToMove.transform.localPosition;
+
+        yield return new WaitForSeconds(3f);
+
+        while (totalTime < time)
+        {
+            objectToMove.transform.localPosition = Vector3.Slerp(startPosition, targetPosition, totalTime / time);
+            objectToMove.transform.localScale += new Vector3(1,1,0) * 0.005f;
+            totalTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        objectToMove.transform.localPosition = targetPosition;
+
+        yield return new WaitForSeconds(6f);
+
+        Instantiate(fadeOut, transform);
+
+        yield return new WaitForSeconds(1f);
+
+        GameController.GoToMenu();
     }
 }

@@ -2069,6 +2069,8 @@ MonoBehaviour:
   - {fileID: 907395070}
   - {fileID: 357798776}
   winParticles: {fileID: 1855040035}
+  fadeIn: {fileID: 1368481118354516, guid: 43439a61fd3d98d4aa97e14e424e4149, type: 2}
+  fadeOut: {fileID: 1318529197680494, guid: 9dfd04af66ed27e44a98cb8e639bbaaf, type: 2}
 --- !u!114 &1318552018
 MonoBehaviour:
   m_ObjectHideFlags: 0
