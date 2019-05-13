@@ -7,7 +7,7 @@ public static class GameController {
 
     //Variables que se deciden en el menu
     public static List<int> playerIndexList = new List<int>() { Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
-    public static int roundsToWin = 1;
+    public static int roundsToWin = 5;
 
     //Variables que se inicializan al generar los characters (se accede al modelo)
     public static List<string> charactersNameList = new List<string>();
@@ -63,7 +63,7 @@ public static class GameController {
     //Cargar el siguiente mapa
     public static void StartNextRound()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Nivel3");
         ResetPlayers();
     }
 

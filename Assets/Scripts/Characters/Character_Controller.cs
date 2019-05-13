@@ -433,7 +433,7 @@ public class Character_Controller : MonoBehaviour
         {
             cantidadMaximaVelocidadTemporalItem = characterMaxSpeed;
             characterMaxSpeed += 5;
-            spriteRenderer.color = new Color(0.3F, 0.3F, 1F, 1F); ;
+            spriteRenderer.color = new Color(0.3F, 0.3F, 1F, 1F);
             Invoke("DelayPowerUpCafe", 3f);
         }
 
@@ -441,7 +441,7 @@ public class Character_Controller : MonoBehaviour
         {
             cantidadPuñetazoTemporalItem = characterPunchImpulse;
             characterPunchImpulse += 5;
-            spriteRenderer.color = new Color(0.3F, 1F, 0.3F, 1F); ;
+            spriteRenderer.color = new Color(0.3F, 1F, 0.3F, 1F);
             Invoke("DelayPowerUpSnac", 3f);
         }
 
@@ -449,7 +449,7 @@ public class Character_Controller : MonoBehaviour
         {
             cantidadMaximaSaltoTemporalItem = characterJumpSpeed;
             characterJumpSpeed += 4;
-            spriteRenderer.color = new Color(1F, 0.3F, 0.3F, 1F); ;
+            spriteRenderer.color = new Color(1F, 0.3F, 0.3F, 1F);
             Invoke("DelayPowerUpCola", 3f);
         }
 
@@ -463,7 +463,7 @@ public class Character_Controller : MonoBehaviour
             if (characterCurrentHits > 0)
             {
                 characterCurrentHits--;
-                spriteRenderer.color = new Color(1F, 0.6F, 0F, 1F); ;
+                spriteRenderer.color = new Color(1F, 0.6F, 0F, 1F);
                 Invoke("DelayPowerUpCola", 0.3f);
             }
         }
