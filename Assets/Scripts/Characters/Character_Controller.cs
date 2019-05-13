@@ -21,11 +21,11 @@ public class Character_Controller : MonoBehaviour
         
     private string characterName;
     
-    private float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
+    public float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
     private float characterJumpSpeed;
     private float characterPunchImpulse, characterPunchDuration, characterPunchStunTime;
     private float characterDashSpeed;
-    float cantidadMaximaVelocidadTemporalItem;
+    public float cantidadMaximaVelocidadTemporalItem;
     float cantidadMaximaSaltoTemporalItem;
     float cantidadPuñetazoTemporalItem;
 
@@ -494,6 +494,13 @@ public class Character_Controller : MonoBehaviour
     //Delay de power ups
     void DelayPowerUpTenfe()
     {
+        spriteRenderer.color = Color.white;
+    }
+
+    //Delay de power downs
+    void DelayPowerDownTinta()
+    {
+        characterMaxSpeed = cantidadMaximaVelocidadTemporalItem;
         spriteRenderer.color = Color.white;
     }
 

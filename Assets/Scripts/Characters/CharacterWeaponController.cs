@@ -17,6 +17,7 @@ public class CharacterWeaponController : MonoBehaviour {
     public Sprite weaponSprite;
 
     public GameObject instantiateObject;
+    public GameObject tintaPrefab;
 
     private Animator characterAnimator;
 
@@ -92,6 +93,23 @@ public class CharacterWeaponController : MonoBehaviour {
                         orangewp.itemIndex = characterController.playerIndex;
 
                         break;
+
+                    case "Boli":
+                        //Boli
+                        GameObject boli = Instantiate(instantiateObject, weaponUsePosition.position, transform.rotation) as GameObject;
+                        Rigidbody2D bolirb = boli.GetComponent<Rigidbody2D>();
+
+                        bolirb.AddForce(new Vector2(5f * characterController.characterDir, 5f), ForceMode2D.Impulse);
+                        bolirb.AddTorque(Random.Range(0.1f, 0.3f) * -characterController.characterDir, ForceMode2D.Impulse);
+
+                        Destroy(boli, 2f);
+
+                        //Tinta
+                        GameObject tinta = Instantiate(tintaPrefab, (transform.position + new Vector3(1f, 0f, 0f)) * characterController.characterDir, transform.rotation) as GameObject;
+                        TintaController tintaC = tinta.GetComponent<TintaController>();
+                        tintaC.DireccionMovimiento(characterController.characterDir);
+
+                        break;
                 }
 
                 tienesUnObjeto = false;
@@ -135,6 +153,10 @@ public class CharacterWeaponController : MonoBehaviour {
                                 case "Orange":
                                     objetoActual = new WeaponOrange();
                                     break;
+
+                                case "Boli":
+                                    objetoActual = new WeaponBoli();
+                                    break;
                             }
 
                             objetoActual.PickObject();
@@ -160,6 +182,10 @@ public class CharacterWeaponController : MonoBehaviour {
 
                             case "Orange":
                                 objetoActual = new WeaponOrange();
+                                break;
+
+                            case "Boli":
+                                objetoActual = new WeaponBoli();
                                 break;
                         }
 

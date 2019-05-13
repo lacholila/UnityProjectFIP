@@ -298,6 +298,8 @@ MonoBehaviour:
   weaponName: 
   weaponSprite: {fileID: 0}
   instantiateObject: {fileID: 0}
+  tintaPrefab: {fileID: 1712361730295972, guid: 2ee161a90973cf4439ea4660e454a531,
+    type: 2}
 --- !u!114 &114685078670781540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,6 +313,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterModel: {fileID: 11400000, guid: 03e6285ed06e3544ab72ee76c87e4f8f, type: 2}
   playerIndex: 1
+  characterMaxSpeed: 0
+  characterAcceleration: 0
+  characterFriction: 0
+  characterGravity: 0
+  cantidadMaximaVelocidadTemporalItem: 0
   hspd: 0
   characterDir: 0
   characterTotalHits: 0
