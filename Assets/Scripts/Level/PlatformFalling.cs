@@ -12,17 +12,12 @@ public class PlatformFalling : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         pc2d = GetComponent<EdgeCollider2D>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.tag == "Player")
         {
-            rb2d.isKinematic = false;
+            rb2d.isKinematic = true;
             pc2d.isTrigger = true;
             Destroy(gameObject, 2f);
         }
