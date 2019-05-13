@@ -90,7 +90,7 @@ public class GameplayHUDController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene("Nivel3");
             GameController.ResetPlayers();
             GameController.ResetWins();
         }
