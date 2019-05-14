@@ -95,9 +95,6 @@ public class CharacterWeaponController : MonoBehaviour {
                         break;
 
                     case "Boli":
-<<<<<<< HEAD
-
-=======
                         //Boli
                         GameObject boli = Instantiate(instantiateObject, weaponUsePosition.position, transform.rotation) as GameObject;
                         Rigidbody2D bolirb = boli.GetComponent<Rigidbody2D>();
@@ -111,7 +108,6 @@ public class CharacterWeaponController : MonoBehaviour {
                         GameObject tinta = Instantiate(tintaPrefab, (transform.position + new Vector3(1f, 0f, 0f)) * characterController.characterDir, transform.rotation) as GameObject;
                         TintaController tintaC = tinta.GetComponent<TintaController>();
                         tintaC.DireccionMovimiento(characterController.characterDir);
->>>>>>> Chumas
 
                         break;
                 }
