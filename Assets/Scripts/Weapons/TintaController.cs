@@ -7,12 +7,14 @@ public class TintaController : MonoBehaviour {
     private float playerDir;
     private bool mover;
 
-    public void Update()
+    private void Start()
     {
-        if (mover)
-        {
-            transform.position += new Vector3((Time.deltaTime * 10f) * playerDir, 0, 0);
-        }        
+        Destroy(gameObject, 5f);
+    }
+
+    public void Update()
+    {       
+        transform.position += new Vector3((Time.deltaTime * 10f) * playerDir, 0, 0);               
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,8 +27,8 @@ public class TintaController : MonoBehaviour {
             characterC.characterMaxSpeed -= 5;
             characterSR.color = new Color(136F, 149F, 197F, 1F); ;
             characterC.Invoke("DelayPowerDownTinta", 3f);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     public void DireccionMovimiento(float direction)

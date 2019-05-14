@@ -19,13 +19,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4896849987920166}
-  - component: {fileID: 212533167790107804}
+  - component: {fileID: 212531960827617578}
   - component: {fileID: 50615387029756182}
   - component: {fileID: 58654016904921766}
   - component: {fileID: 114564555701428946}
   m_Layer: 0
   m_Name: Tinta
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1712361730295972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9d28bec4405c9488298b6db8b6bd79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212533167790107804
+--- !u!212 &212531960827617578
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 030f06b00826d7c47b9a24798058d86e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07cbf5c14445e2b44b4f046efdd0d459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

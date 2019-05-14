@@ -98,14 +98,17 @@ public class CharacterWeaponController : MonoBehaviour {
                         //Boli
                         GameObject boli = Instantiate(instantiateObject, weaponUsePosition.position, transform.rotation) as GameObject;
                         Rigidbody2D bolirb = boli.GetComponent<Rigidbody2D>();
+                        WeaponController boliwc = boli.GetComponent<WeaponController>();
 
                         bolirb.AddForce(new Vector2(5f * characterController.characterDir, 5f), ForceMode2D.Impulse);
                         bolirb.AddTorque(Random.Range(0.1f, 0.3f) * -characterController.characterDir, ForceMode2D.Impulse);
 
+                        boliwc.isItem = false;
+
                         Destroy(boli, 2f);
 
                         //Tinta
-                        GameObject tinta = Instantiate(tintaPrefab, (transform.position + new Vector3(1f, 0f, 0f)) * characterController.characterDir, transform.rotation) as GameObject;
+                        GameObject tinta = Instantiate(tintaPrefab, transform.position + new Vector3(1f, 0f, 0f) * characterController.characterDir, transform.rotation) as GameObject;
                         TintaController tintaC = tinta.GetComponent<TintaController>();
                         tintaC.DireccionMovimiento(characterController.characterDir);
 
