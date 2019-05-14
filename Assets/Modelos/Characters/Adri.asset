@@ -14,13 +14,10 @@ MonoBehaviour:
   characterName: Adri
   characterColor: {r: 1, g: 1, b: 0.39215687, a: 1}
   characterIcon: {fileID: 21300000, guid: 8781d6ce030b51f4ca784a8da429cf95, type: 3}
-  characterSpeed: 6
-  characterBaseSpeed: 6
-  characterJumpSpeed: 10
-  characterBaseJumpSpeed: 10
+  characterSpeed: 4
+  characterJumpSpeed: 8
   characterTotalJumps: 3
   characterDashSpeed: 20
   characterPunchImpulse: 8
-  characterBasePunchImpulse: 8
   charcaterPunchStunTime: 1
   characterTotalHits: 3

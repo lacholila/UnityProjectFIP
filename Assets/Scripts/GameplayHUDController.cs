@@ -15,7 +15,7 @@ public class GameplayHUDController : MonoBehaviour {
 
     private void Start()
     {
-        //Instantiate(fadeIn, transform);
+        Instantiate(fadeIn, transform);
 
         for (int i = 0; i < GameController.charactersNameList.Count; i ++)
         {

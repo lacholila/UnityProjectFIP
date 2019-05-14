@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 61696633166690348}
   - component: {fileID: 50304126115242638}
   - component: {fileID: 95741143659852976}
+  - component: {fileID: 114587068206018514}
   m_Layer: 0
   m_Name: CarnetEstudiante
   m_TagString: Carnet
@@ -155,6 +156,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114587068206018514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752625324064624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82300abba4962c46a39939e7627fbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212670873779185788
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -12,18 +12,13 @@ public class CharacterModel : ScriptableObject
     public Sprite characterIcon;
 
     public float characterSpeed;
-    public float characterBaseSpeed; 
     
     public float characterJumpSpeed;
-    public float characterBaseJumpSpeed;
-
     public int characterTotalJumps;
 
     public float characterDashSpeed;
 
     public float characterPunchImpulse;
-    public float characterBasePunchImpulse;
-
     public float charcaterPunchStunTime;
 
     public int characterTotalHits;

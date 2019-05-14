@@ -15,12 +15,9 @@ MonoBehaviour:
   characterColor: {r: 0.39215687, g: 0.39215687, b: 1, a: 1}
   characterIcon: {fileID: 21300000, guid: e9cd76d623e6edc4bbc0d11898ecb638, type: 3}
   characterSpeed: 8
-  characterBaseSpeed: 8
   characterJumpSpeed: 10
-  characterBaseJumpSpeed: 10
   characterTotalJumps: 2
   characterDashSpeed: 20
   characterPunchImpulse: 8
-  characterBasePunchImpulse: 8
   charcaterPunchStunTime: 1
   characterTotalHits: 3
