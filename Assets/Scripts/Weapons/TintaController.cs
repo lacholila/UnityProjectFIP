@@ -29,6 +29,10 @@ public class TintaController : MonoBehaviour {
             characterC.Invoke("DelayPowerDownTinta", 3f);
             Destroy(gameObject);
         }
+        if(collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void DireccionMovimiento(float direction)

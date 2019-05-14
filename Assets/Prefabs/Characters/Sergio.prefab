@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterModel: {fileID: 11400000, guid: 03e6285ed06e3544ab72ee76c87e4f8f, type: 2}
-  playerIndex: 1
+  playerIndex: 0
   characterMaxSpeed: 0
   characterAcceleration: 0
   characterFriction: 0
@@ -343,6 +343,7 @@ MonoBehaviour:
   inputPunch: 0
   inputUseWeapon: 0
   inputPickWeapon: 0
+  hasPowerUp: 0
   particlesGround: {fileID: 1433108976408496}
   particlesWall: {fileID: 1260526273437328}
   particlesDash: {fileID: 1751630075035082}
@@ -18747,7 +18748,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.18, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
