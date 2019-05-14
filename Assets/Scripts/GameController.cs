@@ -9,7 +9,7 @@ public static class GameController {
     public static List<int> playerIndexList = new List<int>() { Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
     public static int roundsToWin = 5;
 
-    //Variables que se inicializan al generar los characters (se accede al modelo)
+    //Variables que se inicializan al generar los characters (se accede al modelo) 
     public static List<string> charactersNameList = new List<string>();
     public static List<Sprite> characterIconList = new List<Sprite>();
     public static List<Color> charactersColorList = new List<Color>();
