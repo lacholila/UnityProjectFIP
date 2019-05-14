@@ -34,7 +34,6 @@ public class CharacterSpawnerController : MonoBehaviour {
 
     public void SetPlayers()
     {
-        GameController.charactersNameList.Clear();
         playerToSpawn.Clear();
 
         for (int i = 0; i < playerIndexArray.Count; i++)
@@ -48,7 +47,6 @@ public class CharacterSpawnerController : MonoBehaviour {
             }
 
             selected[rnd] = true;
-            print("Player " + i + ": Spawn: " + rnd);
 
             GameObject player = Instantiate(playerToSpawn[i], spawners[rnd].transform.position, Quaternion.identity) as GameObject;
             Character_Controller characterController = player.GetComponent<Character_Controller>();
@@ -62,6 +60,7 @@ public class CharacterSpawnerController : MonoBehaviour {
             GameController.charactersObjectList.Add(player);
             GameController.charactersAliveList.Add(player);
             GameController.characterIsAliveList.Add(true);
+            GameController.characterWinsList.Add(0);
         }
     }
 }

@@ -21,13 +21,15 @@ public class Character_Controller : MonoBehaviour
         
     private string characterName;
     
-    private float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
+    public float characterMaxSpeed, characterAcceleration, characterFriction, characterGravity;
     private float characterJumpSpeed;
     private float characterPunchImpulse, characterPunchDuration, characterPunchStunTime;
     private float characterDashSpeed;
-    float cantidadMaximaVelocidadTemporalItem;
+    public float cantidadMaximaVelocidadTemporalItem;
     float cantidadMaximaSaltoTemporalItem;
     float cantidadPuñetazoTemporalItem;
+
+    float characterBaseSpeed, characterBaseJumpSpeed, characterBasePunchImpulse;
 
     public float hspd;
     public int characterDir;
@@ -48,8 +50,10 @@ public class Character_Controller : MonoBehaviour
 
     float inputHorizontalMovement;
     public bool inputJump, inputDash, inputPunch, inputUseWeapon, inputPickWeapon;
+    public bool hasPowerUp = false;
 
     public GameObject particlesGround, particlesWall, particlesDash, particlesDeath;
+
 
     Vector3 initialPosition;
 
@@ -73,6 +77,7 @@ public class Character_Controller : MonoBehaviour
         characterFriction = 0.2f;
 
         characterJumpSpeed = characterModel.characterJumpSpeed;
+        
         characterTotalJumps = characterModel.characterTotalJumps;
 
         characterDashSpeed = characterModel.characterDashSpeed;
@@ -82,6 +87,10 @@ public class Character_Controller : MonoBehaviour
         characterPunchStunTime = characterModel.charcaterPunchStunTime;
 
         characterTotalHits = characterModel.characterTotalHits;
+
+        characterBaseSpeed = characterModel.characterBaseSpeed;
+        characterBaseJumpSpeed = characterModel.characterBaseJumpSpeed;
+        characterBasePunchImpulse = characterModel.characterBasePunchImpulse;
     }
 
     private void Start()
@@ -429,71 +438,84 @@ public class Character_Controller : MonoBehaviour
             StartCoroutine(DisableInputActions(1f));
         }
 
-        if (other.gameObject.tag == "Cafe")
+    if (other.gameObject.tag == "Cafe" && !hasPowerUp)
         {
-            cantidadMaximaVelocidadTemporalItem = characterMaxSpeed;
-            characterMaxSpeed += 5;
-            spriteRenderer.color = new Color(0.3F, 0.3F, 1F, 1F); ;
+            Destroy(other.gameObject);
+            characterMaxSpeed += 4;
+            spriteRenderer.color = new Color(0.3F, 0.3F, 1F, 1F);
+            hasPowerUp = true;
             Invoke("DelayPowerUpCafe", 3f);
         }
 
-        if (other.gameObject.tag == "Snac")
+        if (other.gameObject.tag == "Snac" && !hasPowerUp)
         {
-            cantidadPuñetazoTemporalItem = characterPunchImpulse;
-            characterPunchImpulse += 5;
-            spriteRenderer.color = new Color(0.3F, 1F, 0.3F, 1F); ;
+            Destroy(other.gameObject);
+            characterPunchImpulse += 4;
+            spriteRenderer.color = new Color(0.3F, 1F, 0.3F, 1F);
+            hasPowerUp = true;
             Invoke("DelayPowerUpSnac", 3f);
         }
 
-        if (other.gameObject.tag == "Cola")
+        if (other.gameObject.tag == "Cola" && !hasPowerUp)
         {
-            cantidadMaximaSaltoTemporalItem = characterJumpSpeed;
+            Destroy(other.gameObject);
             characterJumpSpeed += 4;
-            spriteRenderer.color = new Color(1F, 0.3F, 0.3F, 1F); ;
+            spriteRenderer.color = new Color(1F, 0.3F, 0.3F, 1F);
+            hasPowerUp = true;
             Invoke("DelayPowerUpCola", 3f);
         }
 
-        if (other.gameObject.tag == "Carnet")
+        if (other.gameObject.tag == "Carnet" && !hasPowerUp)
         {
-            
+            Destroy(other.gameObject);
         }
 
-        if (other.gameObject.tag == "Tenfe")
+        if (other.gameObject.tag == "Tenfe" && !hasPowerUp)
         {
             if (characterCurrentHits > 0)
             {
+                Destroy(other.gameObject);
                 characterCurrentHits--;
-                spriteRenderer.color = new Color(1F, 0.6F, 0F, 1F); ;
+                spriteRenderer.color = new Color(1F, 0.6F, 0F, 1F);
                 Invoke("DelayPowerUpCola", 0.3f);
             }
         }
-
     }
 
     //Delay de power ups
     void DelayPowerUpCafe()
     {
-        characterMaxSpeed = cantidadMaximaVelocidadTemporalItem;
+        characterMaxSpeed = characterBaseSpeed;
         spriteRenderer.color = Color.white;
+        hasPowerUp = false;
     }
 
     //Delay de power ups
     void DelayPowerUpSnac()
     {
-        characterPunchImpulse = cantidadPuñetazoTemporalItem;
+        characterPunchImpulse = characterBasePunchImpulse;
         spriteRenderer.color = Color.white;
+        hasPowerUp = false;
     }
 
     //Delay de power ups
     void DelayPowerUpCola()
     {
-        characterJumpSpeed = cantidadMaximaSaltoTemporalItem;
+        characterJumpSpeed = characterBaseJumpSpeed;
         spriteRenderer.color = Color.white;
+        hasPowerUp = false;
     }
 
     //Delay de power ups
     void DelayPowerUpTenfe()
     {
+        spriteRenderer.color = Color.white;
+    }
+
+    //Delay de power downs
+    void DelayPowerDownTinta()
+    {
+        characterMaxSpeed = cantidadMaximaVelocidadTemporalItem;
         spriteRenderer.color = Color.white;
     }
 
